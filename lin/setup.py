@@ -7,7 +7,7 @@ setup(
     ext_modules = [Extension(
         "_bdaqctrl",
         ["bdaqctrl.i","bdaqctrl.c"],
-        swig_opts=["-py3", "-D_BDAQ_C_INTERFACE", "-module", "bdaqctrl"],  # "-c++"
+        swig_opts=["-py3", "-c++", "-module", "bdaqctrl"],  # "-D_BDAQ_C_INTERFACE"
         libraries=["biodaq"],
     )]
 )

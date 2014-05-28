@@ -69,6 +69,30 @@ except AttributeError:
     _newclass = 0
 
 
+class UCharArray(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, UCharArray, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, UCharArray, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _bdaqctrl.new_UCharArray(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _bdaqctrl.delete_UCharArray
+    __del__ = lambda self : None;
+    def __getitem__(self, *args) -> "unsigned char" : return _bdaqctrl.UCharArray___getitem__(self, *args)
+    def __setitem__(self, *args) -> "void" : return _bdaqctrl.UCharArray___setitem__(self, *args)
+    def cast(self) -> "unsigned char *" : return _bdaqctrl.UCharArray_cast(self)
+    __swig_getmethods__["frompointer"] = lambda x: _bdaqctrl.UCharArray_frompointer
+    if _newclass:frompointer = staticmethod(_bdaqctrl.UCharArray_frompointer)
+UCharArray_swigregister = _bdaqctrl.UCharArray_swigregister
+UCharArray_swigregister(UCharArray)
+
+def UCharArray_frompointer(*args) -> "UCharArray *" :
+  return _bdaqctrl.UCharArray_frompointer(*args)
+UCharArray_frompointer = _bdaqctrl.UCharArray_frompointer
+
 MAX_DEVICE_DESC_LEN = _bdaqctrl.MAX_DEVICE_DESC_LEN
 MAX_VRG_DESC_LEN = _bdaqctrl.MAX_VRG_DESC_LEN
 MAX_SIG_DROP_DESC_LEN = _bdaqctrl.MAX_SIG_DROP_DESC_LEN
@@ -1938,10 +1962,11 @@ class DeviceInformation(_object):
     __swig_setmethods__["Description"] = _bdaqctrl.DeviceInformation_Description_set
     __swig_getmethods__["Description"] = _bdaqctrl.DeviceInformation_Description_get
     if _newclass:Description = _swig_property(_bdaqctrl.DeviceInformation_Description_get, _bdaqctrl.DeviceInformation_Description_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_DeviceInformation()
+    def __init__(self, *args): 
+        this = _bdaqctrl.new_DeviceInformation(*args)
         try: self.this.append(this)
         except: self.this = this
+    def Init(self, *args) -> "void" : return _bdaqctrl.DeviceInformation_Init(self, *args)
     __swig_destroy__ = _bdaqctrl.delete_DeviceInformation
     __del__ = lambda self : None;
 DeviceInformation_swigregister = _bdaqctrl.DeviceInformation_swigregister
@@ -2164,3314 +2189,1260 @@ Idle = _bdaqctrl.Idle
 Ready = _bdaqctrl.Ready
 Running = _bdaqctrl.Running
 Stopped = _bdaqctrl.Stopped
-class DeviceEventHandler(_object):
+class AnalogChannel(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, DeviceEventHandler, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, AnalogChannel, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, DeviceEventHandler, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, AnalogChannel, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["DeviceEvent"] = _bdaqctrl.DeviceEventHandler_DeviceEvent_set
-    __swig_getmethods__["DeviceEvent"] = _bdaqctrl.DeviceEventHandler_DeviceEvent_get
-    if _newclass:DeviceEvent = _swig_property(_bdaqctrl.DeviceEventHandler_DeviceEvent_get, _bdaqctrl.DeviceEventHandler_DeviceEvent_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_DeviceEventHandler()
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _bdaqctrl.delete_DeviceEventHandler
+    def getChannel(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AnalogChannel_getChannel(self)
+    def getValueRange(self) -> "Automation::BDaq::ValueRange" : return _bdaqctrl.AnalogChannel_getValueRange(self)
+    def setValueRange(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.AnalogChannel_setValueRange(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_AnalogChannel
     __del__ = lambda self : None;
-DeviceEventHandler_swigregister = _bdaqctrl.DeviceEventHandler_swigregister
-DeviceEventHandler_swigregister(DeviceEventHandler)
+AnalogChannel_swigregister = _bdaqctrl.AnalogChannel_swigregister
+AnalogChannel_swigregister(AnalogChannel)
+
+class AnalogInputChannel(AnalogChannel):
+    __swig_setmethods__ = {}
+    for _s in [AnalogChannel]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, AnalogInputChannel, name, value)
+    __swig_getmethods__ = {}
+    for _s in [AnalogChannel]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, AnalogInputChannel, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getSignalType(self) -> "Automation::BDaq::AiSignalType" : return _bdaqctrl.AnalogInputChannel_getSignalType(self)
+    def setSignalType(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.AnalogInputChannel_setSignalType(self, *args)
+    def getBurnoutRetType(self) -> "Automation::BDaq::BurnoutRetType" : return _bdaqctrl.AnalogInputChannel_getBurnoutRetType(self)
+    def setBurnoutRetType(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.AnalogInputChannel_setBurnoutRetType(self, *args)
+    def getBurnoutRetValue(self) -> "double" : return _bdaqctrl.AnalogInputChannel_getBurnoutRetValue(self)
+    def setBurnoutRetValue(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.AnalogInputChannel_setBurnoutRetValue(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_AnalogInputChannel
+    __del__ = lambda self : None;
+AnalogInputChannel_swigregister = _bdaqctrl.AnalogInputChannel_swigregister
+AnalogInputChannel_swigregister(AnalogInputChannel)
+
+class CjcSetting(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, CjcSetting, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, CjcSetting, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getChannel(self) -> "Automation::BDaq::int32" : return _bdaqctrl.CjcSetting_getChannel(self)
+    def setChannel(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.CjcSetting_setChannel(self, *args)
+    def getValue(self) -> "double" : return _bdaqctrl.CjcSetting_getValue(self)
+    def setValue(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.CjcSetting_setValue(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_CjcSetting
+    __del__ = lambda self : None;
+CjcSetting_swigregister = _bdaqctrl.CjcSetting_swigregister
+CjcSetting_swigregister(CjcSetting)
+
+class ScanChannel(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, ScanChannel, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, ScanChannel, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getChannelStart(self) -> "Automation::BDaq::int32" : return _bdaqctrl.ScanChannel_getChannelStart(self)
+    def setChannelStart(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.ScanChannel_setChannelStart(self, *args)
+    def getChannelCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.ScanChannel_getChannelCount(self)
+    def setChannelCount(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.ScanChannel_setChannelCount(self, *args)
+    def getSamples(self) -> "Automation::BDaq::int32" : return _bdaqctrl.ScanChannel_getSamples(self)
+    def setSamples(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.ScanChannel_setSamples(self, *args)
+    def getIntervalCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.ScanChannel_getIntervalCount(self)
+    def setIntervalCount(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.ScanChannel_setIntervalCount(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_ScanChannel
+    __del__ = lambda self : None;
+ScanChannel_swigregister = _bdaqctrl.ScanChannel_swigregister
+ScanChannel_swigregister(ScanChannel)
+
+class ConvertClock(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, ConvertClock, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, ConvertClock, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getSource(self) -> "Automation::BDaq::SignalDrop" : return _bdaqctrl.ConvertClock_getSource(self)
+    def setSource(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.ConvertClock_setSource(self, *args)
+    def getRate(self) -> "double" : return _bdaqctrl.ConvertClock_getRate(self)
+    def setRate(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.ConvertClock_setRate(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_ConvertClock
+    __del__ = lambda self : None;
+ConvertClock_swigregister = _bdaqctrl.ConvertClock_swigregister
+ConvertClock_swigregister(ConvertClock)
+
+class ScanClock(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, ScanClock, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, ScanClock, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getSource(self) -> "Automation::BDaq::SignalDrop" : return _bdaqctrl.ScanClock_getSource(self)
+    def setSource(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.ScanClock_setSource(self, *args)
+    def getRate(self) -> "double" : return _bdaqctrl.ScanClock_getRate(self)
+    def setRate(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.ScanClock_setRate(self, *args)
+    def getScanCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.ScanClock_getScanCount(self)
+    def setScanCount(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.ScanClock_setScanCount(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_ScanClock
+    __del__ = lambda self : None;
+ScanClock_swigregister = _bdaqctrl.ScanClock_swigregister
+ScanClock_swigregister(ScanClock)
+
+class Trigger(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Trigger, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, Trigger, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getSource(self) -> "Automation::BDaq::SignalDrop" : return _bdaqctrl.Trigger_getSource(self)
+    def setSource(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.Trigger_setSource(self, *args)
+    def getEdge(self) -> "Automation::BDaq::ActiveSignal" : return _bdaqctrl.Trigger_getEdge(self)
+    def setEdge(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.Trigger_setEdge(self, *args)
+    def getLevel(self) -> "double" : return _bdaqctrl.Trigger_getLevel(self)
+    def setLevel(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.Trigger_setLevel(self, *args)
+    def getAction(self) -> "Automation::BDaq::TriggerAction" : return _bdaqctrl.Trigger_getAction(self)
+    def setAction(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.Trigger_setAction(self, *args)
+    def getDelayCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.Trigger_getDelayCount(self)
+    def setDelayCount(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.Trigger_setDelayCount(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_Trigger
+    __del__ = lambda self : None;
+Trigger_swigregister = _bdaqctrl.Trigger_swigregister
+Trigger_swigregister(Trigger)
+
+class PortDirection(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PortDirection, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, PortDirection, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getPort(self) -> "Automation::BDaq::int32" : return _bdaqctrl.PortDirection_getPort(self)
+    def getDirection(self) -> "Automation::BDaq::DioPortDir" : return _bdaqctrl.PortDirection_getDirection(self)
+    def setDirection(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.PortDirection_setDirection(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_PortDirection
+    __del__ = lambda self : None;
+PortDirection_swigregister = _bdaqctrl.PortDirection_swigregister
+PortDirection_swigregister(PortDirection)
+
+class NoiseFilterChannel(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, NoiseFilterChannel, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, NoiseFilterChannel, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getChannel(self) -> "Automation::BDaq::int32" : return _bdaqctrl.NoiseFilterChannel_getChannel(self)
+    def getEnabled(self) -> "bool" : return _bdaqctrl.NoiseFilterChannel_getEnabled(self)
+    def setEnabled(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.NoiseFilterChannel_setEnabled(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_NoiseFilterChannel
+    __del__ = lambda self : None;
+NoiseFilterChannel_swigregister = _bdaqctrl.NoiseFilterChannel_swigregister
+NoiseFilterChannel_swigregister(NoiseFilterChannel)
+
+class DiintChannel(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DiintChannel, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, DiintChannel, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getChannel(self) -> "Automation::BDaq::int32" : return _bdaqctrl.DiintChannel_getChannel(self)
+    def getEnabled(self) -> "bool" : return _bdaqctrl.DiintChannel_getEnabled(self)
+    def setEnabled(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.DiintChannel_setEnabled(self, *args)
+    def getGated(self) -> "bool" : return _bdaqctrl.DiintChannel_getGated(self)
+    def setGated(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.DiintChannel_setGated(self, *args)
+    def getTrigEdge(self) -> "Automation::BDaq::ActiveSignal" : return _bdaqctrl.DiintChannel_getTrigEdge(self)
+    def setTrigEdge(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.DiintChannel_setTrigEdge(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_DiintChannel
+    __del__ = lambda self : None;
+DiintChannel_swigregister = _bdaqctrl.DiintChannel_swigregister
+DiintChannel_swigregister(DiintChannel)
+
+class DiCosintPort(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DiCosintPort, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, DiCosintPort, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getPort(self) -> "Automation::BDaq::int32" : return _bdaqctrl.DiCosintPort_getPort(self)
+    def getMask(self) -> "Automation::BDaq::uint8" : return _bdaqctrl.DiCosintPort_getMask(self)
+    def setMask(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.DiCosintPort_setMask(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_DiCosintPort
+    __del__ = lambda self : None;
+DiCosintPort_swigregister = _bdaqctrl.DiCosintPort_swigregister
+DiCosintPort_swigregister(DiCosintPort)
+
+class DiPmintPort(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DiPmintPort, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, DiPmintPort, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getPort(self) -> "Automation::BDaq::int32" : return _bdaqctrl.DiPmintPort_getPort(self)
+    def getMask(self) -> "Automation::BDaq::uint8" : return _bdaqctrl.DiPmintPort_getMask(self)
+    def setMask(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.DiPmintPort_setMask(self, *args)
+    def getPattern(self) -> "Automation::BDaq::uint8" : return _bdaqctrl.DiPmintPort_getPattern(self)
+    def setPattern(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.DiPmintPort_setPattern(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_DiPmintPort
+    __del__ = lambda self : None;
+DiPmintPort_swigregister = _bdaqctrl.DiPmintPort_swigregister
+DiPmintPort_swigregister(DiPmintPort)
+
+class ScanPort(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, ScanPort, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, ScanPort, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getPortStart(self) -> "Automation::BDaq::int32" : return _bdaqctrl.ScanPort_getPortStart(self)
+    def setPortStart(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.ScanPort_setPortStart(self, *args)
+    def getPortCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.ScanPort_getPortCount(self)
+    def setPortCount(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.ScanPort_setPortCount(self, *args)
+    def getSamples(self) -> "Automation::BDaq::int32" : return _bdaqctrl.ScanPort_getSamples(self)
+    def setSamples(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.ScanPort_setSamples(self, *args)
+    def getIntervalCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.ScanPort_getIntervalCount(self)
+    def setIntervalCount(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.ScanPort_setIntervalCount(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_ScanPort
+    __del__ = lambda self : None;
+ScanPort_swigregister = _bdaqctrl.ScanPort_swigregister
+ScanPort_swigregister(ScanPort)
 
 class DeviceEventListener(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, DeviceEventListener, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, DeviceEventListener, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["vtbl"] = _bdaqctrl.DeviceEventListener_vtbl_set
-    __swig_getmethods__["vtbl"] = _bdaqctrl.DeviceEventListener_vtbl_get
-    if _newclass:vtbl = _swig_property(_bdaqctrl.DeviceEventListener_vtbl_get, _bdaqctrl.DeviceEventListener_vtbl_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_DeviceEventListener()
-        try: self.this.append(this)
-        except: self.this = this
+    def DeviceEvent(self, *args) -> "void" : return _bdaqctrl.DeviceEventListener_DeviceEvent(self, *args)
     __swig_destroy__ = _bdaqctrl.delete_DeviceEventListener
     __del__ = lambda self : None;
 DeviceEventListener_swigregister = _bdaqctrl.DeviceEventListener_swigregister
 DeviceEventListener_swigregister(DeviceEventListener)
 
-class BfdAiEventHandler(_object):
+class DeviceCtrlBase(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, BfdAiEventHandler, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DeviceCtrlBase, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, BfdAiEventHandler, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, DeviceCtrlBase, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["BfdAiEvent"] = _bdaqctrl.BfdAiEventHandler_BfdAiEvent_set
-    __swig_getmethods__["BfdAiEvent"] = _bdaqctrl.BfdAiEventHandler_BfdAiEvent_get
-    if _newclass:BfdAiEvent = _swig_property(_bdaqctrl.BfdAiEventHandler_BfdAiEvent_get, _bdaqctrl.BfdAiEventHandler_BfdAiEvent_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_BfdAiEventHandler()
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _bdaqctrl.delete_BfdAiEventHandler
+    def Dispose(self) -> "void" : return _bdaqctrl.DeviceCtrlBase_Dispose(self)
+    def Cleanup(self) -> "void" : return _bdaqctrl.DeviceCtrlBase_Cleanup(self)
+    def UpdateProperties(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.DeviceCtrlBase_UpdateProperties(self)
+    def addRemovedListener(self, *args) -> "void" : return _bdaqctrl.DeviceCtrlBase_addRemovedListener(self, *args)
+    def removeRemovedListener(self, *args) -> "void" : return _bdaqctrl.DeviceCtrlBase_removeRemovedListener(self, *args)
+    def addReconnectedListener(self, *args) -> "void" : return _bdaqctrl.DeviceCtrlBase_addReconnectedListener(self, *args)
+    def removeReconnectedListener(self, *args) -> "void" : return _bdaqctrl.DeviceCtrlBase_removeReconnectedListener(self, *args)
+    def addPropertyChangedListener(self, *args) -> "void" : return _bdaqctrl.DeviceCtrlBase_addPropertyChangedListener(self, *args)
+    def removePropertyChangedListener(self, *args) -> "void" : return _bdaqctrl.DeviceCtrlBase_removePropertyChangedListener(self, *args)
+    def getSelectedDevice(self, *args) -> "void" : return _bdaqctrl.DeviceCtrlBase_getSelectedDevice(self, *args)
+    def setSelectedDevice(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.DeviceCtrlBase_setSelectedDevice(self, *args)
+    def getInitialized(self) -> "bool" : return _bdaqctrl.DeviceCtrlBase_getInitialized(self)
+    def getCanEditProperty(self) -> "bool" : return _bdaqctrl.DeviceCtrlBase_getCanEditProperty(self)
+    def getDevice(self) -> "Automation::BDaq::HANDLE" : return _bdaqctrl.DeviceCtrlBase_getDevice(self)
+    def getModule(self) -> "Automation::BDaq::HANDLE" : return _bdaqctrl.DeviceCtrlBase_getModule(self)
+    def getSupportedDevices(self) -> "Automation::BDaq::ICollection< Automation::BDaq::DeviceTreeNode > *" : return _bdaqctrl.DeviceCtrlBase_getSupportedDevices(self)
+    def getSupportedModes(self) -> "Automation::BDaq::ICollection< Automation::BDaq::AccessMode > *" : return _bdaqctrl.DeviceCtrlBase_getSupportedModes(self)
+    __swig_destroy__ = _bdaqctrl.delete_DeviceCtrlBase
     __del__ = lambda self : None;
-BfdAiEventHandler_swigregister = _bdaqctrl.BfdAiEventHandler_swigregister
-BfdAiEventHandler_swigregister(BfdAiEventHandler)
+DeviceCtrlBase_swigregister = _bdaqctrl.DeviceCtrlBase_swigregister
+DeviceCtrlBase_swigregister(DeviceCtrlBase)
+
+class AiFeatures(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, AiFeatures, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, AiFeatures, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getResolution(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AiFeatures_getResolution(self)
+    def getDataSize(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AiFeatures_getDataSize(self)
+    def getDataMask(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AiFeatures_getDataMask(self)
+    def getChannelCountMax(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AiFeatures_getChannelCountMax(self)
+    def getChannelType(self) -> "Automation::BDaq::AiChannelType" : return _bdaqctrl.AiFeatures_getChannelType(self)
+    def getOverallValueRange(self) -> "bool" : return _bdaqctrl.AiFeatures_getOverallValueRange(self)
+    def getThermoSupported(self) -> "bool" : return _bdaqctrl.AiFeatures_getThermoSupported(self)
+    def getValueRanges(self) -> "Automation::BDaq::ICollection< Automation::BDaq::ValueRange > *" : return _bdaqctrl.AiFeatures_getValueRanges(self)
+    def getBurnoutReturnTypes(self) -> "Automation::BDaq::ICollection< Automation::BDaq::BurnoutRetType > *" : return _bdaqctrl.AiFeatures_getBurnoutReturnTypes(self)
+    def getCjcChannels(self) -> "Automation::BDaq::ICollection< Automation::BDaq::int32 > *" : return _bdaqctrl.AiFeatures_getCjcChannels(self)
+    def getBufferedAiSupported(self) -> "bool" : return _bdaqctrl.AiFeatures_getBufferedAiSupported(self)
+    def getSamplingMethod(self) -> "Automation::BDaq::SamplingMethod" : return _bdaqctrl.AiFeatures_getSamplingMethod(self)
+    def getChannelStartBase(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AiFeatures_getChannelStartBase(self)
+    def getChannelCountBase(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AiFeatures_getChannelCountBase(self)
+    def getConvertClockSources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::SignalDrop > *" : return _bdaqctrl.AiFeatures_getConvertClockSources(self)
+    def getConvertClockRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.AiFeatures_getConvertClockRange(self)
+    def getBurstScanSupported(self) -> "bool" : return _bdaqctrl.AiFeatures_getBurstScanSupported(self)
+    def getScanClockSources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::SignalDrop > *" : return _bdaqctrl.AiFeatures_getScanClockSources(self)
+    def getScanClockRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.AiFeatures_getScanClockRange(self)
+    def getScanCountMax(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AiFeatures_getScanCountMax(self)
+    def getTriggerSupported(self) -> "bool" : return _bdaqctrl.AiFeatures_getTriggerSupported(self)
+    def getTriggerCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AiFeatures_getTriggerCount(self)
+    def getTriggerSources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::SignalDrop > *" : return _bdaqctrl.AiFeatures_getTriggerSources(self)
+    def getTriggerActions(self) -> "Automation::BDaq::ICollection< Automation::BDaq::TriggerAction > *" : return _bdaqctrl.AiFeatures_getTriggerActions(self)
+    def getTriggerDelayRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.AiFeatures_getTriggerDelayRange(self)
+    def getTrigger1Supported(self) -> "bool" : return _bdaqctrl.AiFeatures_getTrigger1Supported(self)
+    def getTrigger1Sources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::SignalDrop > *" : return _bdaqctrl.AiFeatures_getTrigger1Sources(self)
+    def getTrigger1Actions(self) -> "Automation::BDaq::ICollection< Automation::BDaq::TriggerAction > *" : return _bdaqctrl.AiFeatures_getTrigger1Actions(self)
+    def getTrigger1DelayRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.AiFeatures_getTrigger1DelayRange(self)
+    __swig_destroy__ = _bdaqctrl.delete_AiFeatures
+    __del__ = lambda self : None;
+AiFeatures_swigregister = _bdaqctrl.AiFeatures_swigregister
+AiFeatures_swigregister(AiFeatures)
+
+class AiCtrlBase(DeviceCtrlBase):
+    __swig_setmethods__ = {}
+    for _s in [DeviceCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, AiCtrlBase, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DeviceCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, AiCtrlBase, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getFeatures(self) -> "Automation::BDaq::AiFeatures *" : return _bdaqctrl.AiCtrlBase_getFeatures(self)
+    def getChannels(self) -> "Automation::BDaq::AiChannelCollection *" : return _bdaqctrl.AiCtrlBase_getChannels(self)
+    def getChannelCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AiCtrlBase_getChannelCount(self)
+    __swig_destroy__ = _bdaqctrl.delete_AiCtrlBase
+    __del__ = lambda self : None;
+AiCtrlBase_swigregister = _bdaqctrl.AiCtrlBase_swigregister
+AiCtrlBase_swigregister(AiCtrlBase)
+
+class InstantAiCtrl(AiCtrlBase):
+    __swig_setmethods__ = {}
+    for _s in [AiCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, InstantAiCtrl, name, value)
+    __swig_getmethods__ = {}
+    for _s in [AiCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, InstantAiCtrl, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def ReadAny(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.InstantAiCtrl_ReadAny(self, *args)
+    def getCjc(self) -> "Automation::BDaq::CjcSetting *" : return _bdaqctrl.InstantAiCtrl_getCjc(self)
+    def Read(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.InstantAiCtrl_Read(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_InstantAiCtrl
+    __del__ = lambda self : None;
+InstantAiCtrl_swigregister = _bdaqctrl.InstantAiCtrl_swigregister
+InstantAiCtrl_swigregister(InstantAiCtrl)
 
 class BfdAiEventListener(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, BfdAiEventListener, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, BfdAiEventListener, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["vtbl"] = _bdaqctrl.BfdAiEventListener_vtbl_set
-    __swig_getmethods__["vtbl"] = _bdaqctrl.BfdAiEventListener_vtbl_get
-    if _newclass:vtbl = _swig_property(_bdaqctrl.BfdAiEventListener_vtbl_get, _bdaqctrl.BfdAiEventListener_vtbl_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_BfdAiEventListener()
-        try: self.this.append(this)
-        except: self.this = this
+    def BfdAiEvent(self, *args) -> "void" : return _bdaqctrl.BfdAiEventListener_BfdAiEvent(self, *args)
     __swig_destroy__ = _bdaqctrl.delete_BfdAiEventListener
     __del__ = lambda self : None;
 BfdAiEventListener_swigregister = _bdaqctrl.BfdAiEventListener_swigregister
 BfdAiEventListener_swigregister(BfdAiEventListener)
 
-class BfdAoEventHandler(_object):
+class BufferedAiCtrl(AiCtrlBase):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, BfdAoEventHandler, name, value)
+    for _s in [AiCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, BufferedAiCtrl, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, BfdAoEventHandler, name)
+    for _s in [AiCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, BufferedAiCtrl, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["BfdAoEvent"] = _bdaqctrl.BfdAoEventHandler_BfdAoEvent_set
-    __swig_getmethods__["BfdAoEvent"] = _bdaqctrl.BfdAoEventHandler_BfdAoEvent_get
-    if _newclass:BfdAoEvent = _swig_property(_bdaqctrl.BfdAoEventHandler_BfdAoEvent_get, _bdaqctrl.BfdAoEventHandler_BfdAoEvent_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_BfdAoEventHandler()
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _bdaqctrl.delete_BfdAoEventHandler
+    def addDataReadyListener(self, *args) -> "void" : return _bdaqctrl.BufferedAiCtrl_addDataReadyListener(self, *args)
+    def removeDataReadyListener(self, *args) -> "void" : return _bdaqctrl.BufferedAiCtrl_removeDataReadyListener(self, *args)
+    def addOverrunListener(self, *args) -> "void" : return _bdaqctrl.BufferedAiCtrl_addOverrunListener(self, *args)
+    def removeOverrunListener(self, *args) -> "void" : return _bdaqctrl.BufferedAiCtrl_removeOverrunListener(self, *args)
+    def addCacheOverflowListener(self, *args) -> "void" : return _bdaqctrl.BufferedAiCtrl_addCacheOverflowListener(self, *args)
+    def removeCacheOverflowListener(self, *args) -> "void" : return _bdaqctrl.BufferedAiCtrl_removeCacheOverflowListener(self, *args)
+    def addStoppedListener(self, *args) -> "void" : return _bdaqctrl.BufferedAiCtrl_addStoppedListener(self, *args)
+    def removeStoppedListener(self, *args) -> "void" : return _bdaqctrl.BufferedAiCtrl_removeStoppedListener(self, *args)
+    def Prepare(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAiCtrl_Prepare(self)
+    def RunOnce(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAiCtrl_RunOnce(self)
+    def Start(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAiCtrl_Start(self)
+    def Stop(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAiCtrl_Stop(self)
+    def GetDataI16(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAiCtrl_GetDataI16(self, *args)
+    def GetDataI32(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAiCtrl_GetDataI32(self, *args)
+    def GetDataF64(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAiCtrl_GetDataF64(self, *args)
+    def Release(self) -> "void" : return _bdaqctrl.BufferedAiCtrl_Release(self)
+    def getBuffer(self) -> "void *" : return _bdaqctrl.BufferedAiCtrl_getBuffer(self)
+    def getBufferCapacity(self) -> "Automation::BDaq::int32" : return _bdaqctrl.BufferedAiCtrl_getBufferCapacity(self)
+    def getState(self) -> "Automation::BDaq::ControlState" : return _bdaqctrl.BufferedAiCtrl_getState(self)
+    def getScanChannel(self) -> "Automation::BDaq::ScanChannel *" : return _bdaqctrl.BufferedAiCtrl_getScanChannel(self)
+    def getConvertClock(self) -> "Automation::BDaq::ConvertClock *" : return _bdaqctrl.BufferedAiCtrl_getConvertClock(self)
+    def getScanClock(self) -> "Automation::BDaq::ScanClock *" : return _bdaqctrl.BufferedAiCtrl_getScanClock(self)
+    def getTrigger(self) -> "Automation::BDaq::Trigger *" : return _bdaqctrl.BufferedAiCtrl_getTrigger(self)
+    def getStreaming(self) -> "bool" : return _bdaqctrl.BufferedAiCtrl_getStreaming(self)
+    def setStreaming(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAiCtrl_setStreaming(self, *args)
+    def GetEventStatus(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAiCtrl_GetEventStatus(self, *args)
+    def getTrigger1(self) -> "Automation::BDaq::Trigger *" : return _bdaqctrl.BufferedAiCtrl_getTrigger1(self)
+    def GetData(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAiCtrl_GetData(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_BufferedAiCtrl
     __del__ = lambda self : None;
-BfdAoEventHandler_swigregister = _bdaqctrl.BfdAoEventHandler_swigregister
-BfdAoEventHandler_swigregister(BfdAoEventHandler)
+BufferedAiCtrl_swigregister = _bdaqctrl.BufferedAiCtrl_swigregister
+BufferedAiCtrl_swigregister(BufferedAiCtrl)
+
+class AoFeatures(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, AoFeatures, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, AoFeatures, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getResolution(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AoFeatures_getResolution(self)
+    def getDataSize(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AoFeatures_getDataSize(self)
+    def getDataMask(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AoFeatures_getDataMask(self)
+    def getChannelCountMax(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AoFeatures_getChannelCountMax(self)
+    def getValueRanges(self) -> "Automation::BDaq::ICollection< Automation::BDaq::ValueRange > *" : return _bdaqctrl.AoFeatures_getValueRanges(self)
+    def getExternalRefAntiPolar(self) -> "bool" : return _bdaqctrl.AoFeatures_getExternalRefAntiPolar(self)
+    def getExternalRefRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.AoFeatures_getExternalRefRange(self)
+    def getBufferedAoSupported(self) -> "bool" : return _bdaqctrl.AoFeatures_getBufferedAoSupported(self)
+    def getSamplingMethod(self) -> "Automation::BDaq::SamplingMethod" : return _bdaqctrl.AoFeatures_getSamplingMethod(self)
+    def getChannelStartBase(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AoFeatures_getChannelStartBase(self)
+    def getChannelCountBase(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AoFeatures_getChannelCountBase(self)
+    def getConvertClockSources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::SignalDrop > *" : return _bdaqctrl.AoFeatures_getConvertClockSources(self)
+    def getConvertClockRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.AoFeatures_getConvertClockRange(self)
+    def getTriggerSupported(self) -> "bool" : return _bdaqctrl.AoFeatures_getTriggerSupported(self)
+    def getTriggerCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AoFeatures_getTriggerCount(self)
+    def getTriggerSources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::SignalDrop > *" : return _bdaqctrl.AoFeatures_getTriggerSources(self)
+    def getTriggerActions(self) -> "Automation::BDaq::ICollection< Automation::BDaq::TriggerAction > *" : return _bdaqctrl.AoFeatures_getTriggerActions(self)
+    def getTriggerDelayRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.AoFeatures_getTriggerDelayRange(self)
+    def getTrigger1Supported(self) -> "bool" : return _bdaqctrl.AoFeatures_getTrigger1Supported(self)
+    def getTrigger1Sources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::SignalDrop > *" : return _bdaqctrl.AoFeatures_getTrigger1Sources(self)
+    def getTrigger1Actions(self) -> "Automation::BDaq::ICollection< Automation::BDaq::TriggerAction > *" : return _bdaqctrl.AoFeatures_getTrigger1Actions(self)
+    def getTrigger1DelayRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.AoFeatures_getTrigger1DelayRange(self)
+    __swig_destroy__ = _bdaqctrl.delete_AoFeatures
+    __del__ = lambda self : None;
+AoFeatures_swigregister = _bdaqctrl.AoFeatures_swigregister
+AoFeatures_swigregister(AoFeatures)
+
+class AoCtrlBase(DeviceCtrlBase):
+    __swig_setmethods__ = {}
+    for _s in [DeviceCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, AoCtrlBase, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DeviceCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, AoCtrlBase, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getFeatures(self) -> "Automation::BDaq::AoFeatures *" : return _bdaqctrl.AoCtrlBase_getFeatures(self)
+    def getChannels(self) -> "Automation::BDaq::AoChannelCollection *" : return _bdaqctrl.AoCtrlBase_getChannels(self)
+    def getChannelCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AoCtrlBase_getChannelCount(self)
+    def getExtRefValueForUnipolar(self) -> "double" : return _bdaqctrl.AoCtrlBase_getExtRefValueForUnipolar(self)
+    def setExtRefValueForUnipolar(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.AoCtrlBase_setExtRefValueForUnipolar(self, *args)
+    def getExtRefValueForBipolar(self) -> "double" : return _bdaqctrl.AoCtrlBase_getExtRefValueForBipolar(self)
+    def setExtRefValueForBipolar(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.AoCtrlBase_setExtRefValueForBipolar(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_AoCtrlBase
+    __del__ = lambda self : None;
+AoCtrlBase_swigregister = _bdaqctrl.AoCtrlBase_swigregister
+AoCtrlBase_swigregister(AoCtrlBase)
+
+class InstantAoCtrl(AoCtrlBase):
+    __swig_setmethods__ = {}
+    for _s in [AoCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, InstantAoCtrl, name, value)
+    __swig_getmethods__ = {}
+    for _s in [AoCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, InstantAoCtrl, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def WriteAny(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.InstantAoCtrl_WriteAny(self, *args)
+    def Write(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.InstantAoCtrl_Write(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_InstantAoCtrl
+    __del__ = lambda self : None;
+InstantAoCtrl_swigregister = _bdaqctrl.InstantAoCtrl_swigregister
+InstantAoCtrl_swigregister(InstantAoCtrl)
 
 class BfdAoEventListener(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, BfdAoEventListener, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, BfdAoEventListener, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["vtbl"] = _bdaqctrl.BfdAoEventListener_vtbl_set
-    __swig_getmethods__["vtbl"] = _bdaqctrl.BfdAoEventListener_vtbl_get
-    if _newclass:vtbl = _swig_property(_bdaqctrl.BfdAoEventListener_vtbl_get, _bdaqctrl.BfdAoEventListener_vtbl_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_BfdAoEventListener()
-        try: self.this.append(this)
-        except: self.this = this
+    def BfdAoEvent(self, *args) -> "void" : return _bdaqctrl.BfdAoEventListener_BfdAoEvent(self, *args)
     __swig_destroy__ = _bdaqctrl.delete_BfdAoEventListener
     __del__ = lambda self : None;
 BfdAoEventListener_swigregister = _bdaqctrl.BfdAoEventListener_swigregister
 BfdAoEventListener_swigregister(BfdAoEventListener)
 
-class DiSnapEventHandler(_object):
+class BufferedAoCtrl(AoCtrlBase):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, DiSnapEventHandler, name, value)
+    for _s in [AoCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, BufferedAoCtrl, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, DiSnapEventHandler, name)
+    for _s in [AoCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, BufferedAoCtrl, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["DiSnapEvent"] = _bdaqctrl.DiSnapEventHandler_DiSnapEvent_set
-    __swig_getmethods__["DiSnapEvent"] = _bdaqctrl.DiSnapEventHandler_DiSnapEvent_get
-    if _newclass:DiSnapEvent = _swig_property(_bdaqctrl.DiSnapEventHandler_DiSnapEvent_get, _bdaqctrl.DiSnapEventHandler_DiSnapEvent_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_DiSnapEventHandler()
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _bdaqctrl.delete_DiSnapEventHandler
+    def addDataTransmittedListener(self, *args) -> "void" : return _bdaqctrl.BufferedAoCtrl_addDataTransmittedListener(self, *args)
+    def removeDataTransmittedListener(self, *args) -> "void" : return _bdaqctrl.BufferedAoCtrl_removeDataTransmittedListener(self, *args)
+    def addUnderrunListener(self, *args) -> "void" : return _bdaqctrl.BufferedAoCtrl_addUnderrunListener(self, *args)
+    def removeUnderrunListener(self, *args) -> "void" : return _bdaqctrl.BufferedAoCtrl_removeUnderrunListener(self, *args)
+    def addCacheEmptiedListener(self, *args) -> "void" : return _bdaqctrl.BufferedAoCtrl_addCacheEmptiedListener(self, *args)
+    def removeCacheEmptiedListener(self, *args) -> "void" : return _bdaqctrl.BufferedAoCtrl_removeCacheEmptiedListener(self, *args)
+    def addTransitStoppedListener(self, *args) -> "void" : return _bdaqctrl.BufferedAoCtrl_addTransitStoppedListener(self, *args)
+    def removeTransitStoppedListener(self, *args) -> "void" : return _bdaqctrl.BufferedAoCtrl_removeTransitStoppedListener(self, *args)
+    def addStoppedListener(self, *args) -> "void" : return _bdaqctrl.BufferedAoCtrl_addStoppedListener(self, *args)
+    def removeStoppedListener(self, *args) -> "void" : return _bdaqctrl.BufferedAoCtrl_removeStoppedListener(self, *args)
+    def Prepare(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAoCtrl_Prepare(self)
+    def RunOnce(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAoCtrl_RunOnce(self)
+    def Start(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAoCtrl_Start(self)
+    def Stop(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAoCtrl_Stop(self, *args)
+    def SetDataI16(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAoCtrl_SetDataI16(self, *args)
+    def SetDataI32(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAoCtrl_SetDataI32(self, *args)
+    def SetDataF64(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAoCtrl_SetDataF64(self, *args)
+    def Release(self) -> "void" : return _bdaqctrl.BufferedAoCtrl_Release(self)
+    def getBuffer(self) -> "void *" : return _bdaqctrl.BufferedAoCtrl_getBuffer(self)
+    def getBufferCapacity(self) -> "Automation::BDaq::int32" : return _bdaqctrl.BufferedAoCtrl_getBufferCapacity(self)
+    def getState(self) -> "Automation::BDaq::ControlState" : return _bdaqctrl.BufferedAoCtrl_getState(self)
+    def getScanChannel(self) -> "Automation::BDaq::ScanChannel *" : return _bdaqctrl.BufferedAoCtrl_getScanChannel(self)
+    def getConvertClock(self) -> "Automation::BDaq::ConvertClock *" : return _bdaqctrl.BufferedAoCtrl_getConvertClock(self)
+    def getTrigger(self) -> "Automation::BDaq::Trigger *" : return _bdaqctrl.BufferedAoCtrl_getTrigger(self)
+    def getStreaming(self) -> "bool" : return _bdaqctrl.BufferedAoCtrl_getStreaming(self)
+    def setStreaming(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAoCtrl_setStreaming(self, *args)
+    def getTrigger1(self) -> "Automation::BDaq::Trigger *" : return _bdaqctrl.BufferedAoCtrl_getTrigger1(self)
+    def SetData(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedAoCtrl_SetData(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_BufferedAoCtrl
     __del__ = lambda self : None;
-DiSnapEventHandler_swigregister = _bdaqctrl.DiSnapEventHandler_swigregister
-DiSnapEventHandler_swigregister(DiSnapEventHandler)
+BufferedAoCtrl_swigregister = _bdaqctrl.BufferedAoCtrl_swigregister
+BufferedAoCtrl_swigregister(BufferedAoCtrl)
+
+class DioFeatures(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DioFeatures, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, DioFeatures, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getPortProgrammable(self) -> "bool" : return _bdaqctrl.DioFeatures_getPortProgrammable(self)
+    def getPortCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.DioFeatures_getPortCount(self)
+    def getPortsType(self) -> "Automation::BDaq::ICollection< Automation::BDaq::uint8 > *" : return _bdaqctrl.DioFeatures_getPortsType(self)
+    def getDiSupported(self) -> "bool" : return _bdaqctrl.DioFeatures_getDiSupported(self)
+    def getDoSupported(self) -> "bool" : return _bdaqctrl.DioFeatures_getDoSupported(self)
+    def getChannelCountMax(self) -> "Automation::BDaq::int32" : return _bdaqctrl.DioFeatures_getChannelCountMax(self)
+    __swig_destroy__ = _bdaqctrl.delete_DioFeatures
+    __del__ = lambda self : None;
+DioFeatures_swigregister = _bdaqctrl.DioFeatures_swigregister
+DioFeatures_swigregister(DioFeatures)
+
+class DioCtrlBase(DeviceCtrlBase):
+    __swig_setmethods__ = {}
+    for _s in [DeviceCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DioCtrlBase, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DeviceCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, DioCtrlBase, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getPortCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.DioCtrlBase_getPortCount(self)
+    def getPortDirection(self) -> "Automation::BDaq::ICollection< Automation::BDaq::PortDirection > *" : return _bdaqctrl.DioCtrlBase_getPortDirection(self)
+    __swig_destroy__ = _bdaqctrl.delete_DioCtrlBase
+    __del__ = lambda self : None;
+DioCtrlBase_swigregister = _bdaqctrl.DioCtrlBase_swigregister
+DioCtrlBase_swigregister(DioCtrlBase)
+
+class DiFeatures(DioFeatures):
+    __swig_setmethods__ = {}
+    for _s in [DioFeatures]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DiFeatures, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DioFeatures]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, DiFeatures, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getDataMask(self) -> "Automation::BDaq::ICollection< Automation::BDaq::uint8 > *" : return _bdaqctrl.DiFeatures_getDataMask(self)
+    def getNoiseFilterSupported(self) -> "bool" : return _bdaqctrl.DiFeatures_getNoiseFilterSupported(self)
+    def getNoiseFilterOfChannels(self) -> "Automation::BDaq::ICollection< Automation::BDaq::uint8 > *" : return _bdaqctrl.DiFeatures_getNoiseFilterOfChannels(self)
+    def getNoiseFilterBlockTimeRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.DiFeatures_getNoiseFilterBlockTimeRange(self)
+    def getDiintSupported(self) -> "bool" : return _bdaqctrl.DiFeatures_getDiintSupported(self)
+    def getDiintGateSupported(self) -> "bool" : return _bdaqctrl.DiFeatures_getDiintGateSupported(self)
+    def getDiCosintSupported(self) -> "bool" : return _bdaqctrl.DiFeatures_getDiCosintSupported(self)
+    def getDiPmintSupported(self) -> "bool" : return _bdaqctrl.DiFeatures_getDiPmintSupported(self)
+    def getDiintTriggerEdges(self) -> "Automation::BDaq::ICollection< Automation::BDaq::ActiveSignal > *" : return _bdaqctrl.DiFeatures_getDiintTriggerEdges(self)
+    def getDiintOfChannels(self) -> "Automation::BDaq::ICollection< Automation::BDaq::uint8 > *" : return _bdaqctrl.DiFeatures_getDiintOfChannels(self)
+    def getDiintGateOfChannels(self) -> "Automation::BDaq::ICollection< Automation::BDaq::uint8 > *" : return _bdaqctrl.DiFeatures_getDiintGateOfChannels(self)
+    def getDiCosintOfPorts(self) -> "Automation::BDaq::ICollection< Automation::BDaq::uint8 > *" : return _bdaqctrl.DiFeatures_getDiCosintOfPorts(self)
+    def getDiPmintOfPorts(self) -> "Automation::BDaq::ICollection< Automation::BDaq::uint8 > *" : return _bdaqctrl.DiFeatures_getDiPmintOfPorts(self)
+    def getSnapEventSources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::int32 > *" : return _bdaqctrl.DiFeatures_getSnapEventSources(self)
+    def getBufferedDiSupported(self) -> "bool" : return _bdaqctrl.DiFeatures_getBufferedDiSupported(self)
+    def getSamplingMethod(self) -> "Automation::BDaq::SamplingMethod" : return _bdaqctrl.DiFeatures_getSamplingMethod(self)
+    def getConvertClockSources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::SignalDrop > *" : return _bdaqctrl.DiFeatures_getConvertClockSources(self)
+    def getConvertClockRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.DiFeatures_getConvertClockRange(self)
+    def getBurstScanSupported(self) -> "bool" : return _bdaqctrl.DiFeatures_getBurstScanSupported(self)
+    def getScanClockSources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::SignalDrop > *" : return _bdaqctrl.DiFeatures_getScanClockSources(self)
+    def getScanClockRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.DiFeatures_getScanClockRange(self)
+    def getScanCountMax(self) -> "Automation::BDaq::int32" : return _bdaqctrl.DiFeatures_getScanCountMax(self)
+    def getTriggerSupported(self) -> "bool" : return _bdaqctrl.DiFeatures_getTriggerSupported(self)
+    def getTriggerCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.DiFeatures_getTriggerCount(self)
+    def getTriggerSources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::SignalDrop > *" : return _bdaqctrl.DiFeatures_getTriggerSources(self)
+    def getTriggerActions(self) -> "Automation::BDaq::ICollection< Automation::BDaq::TriggerAction > *" : return _bdaqctrl.DiFeatures_getTriggerActions(self)
+    def getTriggerDelayRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.DiFeatures_getTriggerDelayRange(self)
+    __swig_destroy__ = _bdaqctrl.delete_DiFeatures
+    __del__ = lambda self : None;
+DiFeatures_swigregister = _bdaqctrl.DiFeatures_swigregister
+DiFeatures_swigregister(DiFeatures)
+
+class DiCtrlBase(DioCtrlBase):
+    __swig_setmethods__ = {}
+    for _s in [DioCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DiCtrlBase, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DioCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, DiCtrlBase, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getFeatures(self) -> "Automation::BDaq::DiFeatures *" : return _bdaqctrl.DiCtrlBase_getFeatures(self)
+    def getNoiseFilter(self) -> "Automation::BDaq::ICollection< Automation::BDaq::NoiseFilterChannel > *" : return _bdaqctrl.DiCtrlBase_getNoiseFilter(self)
+    __swig_destroy__ = _bdaqctrl.delete_DiCtrlBase
+    __del__ = lambda self : None;
+DiCtrlBase_swigregister = _bdaqctrl.DiCtrlBase_swigregister
+DiCtrlBase_swigregister(DiCtrlBase)
 
 class DiSnapEventListener(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, DiSnapEventListener, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, DiSnapEventListener, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["vtbl"] = _bdaqctrl.DiSnapEventListener_vtbl_set
-    __swig_getmethods__["vtbl"] = _bdaqctrl.DiSnapEventListener_vtbl_get
-    if _newclass:vtbl = _swig_property(_bdaqctrl.DiSnapEventListener_vtbl_get, _bdaqctrl.DiSnapEventListener_vtbl_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_DiSnapEventListener()
-        try: self.this.append(this)
-        except: self.this = this
+    def DiSnapEvent(self, *args) -> "void" : return _bdaqctrl.DiSnapEventListener_DiSnapEvent(self, *args)
     __swig_destroy__ = _bdaqctrl.delete_DiSnapEventListener
     __del__ = lambda self : None;
 DiSnapEventListener_swigregister = _bdaqctrl.DiSnapEventListener_swigregister
 DiSnapEventListener_swigregister(DiSnapEventListener)
 
-class BfdDiEventHandler(_object):
+class InstantDiCtrl(DiCtrlBase):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, BfdDiEventHandler, name, value)
+    for _s in [DiCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, InstantDiCtrl, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, BfdDiEventHandler, name)
+    for _s in [DiCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, InstantDiCtrl, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["BfdDiEvent"] = _bdaqctrl.BfdDiEventHandler_BfdDiEvent_set
-    __swig_getmethods__["BfdDiEvent"] = _bdaqctrl.BfdDiEventHandler_BfdDiEvent_get
-    if _newclass:BfdDiEvent = _swig_property(_bdaqctrl.BfdDiEventHandler_BfdDiEvent_get, _bdaqctrl.BfdDiEventHandler_BfdDiEvent_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_BfdDiEventHandler()
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _bdaqctrl.delete_BfdDiEventHandler
+    def addInterruptListener(self, *args) -> "void" : return _bdaqctrl.InstantDiCtrl_addInterruptListener(self, *args)
+    def removeInterruptListener(self, *args) -> "void" : return _bdaqctrl.InstantDiCtrl_removeInterruptListener(self, *args)
+    def addChangeOfStateListener(self, *args) -> "void" : return _bdaqctrl.InstantDiCtrl_addChangeOfStateListener(self, *args)
+    def removeChangeOfStateListener(self, *args) -> "void" : return _bdaqctrl.InstantDiCtrl_removeChangeOfStateListener(self, *args)
+    def addPatternMatchListener(self, *args) -> "void" : return _bdaqctrl.InstantDiCtrl_addPatternMatchListener(self, *args)
+    def removePatternMatchListener(self, *args) -> "void" : return _bdaqctrl.InstantDiCtrl_removePatternMatchListener(self, *args)
+    def ReadAny(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.InstantDiCtrl_ReadAny(self, *args)
+    def SnapStart(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.InstantDiCtrl_SnapStart(self)
+    def SnapStop(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.InstantDiCtrl_SnapStop(self)
+    def getDiintChannels(self) -> "Automation::BDaq::ICollection< Automation::BDaq::DiintChannel > *" : return _bdaqctrl.InstantDiCtrl_getDiintChannels(self)
+    def getDiCosintPorts(self) -> "Automation::BDaq::ICollection< Automation::BDaq::DiCosintPort > *" : return _bdaqctrl.InstantDiCtrl_getDiCosintPorts(self)
+    def getDiPmintPorts(self) -> "Automation::BDaq::ICollection< Automation::BDaq::DiPmintPort > *" : return _bdaqctrl.InstantDiCtrl_getDiPmintPorts(self)
+    def Read(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.InstantDiCtrl_Read(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_InstantDiCtrl
     __del__ = lambda self : None;
-BfdDiEventHandler_swigregister = _bdaqctrl.BfdDiEventHandler_swigregister
-BfdDiEventHandler_swigregister(BfdDiEventHandler)
+InstantDiCtrl_swigregister = _bdaqctrl.InstantDiCtrl_swigregister
+InstantDiCtrl_swigregister(InstantDiCtrl)
 
 class BfdDiEventListener(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, BfdDiEventListener, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, BfdDiEventListener, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["vtbl"] = _bdaqctrl.BfdDiEventListener_vtbl_set
-    __swig_getmethods__["vtbl"] = _bdaqctrl.BfdDiEventListener_vtbl_get
-    if _newclass:vtbl = _swig_property(_bdaqctrl.BfdDiEventListener_vtbl_get, _bdaqctrl.BfdDiEventListener_vtbl_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_BfdDiEventListener()
-        try: self.this.append(this)
-        except: self.this = this
+    def BfdDiEvent(self, *args) -> "void" : return _bdaqctrl.BfdDiEventListener_BfdDiEvent(self, *args)
     __swig_destroy__ = _bdaqctrl.delete_BfdDiEventListener
     __del__ = lambda self : None;
 BfdDiEventListener_swigregister = _bdaqctrl.BfdDiEventListener_swigregister
 BfdDiEventListener_swigregister(BfdDiEventListener)
 
-class BfdDoEventHandler(_object):
+class BufferedDiCtrl(DiCtrlBase):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, BfdDoEventHandler, name, value)
+    for _s in [DiCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, BufferedDiCtrl, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, BfdDoEventHandler, name)
+    for _s in [DiCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, BufferedDiCtrl, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["BfdDoEvent"] = _bdaqctrl.BfdDoEventHandler_BfdDoEvent_set
-    __swig_getmethods__["BfdDoEvent"] = _bdaqctrl.BfdDoEventHandler_BfdDoEvent_get
-    if _newclass:BfdDoEvent = _swig_property(_bdaqctrl.BfdDoEventHandler_BfdDoEvent_get, _bdaqctrl.BfdDoEventHandler_BfdDoEvent_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_BfdDoEventHandler()
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _bdaqctrl.delete_BfdDoEventHandler
+    def addDataReadyListener(self, *args) -> "void" : return _bdaqctrl.BufferedDiCtrl_addDataReadyListener(self, *args)
+    def removeDataReadyListener(self, *args) -> "void" : return _bdaqctrl.BufferedDiCtrl_removeDataReadyListener(self, *args)
+    def addOverrunListener(self, *args) -> "void" : return _bdaqctrl.BufferedDiCtrl_addOverrunListener(self, *args)
+    def removeOverrunListener(self, *args) -> "void" : return _bdaqctrl.BufferedDiCtrl_removeOverrunListener(self, *args)
+    def addCacheOverflowListener(self, *args) -> "void" : return _bdaqctrl.BufferedDiCtrl_addCacheOverflowListener(self, *args)
+    def removeCacheOverflowListener(self, *args) -> "void" : return _bdaqctrl.BufferedDiCtrl_removeCacheOverflowListener(self, *args)
+    def addStoppedListener(self, *args) -> "void" : return _bdaqctrl.BufferedDiCtrl_addStoppedListener(self, *args)
+    def removeStoppedListener(self, *args) -> "void" : return _bdaqctrl.BufferedDiCtrl_removeStoppedListener(self, *args)
+    def Prepare(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedDiCtrl_Prepare(self)
+    def RunOnce(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedDiCtrl_RunOnce(self)
+    def Start(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedDiCtrl_Start(self)
+    def Stop(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedDiCtrl_Stop(self)
+    def GetData(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedDiCtrl_GetData(self, *args)
+    def Release(self) -> "void" : return _bdaqctrl.BufferedDiCtrl_Release(self)
+    def getBuffer(self) -> "void *" : return _bdaqctrl.BufferedDiCtrl_getBuffer(self)
+    def getBufferCapacity(self) -> "Automation::BDaq::int32" : return _bdaqctrl.BufferedDiCtrl_getBufferCapacity(self)
+    def getState(self) -> "Automation::BDaq::ControlState" : return _bdaqctrl.BufferedDiCtrl_getState(self)
+    def getScanPort(self) -> "Automation::BDaq::ScanPort *" : return _bdaqctrl.BufferedDiCtrl_getScanPort(self)
+    def getConvertClock(self) -> "Automation::BDaq::ConvertClock *" : return _bdaqctrl.BufferedDiCtrl_getConvertClock(self)
+    def getScanClock(self) -> "Automation::BDaq::ScanClock *" : return _bdaqctrl.BufferedDiCtrl_getScanClock(self)
+    def getTrigger(self) -> "Automation::BDaq::Trigger *" : return _bdaqctrl.BufferedDiCtrl_getTrigger(self)
+    def getStreaming(self) -> "bool" : return _bdaqctrl.BufferedDiCtrl_getStreaming(self)
+    def setStreaming(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedDiCtrl_setStreaming(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_BufferedDiCtrl
     __del__ = lambda self : None;
-BfdDoEventHandler_swigregister = _bdaqctrl.BfdDoEventHandler_swigregister
-BfdDoEventHandler_swigregister(BfdDoEventHandler)
+BufferedDiCtrl_swigregister = _bdaqctrl.BufferedDiCtrl_swigregister
+BufferedDiCtrl_swigregister(BufferedDiCtrl)
+
+class DoFeatures(DioFeatures):
+    __swig_setmethods__ = {}
+    for _s in [DioFeatures]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DoFeatures, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DioFeatures]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, DoFeatures, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getDataMask(self) -> "Automation::BDaq::ICollection< Automation::BDaq::uint8 > *" : return _bdaqctrl.DoFeatures_getDataMask(self)
+    def getDoFreezeSignalSources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::SignalDrop > *" : return _bdaqctrl.DoFeatures_getDoFreezeSignalSources(self)
+    def getDoReflectWdtFeedIntervalRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.DoFeatures_getDoReflectWdtFeedIntervalRange(self)
+    def getBufferedDoSupported(self) -> "bool" : return _bdaqctrl.DoFeatures_getBufferedDoSupported(self)
+    def getSamplingMethod(self) -> "Automation::BDaq::SamplingMethod" : return _bdaqctrl.DoFeatures_getSamplingMethod(self)
+    def getConvertClockSources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::SignalDrop > *" : return _bdaqctrl.DoFeatures_getConvertClockSources(self)
+    def getConvertClockRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.DoFeatures_getConvertClockRange(self)
+    def getBurstScanSupported(self) -> "bool" : return _bdaqctrl.DoFeatures_getBurstScanSupported(self)
+    def getScanClockSources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::SignalDrop > *" : return _bdaqctrl.DoFeatures_getScanClockSources(self)
+    def getScanClockRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.DoFeatures_getScanClockRange(self)
+    def getScanCountMax(self) -> "Automation::BDaq::int32" : return _bdaqctrl.DoFeatures_getScanCountMax(self)
+    def getTriggerSupported(self) -> "bool" : return _bdaqctrl.DoFeatures_getTriggerSupported(self)
+    def getTriggerCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.DoFeatures_getTriggerCount(self)
+    def getTriggerSources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::SignalDrop > *" : return _bdaqctrl.DoFeatures_getTriggerSources(self)
+    def getTriggerActions(self) -> "Automation::BDaq::ICollection< Automation::BDaq::TriggerAction > *" : return _bdaqctrl.DoFeatures_getTriggerActions(self)
+    def getTriggerDelayRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.DoFeatures_getTriggerDelayRange(self)
+    __swig_destroy__ = _bdaqctrl.delete_DoFeatures
+    __del__ = lambda self : None;
+DoFeatures_swigregister = _bdaqctrl.DoFeatures_swigregister
+DoFeatures_swigregister(DoFeatures)
+
+class DoCtrlBase(DioCtrlBase):
+    __swig_setmethods__ = {}
+    for _s in [DioCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DoCtrlBase, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DioCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, DoCtrlBase, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getFeatures(self) -> "Automation::BDaq::DoFeatures *" : return _bdaqctrl.DoCtrlBase_getFeatures(self)
+    __swig_destroy__ = _bdaqctrl.delete_DoCtrlBase
+    __del__ = lambda self : None;
+DoCtrlBase_swigregister = _bdaqctrl.DoCtrlBase_swigregister
+DoCtrlBase_swigregister(DoCtrlBase)
+
+class InstantDoCtrl(DoCtrlBase):
+    __swig_setmethods__ = {}
+    for _s in [DoCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, InstantDoCtrl, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DoCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, InstantDoCtrl, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def WriteAny(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.InstantDoCtrl_WriteAny(self, *args)
+    def ReadAny(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.InstantDoCtrl_ReadAny(self, *args)
+    def Write(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.InstantDoCtrl_Write(self, *args)
+    def Read(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.InstantDoCtrl_Read(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_InstantDoCtrl
+    __del__ = lambda self : None;
+InstantDoCtrl_swigregister = _bdaqctrl.InstantDoCtrl_swigregister
+InstantDoCtrl_swigregister(InstantDoCtrl)
 
 class BfdDoEventListener(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, BfdDoEventListener, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, BfdDoEventListener, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["vtbl"] = _bdaqctrl.BfdDoEventListener_vtbl_set
-    __swig_getmethods__["vtbl"] = _bdaqctrl.BfdDoEventListener_vtbl_get
-    if _newclass:vtbl = _swig_property(_bdaqctrl.BfdDoEventListener_vtbl_get, _bdaqctrl.BfdDoEventListener_vtbl_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_BfdDoEventListener()
-        try: self.this.append(this)
-        except: self.this = this
+    def BfdDoEvent(self, *args) -> "void" : return _bdaqctrl.BfdDoEventListener_BfdDoEvent(self, *args)
     __swig_destroy__ = _bdaqctrl.delete_BfdDoEventListener
     __del__ = lambda self : None;
 BfdDoEventListener_swigregister = _bdaqctrl.BfdDoEventListener_swigregister
 BfdDoEventListener_swigregister(BfdDoEventListener)
 
-class CntrEventHandler(_object):
+class BufferedDoCtrl(DoCtrlBase):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, CntrEventHandler, name, value)
+    for _s in [DoCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, BufferedDoCtrl, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, CntrEventHandler, name)
+    for _s in [DoCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, BufferedDoCtrl, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["CntrEvent"] = _bdaqctrl.CntrEventHandler_CntrEvent_set
-    __swig_getmethods__["CntrEvent"] = _bdaqctrl.CntrEventHandler_CntrEvent_get
-    if _newclass:CntrEvent = _swig_property(_bdaqctrl.CntrEventHandler_CntrEvent_get, _bdaqctrl.CntrEventHandler_CntrEvent_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_CntrEventHandler()
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _bdaqctrl.delete_CntrEventHandler
+    def addDataTransmittedListener(self, *args) -> "void" : return _bdaqctrl.BufferedDoCtrl_addDataTransmittedListener(self, *args)
+    def removeDataTransmittedListener(self, *args) -> "void" : return _bdaqctrl.BufferedDoCtrl_removeDataTransmittedListener(self, *args)
+    def addUnderrunListener(self, *args) -> "void" : return _bdaqctrl.BufferedDoCtrl_addUnderrunListener(self, *args)
+    def removeUnderrunListener(self, *args) -> "void" : return _bdaqctrl.BufferedDoCtrl_removeUnderrunListener(self, *args)
+    def addCacheEmptiedListener(self, *args) -> "void" : return _bdaqctrl.BufferedDoCtrl_addCacheEmptiedListener(self, *args)
+    def removeCacheEmptiedListener(self, *args) -> "void" : return _bdaqctrl.BufferedDoCtrl_removeCacheEmptiedListener(self, *args)
+    def addTransitStoppedListener(self, *args) -> "void" : return _bdaqctrl.BufferedDoCtrl_addTransitStoppedListener(self, *args)
+    def removeTransitStoppedListener(self, *args) -> "void" : return _bdaqctrl.BufferedDoCtrl_removeTransitStoppedListener(self, *args)
+    def addStoppedListener(self, *args) -> "void" : return _bdaqctrl.BufferedDoCtrl_addStoppedListener(self, *args)
+    def removeStoppedListener(self, *args) -> "void" : return _bdaqctrl.BufferedDoCtrl_removeStoppedListener(self, *args)
+    def Prepare(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedDoCtrl_Prepare(self)
+    def RunOnce(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedDoCtrl_RunOnce(self)
+    def Start(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedDoCtrl_Start(self)
+    def Stop(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedDoCtrl_Stop(self, *args)
+    def SetData(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedDoCtrl_SetData(self, *args)
+    def Release(self) -> "void" : return _bdaqctrl.BufferedDoCtrl_Release(self)
+    def getBuffer(self) -> "void *" : return _bdaqctrl.BufferedDoCtrl_getBuffer(self)
+    def getBufferCapacity(self) -> "Automation::BDaq::int32" : return _bdaqctrl.BufferedDoCtrl_getBufferCapacity(self)
+    def getState(self) -> "Automation::BDaq::ControlState" : return _bdaqctrl.BufferedDoCtrl_getState(self)
+    def getScanPort(self) -> "Automation::BDaq::ScanPort *" : return _bdaqctrl.BufferedDoCtrl_getScanPort(self)
+    def getConvertClock(self) -> "Automation::BDaq::ConvertClock *" : return _bdaqctrl.BufferedDoCtrl_getConvertClock(self)
+    def getTrigger(self) -> "Automation::BDaq::Trigger *" : return _bdaqctrl.BufferedDoCtrl_getTrigger(self)
+    def getStreaming(self) -> "bool" : return _bdaqctrl.BufferedDoCtrl_getStreaming(self)
+    def setStreaming(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.BufferedDoCtrl_setStreaming(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_BufferedDoCtrl
     __del__ = lambda self : None;
-CntrEventHandler_swigregister = _bdaqctrl.CntrEventHandler_swigregister
-CntrEventHandler_swigregister(CntrEventHandler)
+BufferedDoCtrl_swigregister = _bdaqctrl.BufferedDoCtrl_swigregister
+BufferedDoCtrl_swigregister(BufferedDoCtrl)
 
 class CntrEventListener(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, CntrEventListener, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, CntrEventListener, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["vtbl"] = _bdaqctrl.CntrEventListener_vtbl_set
-    __swig_getmethods__["vtbl"] = _bdaqctrl.CntrEventListener_vtbl_get
-    if _newclass:vtbl = _swig_property(_bdaqctrl.CntrEventListener_vtbl_get, _bdaqctrl.CntrEventListener_vtbl_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_CntrEventListener()
-        try: self.this.append(this)
-        except: self.this = this
+    def CntrEvent(self, *args) -> "void" : return _bdaqctrl.CntrEventListener_CntrEvent(self, *args)
     __swig_destroy__ = _bdaqctrl.delete_CntrEventListener
     __del__ = lambda self : None;
 CntrEventListener_swigregister = _bdaqctrl.CntrEventListener_swigregister
 CntrEventListener_swigregister(CntrEventListener)
 
-class UdCntrEventHandler(_object):
+class CounterCapabilityIndexer(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, UdCntrEventHandler, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, CounterCapabilityIndexer, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, UdCntrEventHandler, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, CounterCapabilityIndexer, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["UdCntrEvent"] = _bdaqctrl.UdCntrEventHandler_UdCntrEvent_set
-    __swig_getmethods__["UdCntrEvent"] = _bdaqctrl.UdCntrEventHandler_UdCntrEvent_get
-    if _newclass:UdCntrEvent = _swig_property(_bdaqctrl.UdCntrEventHandler_UdCntrEvent_get, _bdaqctrl.UdCntrEventHandler_UdCntrEvent_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_UdCntrEventHandler()
-        try: self.this.append(this)
-        except: self.this = this
-    __swig_destroy__ = _bdaqctrl.delete_UdCntrEventHandler
+    def Dispose(self) -> "void" : return _bdaqctrl.CounterCapabilityIndexer_Dispose(self)
+    def getCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.CounterCapabilityIndexer_getCount(self)
+    def getItem(self, *args) -> "Automation::BDaq::ICollection< Automation::BDaq::CounterCapability > *" : return _bdaqctrl.CounterCapabilityIndexer_getItem(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_CounterCapabilityIndexer
     __del__ = lambda self : None;
-UdCntrEventHandler_swigregister = _bdaqctrl.UdCntrEventHandler_swigregister
-UdCntrEventHandler_swigregister(UdCntrEventHandler)
+CounterCapabilityIndexer_swigregister = _bdaqctrl.CounterCapabilityIndexer_swigregister
+CounterCapabilityIndexer_swigregister(CounterCapabilityIndexer)
+
+class CntrFeatures(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, CntrFeatures, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, CntrFeatures, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getChannelCountMax(self) -> "Automation::BDaq::int32" : return _bdaqctrl.CntrFeatures_getChannelCountMax(self)
+    def getResolution(self) -> "Automation::BDaq::int32" : return _bdaqctrl.CntrFeatures_getResolution(self)
+    def getDataSize(self) -> "Automation::BDaq::int32" : return _bdaqctrl.CntrFeatures_getDataSize(self)
+    def getCapabilities(self) -> "Automation::BDaq::CounterCapabilityIndexer *" : return _bdaqctrl.CntrFeatures_getCapabilities(self)
+    __swig_destroy__ = _bdaqctrl.delete_CntrFeatures
+    __del__ = lambda self : None;
+CntrFeatures_swigregister = _bdaqctrl.CntrFeatures_swigregister
+CntrFeatures_swigregister(CntrFeatures)
+
+class CntrFeaturesExt(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, CntrFeaturesExt, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, CntrFeaturesExt, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getNoiseFilterSupported(self) -> "bool" : return _bdaqctrl.CntrFeaturesExt_getNoiseFilterSupported(self)
+    def getNoiseFilterOfChannels(self) -> "Automation::BDaq::ICollection< Automation::BDaq::uint8 > *" : return _bdaqctrl.CntrFeaturesExt_getNoiseFilterOfChannels(self)
+    def getNoiseFilterBlockTimeRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.CntrFeaturesExt_getNoiseFilterBlockTimeRange(self)
+    __swig_destroy__ = _bdaqctrl.delete_CntrFeaturesExt
+    __del__ = lambda self : None;
+CntrFeaturesExt_swigregister = _bdaqctrl.CntrFeaturesExt_swigregister
+CntrFeaturesExt_swigregister(CntrFeaturesExt)
+
+class CntrCtrlExt(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, CntrCtrlExt, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, CntrCtrlExt, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getNoiseFilter(self) -> "Automation::BDaq::NoiseFilterChannel *" : return _bdaqctrl.CntrCtrlExt_getNoiseFilter(self)
+    __swig_destroy__ = _bdaqctrl.delete_CntrCtrlExt
+    __del__ = lambda self : None;
+CntrCtrlExt_swigregister = _bdaqctrl.CntrCtrlExt_swigregister
+CntrCtrlExt_swigregister(CntrCtrlExt)
+
+class CntrCtrlBase(DeviceCtrlBase,CntrCtrlExt):
+    __swig_setmethods__ = {}
+    for _s in [DeviceCtrlBase,CntrCtrlExt]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, CntrCtrlBase, name, value)
+    __swig_getmethods__ = {}
+    for _s in [DeviceCtrlBase,CntrCtrlExt]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, CntrCtrlBase, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getChannel(self) -> "Automation::BDaq::int32" : return _bdaqctrl.CntrCtrlBase_getChannel(self)
+    def setChannel(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.CntrCtrlBase_setChannel(self, *args)
+    def getEnabled(self) -> "bool" : return _bdaqctrl.CntrCtrlBase_getEnabled(self)
+    def setEnabled(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.CntrCtrlBase_setEnabled(self, *args)
+    def getRunning(self) -> "bool" : return _bdaqctrl.CntrCtrlBase_getRunning(self)
+    __swig_destroy__ = _bdaqctrl.delete_CntrCtrlBase
+    __del__ = lambda self : None;
+CntrCtrlBase_swigregister = _bdaqctrl.CntrCtrlBase_swigregister
+CntrCtrlBase_swigregister(CntrCtrlBase)
+
+class EventCounterFeatures(CntrFeatures,CntrFeaturesExt):
+    __swig_setmethods__ = {}
+    for _s in [CntrFeatures,CntrFeaturesExt]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, EventCounterFeatures, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CntrFeatures,CntrFeaturesExt]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, EventCounterFeatures, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    __swig_destroy__ = _bdaqctrl.delete_EventCounterFeatures
+    __del__ = lambda self : None;
+EventCounterFeatures_swigregister = _bdaqctrl.EventCounterFeatures_swigregister
+EventCounterFeatures_swigregister(EventCounterFeatures)
+
+class EventCounterCtrl(CntrCtrlBase):
+    __swig_setmethods__ = {}
+    for _s in [CntrCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, EventCounterCtrl, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CntrCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, EventCounterCtrl, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getFeatures(self) -> "Automation::BDaq::EventCounterFeatures *" : return _bdaqctrl.EventCounterCtrl_getFeatures(self)
+    def getValue(self) -> "Automation::BDaq::int32" : return _bdaqctrl.EventCounterCtrl_getValue(self)
+    __swig_destroy__ = _bdaqctrl.delete_EventCounterCtrl
+    __del__ = lambda self : None;
+EventCounterCtrl_swigregister = _bdaqctrl.EventCounterCtrl_swigregister
+EventCounterCtrl_swigregister(EventCounterCtrl)
+
+class FreqMeterFeatures(CntrFeatures,CntrFeaturesExt):
+    __swig_setmethods__ = {}
+    for _s in [CntrFeatures,CntrFeaturesExt]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, FreqMeterFeatures, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CntrFeatures,CntrFeaturesExt]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, FreqMeterFeatures, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getFmMethods(self) -> "Automation::BDaq::ICollection< Automation::BDaq::FreqMeasureMethod > *" : return _bdaqctrl.FreqMeterFeatures_getFmMethods(self)
+    __swig_destroy__ = _bdaqctrl.delete_FreqMeterFeatures
+    __del__ = lambda self : None;
+FreqMeterFeatures_swigregister = _bdaqctrl.FreqMeterFeatures_swigregister
+FreqMeterFeatures_swigregister(FreqMeterFeatures)
+
+class FreqMeterCtrl(CntrCtrlBase):
+    __swig_setmethods__ = {}
+    for _s in [CntrCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, FreqMeterCtrl, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CntrCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, FreqMeterCtrl, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getFeatures(self) -> "Automation::BDaq::FreqMeterFeatures *" : return _bdaqctrl.FreqMeterCtrl_getFeatures(self)
+    def getValue(self) -> "double" : return _bdaqctrl.FreqMeterCtrl_getValue(self)
+    def getMethod(self) -> "Automation::BDaq::FreqMeasureMethod" : return _bdaqctrl.FreqMeterCtrl_getMethod(self)
+    def setMethod(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.FreqMeterCtrl_setMethod(self, *args)
+    def getCollectionPeriod(self) -> "double" : return _bdaqctrl.FreqMeterCtrl_getCollectionPeriod(self)
+    def setCollectionPeriod(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.FreqMeterCtrl_setCollectionPeriod(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_FreqMeterCtrl
+    __del__ = lambda self : None;
+FreqMeterCtrl_swigregister = _bdaqctrl.FreqMeterCtrl_swigregister
+FreqMeterCtrl_swigregister(FreqMeterCtrl)
+
+class OneShotFeatures(CntrFeatures,CntrFeaturesExt):
+    __swig_setmethods__ = {}
+    for _s in [CntrFeatures,CntrFeaturesExt]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, OneShotFeatures, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CntrFeatures,CntrFeaturesExt]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, OneShotFeatures, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getOneShotEventSupported(self) -> "bool" : return _bdaqctrl.OneShotFeatures_getOneShotEventSupported(self)
+    def getDelayCountRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.OneShotFeatures_getDelayCountRange(self)
+    __swig_destroy__ = _bdaqctrl.delete_OneShotFeatures
+    __del__ = lambda self : None;
+OneShotFeatures_swigregister = _bdaqctrl.OneShotFeatures_swigregister
+OneShotFeatures_swigregister(OneShotFeatures)
+
+class OneShotCtrl(CntrCtrlBase):
+    __swig_setmethods__ = {}
+    for _s in [CntrCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, OneShotCtrl, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CntrCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, OneShotCtrl, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def addOneShotListener(self, *args) -> "void" : return _bdaqctrl.OneShotCtrl_addOneShotListener(self, *args)
+    def removeOneShotListener(self, *args) -> "void" : return _bdaqctrl.OneShotCtrl_removeOneShotListener(self, *args)
+    def getFeatures(self) -> "Automation::BDaq::OneShotFeatures *" : return _bdaqctrl.OneShotCtrl_getFeatures(self)
+    def getDelayCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.OneShotCtrl_getDelayCount(self)
+    def setDelayCount(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.OneShotCtrl_setDelayCount(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_OneShotCtrl
+    __del__ = lambda self : None;
+OneShotCtrl_swigregister = _bdaqctrl.OneShotCtrl_swigregister
+OneShotCtrl_swigregister(OneShotCtrl)
+
+class TimerPulseFeatures(CntrFeatures,CntrFeaturesExt):
+    __swig_setmethods__ = {}
+    for _s in [CntrFeatures,CntrFeaturesExt]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, TimerPulseFeatures, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CntrFeatures,CntrFeaturesExt]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, TimerPulseFeatures, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getTimerFrequencyRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.TimerPulseFeatures_getTimerFrequencyRange(self)
+    def getTimerEventSupported(self) -> "bool" : return _bdaqctrl.TimerPulseFeatures_getTimerEventSupported(self)
+    __swig_destroy__ = _bdaqctrl.delete_TimerPulseFeatures
+    __del__ = lambda self : None;
+TimerPulseFeatures_swigregister = _bdaqctrl.TimerPulseFeatures_swigregister
+TimerPulseFeatures_swigregister(TimerPulseFeatures)
+
+class TimerPulseCtrl(CntrCtrlBase):
+    __swig_setmethods__ = {}
+    for _s in [CntrCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, TimerPulseCtrl, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CntrCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, TimerPulseCtrl, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def addTimerTickListener(self, *args) -> "void" : return _bdaqctrl.TimerPulseCtrl_addTimerTickListener(self, *args)
+    def removeTimerTickListener(self, *args) -> "void" : return _bdaqctrl.TimerPulseCtrl_removeTimerTickListener(self, *args)
+    def getFeatures(self) -> "Automation::BDaq::TimerPulseFeatures *" : return _bdaqctrl.TimerPulseCtrl_getFeatures(self)
+    def getFrequency(self) -> "double" : return _bdaqctrl.TimerPulseCtrl_getFrequency(self)
+    def setFrequency(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.TimerPulseCtrl_setFrequency(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_TimerPulseCtrl
+    __del__ = lambda self : None;
+TimerPulseCtrl_swigregister = _bdaqctrl.TimerPulseCtrl_swigregister
+TimerPulseCtrl_swigregister(TimerPulseCtrl)
+
+class PwMeterFeatures(CntrFeatures,CntrFeaturesExt):
+    __swig_setmethods__ = {}
+    for _s in [CntrFeatures,CntrFeaturesExt]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PwMeterFeatures, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CntrFeatures,CntrFeaturesExt]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, PwMeterFeatures, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getPwmCascadeGroup(self) -> "Automation::BDaq::ICollection< Automation::BDaq::CounterCascadeGroup > *" : return _bdaqctrl.PwMeterFeatures_getPwmCascadeGroup(self)
+    def getOverflowEventSupported(self) -> "bool" : return _bdaqctrl.PwMeterFeatures_getOverflowEventSupported(self)
+    __swig_destroy__ = _bdaqctrl.delete_PwMeterFeatures
+    __del__ = lambda self : None;
+PwMeterFeatures_swigregister = _bdaqctrl.PwMeterFeatures_swigregister
+PwMeterFeatures_swigregister(PwMeterFeatures)
+
+class PwMeterCtrl(CntrCtrlBase):
+    __swig_setmethods__ = {}
+    for _s in [CntrCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PwMeterCtrl, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CntrCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, PwMeterCtrl, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def addOverflowListener(self, *args) -> "void" : return _bdaqctrl.PwMeterCtrl_addOverflowListener(self, *args)
+    def removeOverflowListener(self, *args) -> "void" : return _bdaqctrl.PwMeterCtrl_removeOverflowListener(self, *args)
+    def getFeatures(self) -> "Automation::BDaq::PwMeterFeatures *" : return _bdaqctrl.PwMeterCtrl_getFeatures(self)
+    def getValue(self, *args) -> "void" : return _bdaqctrl.PwMeterCtrl_getValue(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_PwMeterCtrl
+    __del__ = lambda self : None;
+PwMeterCtrl_swigregister = _bdaqctrl.PwMeterCtrl_swigregister
+PwMeterCtrl_swigregister(PwMeterCtrl)
+
+class PwModulatorFeatures(CntrFeatures,CntrFeaturesExt):
+    __swig_setmethods__ = {}
+    for _s in [CntrFeatures,CntrFeaturesExt]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PwModulatorFeatures, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CntrFeatures,CntrFeaturesExt]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, PwModulatorFeatures, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getHiPeriodRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.PwModulatorFeatures_getHiPeriodRange(self)
+    def getLoPeriodRange(self) -> "Automation::BDaq::MathInterval" : return _bdaqctrl.PwModulatorFeatures_getLoPeriodRange(self)
+    __swig_destroy__ = _bdaqctrl.delete_PwModulatorFeatures
+    __del__ = lambda self : None;
+PwModulatorFeatures_swigregister = _bdaqctrl.PwModulatorFeatures_swigregister
+PwModulatorFeatures_swigregister(PwModulatorFeatures)
+
+class PwModulatorCtrl(CntrCtrlBase):
+    __swig_setmethods__ = {}
+    for _s in [CntrCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PwModulatorCtrl, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CntrCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, PwModulatorCtrl, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getFeatures(self) -> "Automation::BDaq::PwModulatorFeatures *" : return _bdaqctrl.PwModulatorCtrl_getFeatures(self)
+    def getPulseWidth(self, *args) -> "void" : return _bdaqctrl.PwModulatorCtrl_getPulseWidth(self, *args)
+    def setPulseWidth(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.PwModulatorCtrl_setPulseWidth(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_PwModulatorCtrl
+    __del__ = lambda self : None;
+PwModulatorCtrl_swigregister = _bdaqctrl.PwModulatorCtrl_swigregister
+PwModulatorCtrl_swigregister(PwModulatorCtrl)
 
 class UdCntrEventListener(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, UdCntrEventListener, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, UdCntrEventListener, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
-    __swig_setmethods__["vtbl"] = _bdaqctrl.UdCntrEventListener_vtbl_set
-    __swig_getmethods__["vtbl"] = _bdaqctrl.UdCntrEventListener_vtbl_get
-    if _newclass:vtbl = _swig_property(_bdaqctrl.UdCntrEventListener_vtbl_get, _bdaqctrl.UdCntrEventListener_vtbl_set)
-    def __init__(self): 
-        this = _bdaqctrl.new_UdCntrEventListener()
-        try: self.this.append(this)
-        except: self.this = this
+    def UdCntrEvent(self, *args) -> "void" : return _bdaqctrl.UdCntrEventListener_UdCntrEvent(self, *args)
     __swig_destroy__ = _bdaqctrl.delete_UdCntrEventListener
     __del__ = lambda self : None;
 UdCntrEventListener_swigregister = _bdaqctrl.UdCntrEventListener_swigregister
 UdCntrEventListener_swigregister(UdCntrEventListener)
 
+class UdCounterFeatures(CntrFeatures,CntrFeaturesExt):
+    __swig_setmethods__ = {}
+    for _s in [CntrFeatures,CntrFeaturesExt]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, UdCounterFeatures, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CntrFeatures,CntrFeaturesExt]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, UdCounterFeatures, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def getCountingTypes(self) -> "Automation::BDaq::ICollection< Automation::BDaq::SignalCountingType > *" : return _bdaqctrl.UdCounterFeatures_getCountingTypes(self)
+    def getInitialValues(self) -> "Automation::BDaq::ICollection< Automation::BDaq::int32 > *" : return _bdaqctrl.UdCounterFeatures_getInitialValues(self)
+    def getSnapEventSources(self) -> "Automation::BDaq::ICollection< Automation::BDaq::int32 > *" : return _bdaqctrl.UdCounterFeatures_getSnapEventSources(self)
+    __swig_destroy__ = _bdaqctrl.delete_UdCounterFeatures
+    __del__ = lambda self : None;
+UdCounterFeatures_swigregister = _bdaqctrl.UdCounterFeatures_swigregister
+UdCounterFeatures_swigregister(UdCounterFeatures)
 
-def AdxDeviceGetLinkageInfo(*args) -> "ErrorCode" :
+class UdCounterCtrl(CntrCtrlBase):
+    __swig_setmethods__ = {}
+    for _s in [CntrCtrlBase]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, UdCounterCtrl, name, value)
+    __swig_getmethods__ = {}
+    for _s in [CntrCtrlBase]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, UdCounterCtrl, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def addUdCntrEventListener(self, *args) -> "void" : return _bdaqctrl.UdCounterCtrl_addUdCntrEventListener(self, *args)
+    def removeUdCntrEventListener(self, *args) -> "void" : return _bdaqctrl.UdCounterCtrl_removeUdCntrEventListener(self, *args)
+    def SnapStart(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.UdCounterCtrl_SnapStart(self, *args)
+    def SnapStop(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.UdCounterCtrl_SnapStop(self, *args)
+    def CompareSetTable(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.UdCounterCtrl_CompareSetTable(self, *args)
+    def CompareSetInterval(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.UdCounterCtrl_CompareSetInterval(self, *args)
+    def CompareClear(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.UdCounterCtrl_CompareClear(self)
+    def ValueReset(self) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.UdCounterCtrl_ValueReset(self)
+    def getFeatures(self) -> "Automation::BDaq::UdCounterFeatures *" : return _bdaqctrl.UdCounterCtrl_getFeatures(self)
+    def getValue(self) -> "Automation::BDaq::int32" : return _bdaqctrl.UdCounterCtrl_getValue(self)
+    def getCountingType(self) -> "Automation::BDaq::SignalCountingType" : return _bdaqctrl.UdCounterCtrl_getCountingType(self)
+    def setCountingType(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.UdCounterCtrl_setCountingType(self, *args)
+    def getInitialValue(self) -> "Automation::BDaq::int32" : return _bdaqctrl.UdCounterCtrl_getInitialValue(self)
+    def setInitialValue(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.UdCounterCtrl_setInitialValue(self, *args)
+    def getResetTimesByIndex(self) -> "Automation::BDaq::int32" : return _bdaqctrl.UdCounterCtrl_getResetTimesByIndex(self)
+    def setResetTimesByIndex(self, *args) -> "Automation::BDaq::ErrorCode" : return _bdaqctrl.UdCounterCtrl_setResetTimesByIndex(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_UdCounterCtrl
+    __del__ = lambda self : None;
+UdCounterCtrl_swigregister = _bdaqctrl.UdCounterCtrl_swigregister
+UdCounterCtrl_swigregister(UdCounterCtrl)
+
+
+def AdxDeviceGetLinkageInfo(*args) -> "Automation::BDaq::ErrorCode" :
   return _bdaqctrl.AdxDeviceGetLinkageInfo(*args)
 AdxDeviceGetLinkageInfo = _bdaqctrl.AdxDeviceGetLinkageInfo
 
-def AdxGetValueRangeInformation(*args) -> "ErrorCode" :
+def AdxGetValueRangeInformation(*args) -> "Automation::BDaq::ErrorCode" :
   return _bdaqctrl.AdxGetValueRangeInformation(*args)
 AdxGetValueRangeInformation = _bdaqctrl.AdxGetValueRangeInformation
 
-def AdxGetSignalConnectionInformation(*args) -> "ErrorCode" :
+def AdxGetSignalConnectionInformation(*args) -> "Automation::BDaq::ErrorCode" :
   return _bdaqctrl.AdxGetSignalConnectionInformation(*args)
 AdxGetSignalConnectionInformation = _bdaqctrl.AdxGetSignalConnectionInformation
 
-def AdxEnumToString(*args) -> "ErrorCode" :
+def AdxEnumToString(*args) -> "Automation::BDaq::ErrorCode" :
   return _bdaqctrl.AdxEnumToString(*args)
 AdxEnumToString = _bdaqctrl.AdxEnumToString
 
-def AdxStringToEnum(*args) -> "ErrorCode" :
+def AdxStringToEnum(*args) -> "Automation::BDaq::ErrorCode" :
   return _bdaqctrl.AdxStringToEnum(*args)
 AdxStringToEnum = _bdaqctrl.AdxStringToEnum
 
-def AdxInstantAiCtrlCreate() -> "InstantAiCtrl *" :
+def AdxInstantAiCtrlCreate() -> "Automation::BDaq::InstantAiCtrl *" :
   return _bdaqctrl.AdxInstantAiCtrlCreate()
 AdxInstantAiCtrlCreate = _bdaqctrl.AdxInstantAiCtrlCreate
 
-def AdxBufferedAiCtrlCreate() -> "BufferedAiCtrl *" :
+def AdxBufferedAiCtrlCreate() -> "Automation::BDaq::BufferedAiCtrl *" :
   return _bdaqctrl.AdxBufferedAiCtrlCreate()
 AdxBufferedAiCtrlCreate = _bdaqctrl.AdxBufferedAiCtrlCreate
 
-def AdxInstantAoCtrlCreate() -> "InstantAoCtrl *" :
+def AdxInstantAoCtrlCreate() -> "Automation::BDaq::InstantAoCtrl *" :
   return _bdaqctrl.AdxInstantAoCtrlCreate()
 AdxInstantAoCtrlCreate = _bdaqctrl.AdxInstantAoCtrlCreate
 
-def AdxBufferedAoCtrlCreate() -> "BufferedAoCtrl *" :
+def AdxBufferedAoCtrlCreate() -> "Automation::BDaq::BufferedAoCtrl *" :
   return _bdaqctrl.AdxBufferedAoCtrlCreate()
 AdxBufferedAoCtrlCreate = _bdaqctrl.AdxBufferedAoCtrlCreate
 
-def AdxInstantDiCtrlCreate() -> "InstantDiCtrl *" :
+def AdxInstantDiCtrlCreate() -> "Automation::BDaq::InstantDiCtrl *" :
   return _bdaqctrl.AdxInstantDiCtrlCreate()
 AdxInstantDiCtrlCreate = _bdaqctrl.AdxInstantDiCtrlCreate
 
-def AdxBufferedDiCtrlCreate() -> "BufferedDiCtrl *" :
+def AdxBufferedDiCtrlCreate() -> "Automation::BDaq::BufferedDiCtrl *" :
   return _bdaqctrl.AdxBufferedDiCtrlCreate()
 AdxBufferedDiCtrlCreate = _bdaqctrl.AdxBufferedDiCtrlCreate
 
-def AdxInstantDoCtrlCreate() -> "InstantDoCtrl *" :
+def AdxInstantDoCtrlCreate() -> "Automation::BDaq::InstantDoCtrl *" :
   return _bdaqctrl.AdxInstantDoCtrlCreate()
 AdxInstantDoCtrlCreate = _bdaqctrl.AdxInstantDoCtrlCreate
 
-def AdxBufferedDoCtrlCreate() -> "BufferedDoCtrl *" :
+def AdxBufferedDoCtrlCreate() -> "Automation::BDaq::BufferedDoCtrl *" :
   return _bdaqctrl.AdxBufferedDoCtrlCreate()
 AdxBufferedDoCtrlCreate = _bdaqctrl.AdxBufferedDoCtrlCreate
 
-def AdxEventCounterCtrlCreate() -> "EventCounterCtrl *" :
+def AdxEventCounterCtrlCreate() -> "Automation::BDaq::EventCounterCtrl *" :
   return _bdaqctrl.AdxEventCounterCtrlCreate()
 AdxEventCounterCtrlCreate = _bdaqctrl.AdxEventCounterCtrlCreate
 
-def AdxFreqMeterCtrlCreate() -> "FreqMeterCtrl *" :
+def AdxFreqMeterCtrlCreate() -> "Automation::BDaq::FreqMeterCtrl *" :
   return _bdaqctrl.AdxFreqMeterCtrlCreate()
 AdxFreqMeterCtrlCreate = _bdaqctrl.AdxFreqMeterCtrlCreate
 
-def AdxOneShotCtrlCreate() -> "OneShotCtrl *" :
+def AdxOneShotCtrlCreate() -> "Automation::BDaq::OneShotCtrl *" :
   return _bdaqctrl.AdxOneShotCtrlCreate()
 AdxOneShotCtrlCreate = _bdaqctrl.AdxOneShotCtrlCreate
 
-def AdxPwMeterCtrlCreate() -> "PwMeterCtrl *" :
+def AdxPwMeterCtrlCreate() -> "Automation::BDaq::PwMeterCtrl *" :
   return _bdaqctrl.AdxPwMeterCtrlCreate()
 AdxPwMeterCtrlCreate = _bdaqctrl.AdxPwMeterCtrlCreate
 
-def AdxPwModulatorCtrlCreate() -> "PwModulatorCtrl *" :
+def AdxPwModulatorCtrlCreate() -> "Automation::BDaq::PwModulatorCtrl *" :
   return _bdaqctrl.AdxPwModulatorCtrlCreate()
 AdxPwModulatorCtrlCreate = _bdaqctrl.AdxPwModulatorCtrlCreate
 
-def AdxTimerPulseCtrlCreate() -> "TimerPulseCtrl *" :
+def AdxTimerPulseCtrlCreate() -> "Automation::BDaq::TimerPulseCtrl *" :
   return _bdaqctrl.AdxTimerPulseCtrlCreate()
 AdxTimerPulseCtrlCreate = _bdaqctrl.AdxTimerPulseCtrlCreate
 
-def AdxUdCounterCtrlCreate() -> "UdCounterCtrl *" :
+def AdxUdCounterCtrlCreate() -> "Automation::BDaq::UdCounterCtrl *" :
   return _bdaqctrl.AdxUdCounterCtrlCreate()
 AdxUdCounterCtrlCreate = _bdaqctrl.AdxUdCounterCtrlCreate
-
-def ICollection_Dispose(*args) -> "void" :
-  return _bdaqctrl.ICollection_Dispose(*args)
-ICollection_Dispose = _bdaqctrl.ICollection_Dispose
-
-def ICollection_getCount(*args) -> "int32" :
-  return _bdaqctrl.ICollection_getCount(*args)
-ICollection_getCount = _bdaqctrl.ICollection_getCount
-
-def ICollection_getItem(*args) -> "void *" :
-  return _bdaqctrl.ICollection_getItem(*args)
-ICollection_getItem = _bdaqctrl.ICollection_getItem
-
-def AnalogChannel_getChannel(*args) -> "int32" :
-  return _bdaqctrl.AnalogChannel_getChannel(*args)
-AnalogChannel_getChannel = _bdaqctrl.AnalogChannel_getChannel
-
-def AnalogChannel_getValueRange(*args) -> "ValueRange" :
-  return _bdaqctrl.AnalogChannel_getValueRange(*args)
-AnalogChannel_getValueRange = _bdaqctrl.AnalogChannel_getValueRange
-
-def AnalogChannel_setValueRange(*args) -> "ErrorCode" :
-  return _bdaqctrl.AnalogChannel_setValueRange(*args)
-AnalogChannel_setValueRange = _bdaqctrl.AnalogChannel_setValueRange
-
-def AnalogInputChannel_getChannel(*args) -> "int32" :
-  return _bdaqctrl.AnalogInputChannel_getChannel(*args)
-AnalogInputChannel_getChannel = _bdaqctrl.AnalogInputChannel_getChannel
-
-def AnalogInputChannel_getValueRange(*args) -> "ValueRange" :
-  return _bdaqctrl.AnalogInputChannel_getValueRange(*args)
-AnalogInputChannel_getValueRange = _bdaqctrl.AnalogInputChannel_getValueRange
-
-def AnalogInputChannel_setValueRange(*args) -> "ErrorCode" :
-  return _bdaqctrl.AnalogInputChannel_setValueRange(*args)
-AnalogInputChannel_setValueRange = _bdaqctrl.AnalogInputChannel_setValueRange
-
-def AnalogInputChannel_getSignalType(*args) -> "AiSignalType" :
-  return _bdaqctrl.AnalogInputChannel_getSignalType(*args)
-AnalogInputChannel_getSignalType = _bdaqctrl.AnalogInputChannel_getSignalType
-
-def AnalogInputChannel_setSignalType(*args) -> "ErrorCode" :
-  return _bdaqctrl.AnalogInputChannel_setSignalType(*args)
-AnalogInputChannel_setSignalType = _bdaqctrl.AnalogInputChannel_setSignalType
-
-def AnalogInputChannel_getBurnoutRetType(*args) -> "BurnoutRetType" :
-  return _bdaqctrl.AnalogInputChannel_getBurnoutRetType(*args)
-AnalogInputChannel_getBurnoutRetType = _bdaqctrl.AnalogInputChannel_getBurnoutRetType
-
-def AnalogInputChannel_setBurnoutRetType(*args) -> "ErrorCode" :
-  return _bdaqctrl.AnalogInputChannel_setBurnoutRetType(*args)
-AnalogInputChannel_setBurnoutRetType = _bdaqctrl.AnalogInputChannel_setBurnoutRetType
-
-def AnalogInputChannel_getBurnoutRetValue(*args) -> "double" :
-  return _bdaqctrl.AnalogInputChannel_getBurnoutRetValue(*args)
-AnalogInputChannel_getBurnoutRetValue = _bdaqctrl.AnalogInputChannel_getBurnoutRetValue
-
-def AnalogInputChannel_setBurnoutRetValue(*args) -> "ErrorCode" :
-  return _bdaqctrl.AnalogInputChannel_setBurnoutRetValue(*args)
-AnalogInputChannel_setBurnoutRetValue = _bdaqctrl.AnalogInputChannel_setBurnoutRetValue
-
-def CjcSetting_getChannel(*args) -> "int32" :
-  return _bdaqctrl.CjcSetting_getChannel(*args)
-CjcSetting_getChannel = _bdaqctrl.CjcSetting_getChannel
-
-def CjcSetting_setChannel(*args) -> "ErrorCode" :
-  return _bdaqctrl.CjcSetting_setChannel(*args)
-CjcSetting_setChannel = _bdaqctrl.CjcSetting_setChannel
-
-def CjcSetting_getValue(*args) -> "double" :
-  return _bdaqctrl.CjcSetting_getValue(*args)
-CjcSetting_getValue = _bdaqctrl.CjcSetting_getValue
-
-def CjcSetting_setValue(*args) -> "ErrorCode" :
-  return _bdaqctrl.CjcSetting_setValue(*args)
-CjcSetting_setValue = _bdaqctrl.CjcSetting_setValue
-
-def ScanChannel_getChannelStart(*args) -> "int32" :
-  return _bdaqctrl.ScanChannel_getChannelStart(*args)
-ScanChannel_getChannelStart = _bdaqctrl.ScanChannel_getChannelStart
-
-def ScanChannel_setChannelStart(*args) -> "ErrorCode" :
-  return _bdaqctrl.ScanChannel_setChannelStart(*args)
-ScanChannel_setChannelStart = _bdaqctrl.ScanChannel_setChannelStart
-
-def ScanChannel_getChannelCount(*args) -> "int32" :
-  return _bdaqctrl.ScanChannel_getChannelCount(*args)
-ScanChannel_getChannelCount = _bdaqctrl.ScanChannel_getChannelCount
-
-def ScanChannel_setChannelCount(*args) -> "ErrorCode" :
-  return _bdaqctrl.ScanChannel_setChannelCount(*args)
-ScanChannel_setChannelCount = _bdaqctrl.ScanChannel_setChannelCount
-
-def ScanChannel_getSamples(*args) -> "int32" :
-  return _bdaqctrl.ScanChannel_getSamples(*args)
-ScanChannel_getSamples = _bdaqctrl.ScanChannel_getSamples
-
-def ScanChannel_setSamples(*args) -> "ErrorCode" :
-  return _bdaqctrl.ScanChannel_setSamples(*args)
-ScanChannel_setSamples = _bdaqctrl.ScanChannel_setSamples
-
-def ScanChannel_getIntervalCount(*args) -> "int32" :
-  return _bdaqctrl.ScanChannel_getIntervalCount(*args)
-ScanChannel_getIntervalCount = _bdaqctrl.ScanChannel_getIntervalCount
-
-def ScanChannel_setIntervalCount(*args) -> "ErrorCode" :
-  return _bdaqctrl.ScanChannel_setIntervalCount(*args)
-ScanChannel_setIntervalCount = _bdaqctrl.ScanChannel_setIntervalCount
-
-def ConvertClock_getSource(*args) -> "SignalDrop" :
-  return _bdaqctrl.ConvertClock_getSource(*args)
-ConvertClock_getSource = _bdaqctrl.ConvertClock_getSource
-
-def ConvertClock_setSource(*args) -> "ErrorCode" :
-  return _bdaqctrl.ConvertClock_setSource(*args)
-ConvertClock_setSource = _bdaqctrl.ConvertClock_setSource
-
-def ConvertClock_getRate(*args) -> "double" :
-  return _bdaqctrl.ConvertClock_getRate(*args)
-ConvertClock_getRate = _bdaqctrl.ConvertClock_getRate
-
-def ConvertClock_setRate(*args) -> "ErrorCode" :
-  return _bdaqctrl.ConvertClock_setRate(*args)
-ConvertClock_setRate = _bdaqctrl.ConvertClock_setRate
-
-def ScanClock_getSource(*args) -> "SignalDrop" :
-  return _bdaqctrl.ScanClock_getSource(*args)
-ScanClock_getSource = _bdaqctrl.ScanClock_getSource
-
-def ScanClock_setSource(*args) -> "ErrorCode" :
-  return _bdaqctrl.ScanClock_setSource(*args)
-ScanClock_setSource = _bdaqctrl.ScanClock_setSource
-
-def ScanClock_getRate(*args) -> "double" :
-  return _bdaqctrl.ScanClock_getRate(*args)
-ScanClock_getRate = _bdaqctrl.ScanClock_getRate
-
-def ScanClock_setRate(*args) -> "ErrorCode" :
-  return _bdaqctrl.ScanClock_setRate(*args)
-ScanClock_setRate = _bdaqctrl.ScanClock_setRate
-
-def ScanClock_getScanCount(*args) -> "int32" :
-  return _bdaqctrl.ScanClock_getScanCount(*args)
-ScanClock_getScanCount = _bdaqctrl.ScanClock_getScanCount
-
-def ScanClock_setScanCount(*args) -> "ErrorCode" :
-  return _bdaqctrl.ScanClock_setScanCount(*args)
-ScanClock_setScanCount = _bdaqctrl.ScanClock_setScanCount
-
-def Trigger_getSource(*args) -> "SignalDrop" :
-  return _bdaqctrl.Trigger_getSource(*args)
-Trigger_getSource = _bdaqctrl.Trigger_getSource
-
-def Trigger_setSource(*args) -> "ErrorCode" :
-  return _bdaqctrl.Trigger_setSource(*args)
-Trigger_setSource = _bdaqctrl.Trigger_setSource
-
-def Trigger_getEdge(*args) -> "ActiveSignal" :
-  return _bdaqctrl.Trigger_getEdge(*args)
-Trigger_getEdge = _bdaqctrl.Trigger_getEdge
-
-def Trigger_setEdge(*args) -> "ErrorCode" :
-  return _bdaqctrl.Trigger_setEdge(*args)
-Trigger_setEdge = _bdaqctrl.Trigger_setEdge
-
-def Trigger_getLevel(*args) -> "double" :
-  return _bdaqctrl.Trigger_getLevel(*args)
-Trigger_getLevel = _bdaqctrl.Trigger_getLevel
-
-def Trigger_setLevel(*args) -> "ErrorCode" :
-  return _bdaqctrl.Trigger_setLevel(*args)
-Trigger_setLevel = _bdaqctrl.Trigger_setLevel
-
-def Trigger_getAction(*args) -> "TriggerAction" :
-  return _bdaqctrl.Trigger_getAction(*args)
-Trigger_getAction = _bdaqctrl.Trigger_getAction
-
-def Trigger_setAction(*args) -> "ErrorCode" :
-  return _bdaqctrl.Trigger_setAction(*args)
-Trigger_setAction = _bdaqctrl.Trigger_setAction
-
-def Trigger_getDelayCount(*args) -> "int32" :
-  return _bdaqctrl.Trigger_getDelayCount(*args)
-Trigger_getDelayCount = _bdaqctrl.Trigger_getDelayCount
-
-def Trigger_setDelayCount(*args) -> "ErrorCode" :
-  return _bdaqctrl.Trigger_setDelayCount(*args)
-Trigger_setDelayCount = _bdaqctrl.Trigger_setDelayCount
-
-def PortDirection_getPort(*args) -> "int32" :
-  return _bdaqctrl.PortDirection_getPort(*args)
-PortDirection_getPort = _bdaqctrl.PortDirection_getPort
-
-def PortDirection_getDirection(*args) -> "DioPortDir" :
-  return _bdaqctrl.PortDirection_getDirection(*args)
-PortDirection_getDirection = _bdaqctrl.PortDirection_getDirection
-
-def PortDirection_setDirection(*args) -> "ErrorCode" :
-  return _bdaqctrl.PortDirection_setDirection(*args)
-PortDirection_setDirection = _bdaqctrl.PortDirection_setDirection
-
-def NoiseFilterChannel_getChannel(*args) -> "int32" :
-  return _bdaqctrl.NoiseFilterChannel_getChannel(*args)
-NoiseFilterChannel_getChannel = _bdaqctrl.NoiseFilterChannel_getChannel
-
-def NoiseFilterChannel_getEnabled(*args) -> "int8" :
-  return _bdaqctrl.NoiseFilterChannel_getEnabled(*args)
-NoiseFilterChannel_getEnabled = _bdaqctrl.NoiseFilterChannel_getEnabled
-
-def NoiseFilterChannel_setEnabled(*args) -> "ErrorCode" :
-  return _bdaqctrl.NoiseFilterChannel_setEnabled(*args)
-NoiseFilterChannel_setEnabled = _bdaqctrl.NoiseFilterChannel_setEnabled
-
-def DiintChannel_getChannel(*args) -> "int32" :
-  return _bdaqctrl.DiintChannel_getChannel(*args)
-DiintChannel_getChannel = _bdaqctrl.DiintChannel_getChannel
-
-def DiintChannel_getEnabled(*args) -> "int8" :
-  return _bdaqctrl.DiintChannel_getEnabled(*args)
-DiintChannel_getEnabled = _bdaqctrl.DiintChannel_getEnabled
-
-def DiintChannel_setEnabled(*args) -> "ErrorCode" :
-  return _bdaqctrl.DiintChannel_setEnabled(*args)
-DiintChannel_setEnabled = _bdaqctrl.DiintChannel_setEnabled
-
-def DiintChannel_getGated(*args) -> "int8" :
-  return _bdaqctrl.DiintChannel_getGated(*args)
-DiintChannel_getGated = _bdaqctrl.DiintChannel_getGated
-
-def DiintChannel_setGated(*args) -> "ErrorCode" :
-  return _bdaqctrl.DiintChannel_setGated(*args)
-DiintChannel_setGated = _bdaqctrl.DiintChannel_setGated
-
-def DiintChannel_getTrigEdge(*args) -> "ActiveSignal" :
-  return _bdaqctrl.DiintChannel_getTrigEdge(*args)
-DiintChannel_getTrigEdge = _bdaqctrl.DiintChannel_getTrigEdge
-
-def DiintChannel_setTrigEdge(*args) -> "ErrorCode" :
-  return _bdaqctrl.DiintChannel_setTrigEdge(*args)
-DiintChannel_setTrigEdge = _bdaqctrl.DiintChannel_setTrigEdge
-
-def DiCosintPort_getPort(*args) -> "int32" :
-  return _bdaqctrl.DiCosintPort_getPort(*args)
-DiCosintPort_getPort = _bdaqctrl.DiCosintPort_getPort
-
-def DiCosintPort_getMask(*args) -> "uint8" :
-  return _bdaqctrl.DiCosintPort_getMask(*args)
-DiCosintPort_getMask = _bdaqctrl.DiCosintPort_getMask
-
-def DiCosintPort_setMask(*args) -> "ErrorCode" :
-  return _bdaqctrl.DiCosintPort_setMask(*args)
-DiCosintPort_setMask = _bdaqctrl.DiCosintPort_setMask
-
-def DiPmintPort_getPort(*args) -> "int32" :
-  return _bdaqctrl.DiPmintPort_getPort(*args)
-DiPmintPort_getPort = _bdaqctrl.DiPmintPort_getPort
-
-def DiPmintPort_getMask(*args) -> "uint8" :
-  return _bdaqctrl.DiPmintPort_getMask(*args)
-DiPmintPort_getMask = _bdaqctrl.DiPmintPort_getMask
-
-def DiPmintPort_setMask(*args) -> "ErrorCode" :
-  return _bdaqctrl.DiPmintPort_setMask(*args)
-DiPmintPort_setMask = _bdaqctrl.DiPmintPort_setMask
-
-def DiPmintPort_getPattern(*args) -> "uint8" :
-  return _bdaqctrl.DiPmintPort_getPattern(*args)
-DiPmintPort_getPattern = _bdaqctrl.DiPmintPort_getPattern
-
-def DiPmintPort_setPattern(*args) -> "ErrorCode" :
-  return _bdaqctrl.DiPmintPort_setPattern(*args)
-DiPmintPort_setPattern = _bdaqctrl.DiPmintPort_setPattern
-
-def ScanPort_getPortStart(*args) -> "int32" :
-  return _bdaqctrl.ScanPort_getPortStart(*args)
-ScanPort_getPortStart = _bdaqctrl.ScanPort_getPortStart
-
-def ScanPort_setPortStart(*args) -> "ErrorCode" :
-  return _bdaqctrl.ScanPort_setPortStart(*args)
-ScanPort_setPortStart = _bdaqctrl.ScanPort_setPortStart
-
-def ScanPort_getPortCount(*args) -> "int32" :
-  return _bdaqctrl.ScanPort_getPortCount(*args)
-ScanPort_getPortCount = _bdaqctrl.ScanPort_getPortCount
-
-def ScanPort_setPortCount(*args) -> "ErrorCode" :
-  return _bdaqctrl.ScanPort_setPortCount(*args)
-ScanPort_setPortCount = _bdaqctrl.ScanPort_setPortCount
-
-def ScanPort_getSamples(*args) -> "int32" :
-  return _bdaqctrl.ScanPort_getSamples(*args)
-ScanPort_getSamples = _bdaqctrl.ScanPort_getSamples
-
-def ScanPort_setSamples(*args) -> "ErrorCode" :
-  return _bdaqctrl.ScanPort_setSamples(*args)
-ScanPort_setSamples = _bdaqctrl.ScanPort_setSamples
-
-def ScanPort_getIntervalCount(*args) -> "int32" :
-  return _bdaqctrl.ScanPort_getIntervalCount(*args)
-ScanPort_getIntervalCount = _bdaqctrl.ScanPort_getIntervalCount
-
-def ScanPort_setIntervalCount(*args) -> "ErrorCode" :
-  return _bdaqctrl.ScanPort_setIntervalCount(*args)
-ScanPort_setIntervalCount = _bdaqctrl.ScanPort_setIntervalCount
-
-def AiFeatures_getResolution(*args) -> "int32" :
-  return _bdaqctrl.AiFeatures_getResolution(*args)
-AiFeatures_getResolution = _bdaqctrl.AiFeatures_getResolution
-
-def AiFeatures_getDataSize(*args) -> "int32" :
-  return _bdaqctrl.AiFeatures_getDataSize(*args)
-AiFeatures_getDataSize = _bdaqctrl.AiFeatures_getDataSize
-
-def AiFeatures_getDataMask(*args) -> "int32" :
-  return _bdaqctrl.AiFeatures_getDataMask(*args)
-AiFeatures_getDataMask = _bdaqctrl.AiFeatures_getDataMask
-
-def AiFeatures_getChannelCountMax(*args) -> "int32" :
-  return _bdaqctrl.AiFeatures_getChannelCountMax(*args)
-AiFeatures_getChannelCountMax = _bdaqctrl.AiFeatures_getChannelCountMax
-
-def AiFeatures_getChannelType(*args) -> "AiChannelType" :
-  return _bdaqctrl.AiFeatures_getChannelType(*args)
-AiFeatures_getChannelType = _bdaqctrl.AiFeatures_getChannelType
-
-def AiFeatures_getOverallValueRange(*args) -> "int8" :
-  return _bdaqctrl.AiFeatures_getOverallValueRange(*args)
-AiFeatures_getOverallValueRange = _bdaqctrl.AiFeatures_getOverallValueRange
-
-def AiFeatures_getThermoSupported(*args) -> "int8" :
-  return _bdaqctrl.AiFeatures_getThermoSupported(*args)
-AiFeatures_getThermoSupported = _bdaqctrl.AiFeatures_getThermoSupported
-
-def AiFeatures_getValueRanges(*args) -> "ICollection *" :
-  return _bdaqctrl.AiFeatures_getValueRanges(*args)
-AiFeatures_getValueRanges = _bdaqctrl.AiFeatures_getValueRanges
-
-def AiFeatures_getBurnoutReturnTypes(*args) -> "ICollection *" :
-  return _bdaqctrl.AiFeatures_getBurnoutReturnTypes(*args)
-AiFeatures_getBurnoutReturnTypes = _bdaqctrl.AiFeatures_getBurnoutReturnTypes
-
-def AiFeatures_getCjcChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.AiFeatures_getCjcChannels(*args)
-AiFeatures_getCjcChannels = _bdaqctrl.AiFeatures_getCjcChannels
-
-def AiFeatures_getBufferedAiSupported(*args) -> "int8" :
-  return _bdaqctrl.AiFeatures_getBufferedAiSupported(*args)
-AiFeatures_getBufferedAiSupported = _bdaqctrl.AiFeatures_getBufferedAiSupported
-
-def AiFeatures_getSamplingMethod(*args) -> "SamplingMethod" :
-  return _bdaqctrl.AiFeatures_getSamplingMethod(*args)
-AiFeatures_getSamplingMethod = _bdaqctrl.AiFeatures_getSamplingMethod
-
-def AiFeatures_getChannelStartBase(*args) -> "int32" :
-  return _bdaqctrl.AiFeatures_getChannelStartBase(*args)
-AiFeatures_getChannelStartBase = _bdaqctrl.AiFeatures_getChannelStartBase
-
-def AiFeatures_getChannelCountBase(*args) -> "int32" :
-  return _bdaqctrl.AiFeatures_getChannelCountBase(*args)
-AiFeatures_getChannelCountBase = _bdaqctrl.AiFeatures_getChannelCountBase
-
-def AiFeatures_getConvertClockSources(*args) -> "ICollection *" :
-  return _bdaqctrl.AiFeatures_getConvertClockSources(*args)
-AiFeatures_getConvertClockSources = _bdaqctrl.AiFeatures_getConvertClockSources
-
-def AiFeatures_getConvertClockRange(*args) -> "void" :
-  return _bdaqctrl.AiFeatures_getConvertClockRange(*args)
-AiFeatures_getConvertClockRange = _bdaqctrl.AiFeatures_getConvertClockRange
-
-def AiFeatures_getBurstScanSupported(*args) -> "int8" :
-  return _bdaqctrl.AiFeatures_getBurstScanSupported(*args)
-AiFeatures_getBurstScanSupported = _bdaqctrl.AiFeatures_getBurstScanSupported
-
-def AiFeatures_getScanClockSources(*args) -> "ICollection *" :
-  return _bdaqctrl.AiFeatures_getScanClockSources(*args)
-AiFeatures_getScanClockSources = _bdaqctrl.AiFeatures_getScanClockSources
-
-def AiFeatures_getScanClockRange(*args) -> "void" :
-  return _bdaqctrl.AiFeatures_getScanClockRange(*args)
-AiFeatures_getScanClockRange = _bdaqctrl.AiFeatures_getScanClockRange
-
-def AiFeatures_getScanCountMax(*args) -> "int32" :
-  return _bdaqctrl.AiFeatures_getScanCountMax(*args)
-AiFeatures_getScanCountMax = _bdaqctrl.AiFeatures_getScanCountMax
-
-def AiFeatures_getTriggerSupported(*args) -> "int8" :
-  return _bdaqctrl.AiFeatures_getTriggerSupported(*args)
-AiFeatures_getTriggerSupported = _bdaqctrl.AiFeatures_getTriggerSupported
-
-def AiFeatures_getTriggerCount(*args) -> "int32" :
-  return _bdaqctrl.AiFeatures_getTriggerCount(*args)
-AiFeatures_getTriggerCount = _bdaqctrl.AiFeatures_getTriggerCount
-
-def AiFeatures_getTriggerSources(*args) -> "ICollection *" :
-  return _bdaqctrl.AiFeatures_getTriggerSources(*args)
-AiFeatures_getTriggerSources = _bdaqctrl.AiFeatures_getTriggerSources
-
-def AiFeatures_getTriggerActions(*args) -> "ICollection *" :
-  return _bdaqctrl.AiFeatures_getTriggerActions(*args)
-AiFeatures_getTriggerActions = _bdaqctrl.AiFeatures_getTriggerActions
-
-def AiFeatures_getTriggerDelayRange(*args) -> "void" :
-  return _bdaqctrl.AiFeatures_getTriggerDelayRange(*args)
-AiFeatures_getTriggerDelayRange = _bdaqctrl.AiFeatures_getTriggerDelayRange
-
-def AiFeatures_getTrigger1Supported(*args) -> "int8" :
-  return _bdaqctrl.AiFeatures_getTrigger1Supported(*args)
-AiFeatures_getTrigger1Supported = _bdaqctrl.AiFeatures_getTrigger1Supported
-
-def AiFeatures_getTrigger1Sources(*args) -> "ICollection *" :
-  return _bdaqctrl.AiFeatures_getTrigger1Sources(*args)
-AiFeatures_getTrigger1Sources = _bdaqctrl.AiFeatures_getTrigger1Sources
-
-def AiFeatures_getTrigger1Actions(*args) -> "ICollection *" :
-  return _bdaqctrl.AiFeatures_getTrigger1Actions(*args)
-AiFeatures_getTrigger1Actions = _bdaqctrl.AiFeatures_getTrigger1Actions
-
-def AiFeatures_getTrigger1DelayRange(*args) -> "void" :
-  return _bdaqctrl.AiFeatures_getTrigger1DelayRange(*args)
-AiFeatures_getTrigger1DelayRange = _bdaqctrl.AiFeatures_getTrigger1DelayRange
-
-def InstantAiCtrl_Dispose(*args) -> "void" :
-  return _bdaqctrl.InstantAiCtrl_Dispose(*args)
-InstantAiCtrl_Dispose = _bdaqctrl.InstantAiCtrl_Dispose
-
-def InstantAiCtrl_Cleanup(*args) -> "void" :
-  return _bdaqctrl.InstantAiCtrl_Cleanup(*args)
-InstantAiCtrl_Cleanup = _bdaqctrl.InstantAiCtrl_Cleanup
-
-def InstantAiCtrl_UpdateProperties(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantAiCtrl_UpdateProperties(*args)
-InstantAiCtrl_UpdateProperties = _bdaqctrl.InstantAiCtrl_UpdateProperties
-
-def InstantAiCtrl_addRemovedListener(*args) -> "void" :
-  return _bdaqctrl.InstantAiCtrl_addRemovedListener(*args)
-InstantAiCtrl_addRemovedListener = _bdaqctrl.InstantAiCtrl_addRemovedListener
-
-def InstantAiCtrl_removeRemovedListener(*args) -> "void" :
-  return _bdaqctrl.InstantAiCtrl_removeRemovedListener(*args)
-InstantAiCtrl_removeRemovedListener = _bdaqctrl.InstantAiCtrl_removeRemovedListener
-
-def InstantAiCtrl_addReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.InstantAiCtrl_addReconnectedListener(*args)
-InstantAiCtrl_addReconnectedListener = _bdaqctrl.InstantAiCtrl_addReconnectedListener
-
-def InstantAiCtrl_removeReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.InstantAiCtrl_removeReconnectedListener(*args)
-InstantAiCtrl_removeReconnectedListener = _bdaqctrl.InstantAiCtrl_removeReconnectedListener
-
-def InstantAiCtrl_addPropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.InstantAiCtrl_addPropertyChangedListener(*args)
-InstantAiCtrl_addPropertyChangedListener = _bdaqctrl.InstantAiCtrl_addPropertyChangedListener
-
-def InstantAiCtrl_removePropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.InstantAiCtrl_removePropertyChangedListener(*args)
-InstantAiCtrl_removePropertyChangedListener = _bdaqctrl.InstantAiCtrl_removePropertyChangedListener
-
-def InstantAiCtrl_getSelectedDevice(*args) -> "void" :
-  return _bdaqctrl.InstantAiCtrl_getSelectedDevice(*args)
-InstantAiCtrl_getSelectedDevice = _bdaqctrl.InstantAiCtrl_getSelectedDevice
-
-def InstantAiCtrl_setSelectedDevice(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantAiCtrl_setSelectedDevice(*args)
-InstantAiCtrl_setSelectedDevice = _bdaqctrl.InstantAiCtrl_setSelectedDevice
-
-def InstantAiCtrl_getInitialized(*args) -> "int8" :
-  return _bdaqctrl.InstantAiCtrl_getInitialized(*args)
-InstantAiCtrl_getInitialized = _bdaqctrl.InstantAiCtrl_getInitialized
-
-def InstantAiCtrl_getCanEditProperty(*args) -> "int8" :
-  return _bdaqctrl.InstantAiCtrl_getCanEditProperty(*args)
-InstantAiCtrl_getCanEditProperty = _bdaqctrl.InstantAiCtrl_getCanEditProperty
-
-def InstantAiCtrl_getDevice(*args) -> "HANDLE" :
-  return _bdaqctrl.InstantAiCtrl_getDevice(*args)
-InstantAiCtrl_getDevice = _bdaqctrl.InstantAiCtrl_getDevice
-
-def InstantAiCtrl_getModule(*args) -> "HANDLE" :
-  return _bdaqctrl.InstantAiCtrl_getModule(*args)
-InstantAiCtrl_getModule = _bdaqctrl.InstantAiCtrl_getModule
-
-def InstantAiCtrl_getSupportedDevices(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantAiCtrl_getSupportedDevices(*args)
-InstantAiCtrl_getSupportedDevices = _bdaqctrl.InstantAiCtrl_getSupportedDevices
-
-def InstantAiCtrl_getSupportedModes(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantAiCtrl_getSupportedModes(*args)
-InstantAiCtrl_getSupportedModes = _bdaqctrl.InstantAiCtrl_getSupportedModes
-
-def InstantAiCtrl_getFeatures(*args) -> "AiFeatures *" :
-  return _bdaqctrl.InstantAiCtrl_getFeatures(*args)
-InstantAiCtrl_getFeatures = _bdaqctrl.InstantAiCtrl_getFeatures
-
-def InstantAiCtrl_getChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantAiCtrl_getChannels(*args)
-InstantAiCtrl_getChannels = _bdaqctrl.InstantAiCtrl_getChannels
-
-def InstantAiCtrl_getChannelCount(*args) -> "int32" :
-  return _bdaqctrl.InstantAiCtrl_getChannelCount(*args)
-InstantAiCtrl_getChannelCount = _bdaqctrl.InstantAiCtrl_getChannelCount
-
-def InstantAiCtrl_ReadAny(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantAiCtrl_ReadAny(*args)
-InstantAiCtrl_ReadAny = _bdaqctrl.InstantAiCtrl_ReadAny
-
-def InstantAiCtrl_getCjc(*args) -> "CjcSetting *" :
-  return _bdaqctrl.InstantAiCtrl_getCjc(*args)
-InstantAiCtrl_getCjc = _bdaqctrl.InstantAiCtrl_getCjc
-
-def BufferedAiCtrl_Dispose(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_Dispose(*args)
-BufferedAiCtrl_Dispose = _bdaqctrl.BufferedAiCtrl_Dispose
-
-def BufferedAiCtrl_Cleanup(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_Cleanup(*args)
-BufferedAiCtrl_Cleanup = _bdaqctrl.BufferedAiCtrl_Cleanup
-
-def BufferedAiCtrl_UpdateProperties(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAiCtrl_UpdateProperties(*args)
-BufferedAiCtrl_UpdateProperties = _bdaqctrl.BufferedAiCtrl_UpdateProperties
-
-def BufferedAiCtrl_addRemovedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_addRemovedListener(*args)
-BufferedAiCtrl_addRemovedListener = _bdaqctrl.BufferedAiCtrl_addRemovedListener
-
-def BufferedAiCtrl_removeRemovedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_removeRemovedListener(*args)
-BufferedAiCtrl_removeRemovedListener = _bdaqctrl.BufferedAiCtrl_removeRemovedListener
-
-def BufferedAiCtrl_addReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_addReconnectedListener(*args)
-BufferedAiCtrl_addReconnectedListener = _bdaqctrl.BufferedAiCtrl_addReconnectedListener
-
-def BufferedAiCtrl_removeReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_removeReconnectedListener(*args)
-BufferedAiCtrl_removeReconnectedListener = _bdaqctrl.BufferedAiCtrl_removeReconnectedListener
-
-def BufferedAiCtrl_addPropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_addPropertyChangedListener(*args)
-BufferedAiCtrl_addPropertyChangedListener = _bdaqctrl.BufferedAiCtrl_addPropertyChangedListener
-
-def BufferedAiCtrl_removePropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_removePropertyChangedListener(*args)
-BufferedAiCtrl_removePropertyChangedListener = _bdaqctrl.BufferedAiCtrl_removePropertyChangedListener
-
-def BufferedAiCtrl_getSelectedDevice(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_getSelectedDevice(*args)
-BufferedAiCtrl_getSelectedDevice = _bdaqctrl.BufferedAiCtrl_getSelectedDevice
-
-def BufferedAiCtrl_setSelectedDevice(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAiCtrl_setSelectedDevice(*args)
-BufferedAiCtrl_setSelectedDevice = _bdaqctrl.BufferedAiCtrl_setSelectedDevice
-
-def BufferedAiCtrl_getInitialized(*args) -> "int8" :
-  return _bdaqctrl.BufferedAiCtrl_getInitialized(*args)
-BufferedAiCtrl_getInitialized = _bdaqctrl.BufferedAiCtrl_getInitialized
-
-def BufferedAiCtrl_getCanEditProperty(*args) -> "int8" :
-  return _bdaqctrl.BufferedAiCtrl_getCanEditProperty(*args)
-BufferedAiCtrl_getCanEditProperty = _bdaqctrl.BufferedAiCtrl_getCanEditProperty
-
-def BufferedAiCtrl_getDevice(*args) -> "HANDLE" :
-  return _bdaqctrl.BufferedAiCtrl_getDevice(*args)
-BufferedAiCtrl_getDevice = _bdaqctrl.BufferedAiCtrl_getDevice
-
-def BufferedAiCtrl_getModule(*args) -> "HANDLE" :
-  return _bdaqctrl.BufferedAiCtrl_getModule(*args)
-BufferedAiCtrl_getModule = _bdaqctrl.BufferedAiCtrl_getModule
-
-def BufferedAiCtrl_getSupportedDevices(*args) -> "ICollection *" :
-  return _bdaqctrl.BufferedAiCtrl_getSupportedDevices(*args)
-BufferedAiCtrl_getSupportedDevices = _bdaqctrl.BufferedAiCtrl_getSupportedDevices
-
-def BufferedAiCtrl_getSupportedModes(*args) -> "ICollection *" :
-  return _bdaqctrl.BufferedAiCtrl_getSupportedModes(*args)
-BufferedAiCtrl_getSupportedModes = _bdaqctrl.BufferedAiCtrl_getSupportedModes
-
-def BufferedAiCtrl_getFeatures(*args) -> "AiFeatures *" :
-  return _bdaqctrl.BufferedAiCtrl_getFeatures(*args)
-BufferedAiCtrl_getFeatures = _bdaqctrl.BufferedAiCtrl_getFeatures
-
-def BufferedAiCtrl_getChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.BufferedAiCtrl_getChannels(*args)
-BufferedAiCtrl_getChannels = _bdaqctrl.BufferedAiCtrl_getChannels
-
-def BufferedAiCtrl_getChannelCount(*args) -> "int32" :
-  return _bdaqctrl.BufferedAiCtrl_getChannelCount(*args)
-BufferedAiCtrl_getChannelCount = _bdaqctrl.BufferedAiCtrl_getChannelCount
-
-def BufferedAiCtrl_addDataReadyListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_addDataReadyListener(*args)
-BufferedAiCtrl_addDataReadyListener = _bdaqctrl.BufferedAiCtrl_addDataReadyListener
-
-def BufferedAiCtrl_removeDataReadyListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_removeDataReadyListener(*args)
-BufferedAiCtrl_removeDataReadyListener = _bdaqctrl.BufferedAiCtrl_removeDataReadyListener
-
-def BufferedAiCtrl_addOverrunListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_addOverrunListener(*args)
-BufferedAiCtrl_addOverrunListener = _bdaqctrl.BufferedAiCtrl_addOverrunListener
-
-def BufferedAiCtrl_removeOverrunListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_removeOverrunListener(*args)
-BufferedAiCtrl_removeOverrunListener = _bdaqctrl.BufferedAiCtrl_removeOverrunListener
-
-def BufferedAiCtrl_addCacheOverflowListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_addCacheOverflowListener(*args)
-BufferedAiCtrl_addCacheOverflowListener = _bdaqctrl.BufferedAiCtrl_addCacheOverflowListener
-
-def BufferedAiCtrl_removeCacheOverflowListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_removeCacheOverflowListener(*args)
-BufferedAiCtrl_removeCacheOverflowListener = _bdaqctrl.BufferedAiCtrl_removeCacheOverflowListener
-
-def BufferedAiCtrl_addStoppedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_addStoppedListener(*args)
-BufferedAiCtrl_addStoppedListener = _bdaqctrl.BufferedAiCtrl_addStoppedListener
-
-def BufferedAiCtrl_removeStoppedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_removeStoppedListener(*args)
-BufferedAiCtrl_removeStoppedListener = _bdaqctrl.BufferedAiCtrl_removeStoppedListener
-
-def BufferedAiCtrl_Prepare(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAiCtrl_Prepare(*args)
-BufferedAiCtrl_Prepare = _bdaqctrl.BufferedAiCtrl_Prepare
-
-def BufferedAiCtrl_RunOnce(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAiCtrl_RunOnce(*args)
-BufferedAiCtrl_RunOnce = _bdaqctrl.BufferedAiCtrl_RunOnce
-
-def BufferedAiCtrl_Start(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAiCtrl_Start(*args)
-BufferedAiCtrl_Start = _bdaqctrl.BufferedAiCtrl_Start
-
-def BufferedAiCtrl_Stop(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAiCtrl_Stop(*args)
-BufferedAiCtrl_Stop = _bdaqctrl.BufferedAiCtrl_Stop
-
-def BufferedAiCtrl_GetDataI16(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAiCtrl_GetDataI16(*args)
-BufferedAiCtrl_GetDataI16 = _bdaqctrl.BufferedAiCtrl_GetDataI16
-
-def BufferedAiCtrl_GetDataI32(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAiCtrl_GetDataI32(*args)
-BufferedAiCtrl_GetDataI32 = _bdaqctrl.BufferedAiCtrl_GetDataI32
-
-def BufferedAiCtrl_GetDataF64(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAiCtrl_GetDataF64(*args)
-BufferedAiCtrl_GetDataF64 = _bdaqctrl.BufferedAiCtrl_GetDataF64
-
-def BufferedAiCtrl_Release(*args) -> "void" :
-  return _bdaqctrl.BufferedAiCtrl_Release(*args)
-BufferedAiCtrl_Release = _bdaqctrl.BufferedAiCtrl_Release
-
-def BufferedAiCtrl_getBuffer(*args) -> "void *" :
-  return _bdaqctrl.BufferedAiCtrl_getBuffer(*args)
-BufferedAiCtrl_getBuffer = _bdaqctrl.BufferedAiCtrl_getBuffer
-
-def BufferedAiCtrl_getBufferCapacity(*args) -> "int32" :
-  return _bdaqctrl.BufferedAiCtrl_getBufferCapacity(*args)
-BufferedAiCtrl_getBufferCapacity = _bdaqctrl.BufferedAiCtrl_getBufferCapacity
-
-def BufferedAiCtrl_getState(*args) -> "ControlState" :
-  return _bdaqctrl.BufferedAiCtrl_getState(*args)
-BufferedAiCtrl_getState = _bdaqctrl.BufferedAiCtrl_getState
-
-def BufferedAiCtrl_getScanChannel(*args) -> "ScanChannel *" :
-  return _bdaqctrl.BufferedAiCtrl_getScanChannel(*args)
-BufferedAiCtrl_getScanChannel = _bdaqctrl.BufferedAiCtrl_getScanChannel
-
-def BufferedAiCtrl_getConvertClock(*args) -> "ConvertClock *" :
-  return _bdaqctrl.BufferedAiCtrl_getConvertClock(*args)
-BufferedAiCtrl_getConvertClock = _bdaqctrl.BufferedAiCtrl_getConvertClock
-
-def BufferedAiCtrl_getScanClock(*args) -> "ScanClock *" :
-  return _bdaqctrl.BufferedAiCtrl_getScanClock(*args)
-BufferedAiCtrl_getScanClock = _bdaqctrl.BufferedAiCtrl_getScanClock
-
-def BufferedAiCtrl_getTrigger(*args) -> "Trigger *" :
-  return _bdaqctrl.BufferedAiCtrl_getTrigger(*args)
-BufferedAiCtrl_getTrigger = _bdaqctrl.BufferedAiCtrl_getTrigger
-
-def BufferedAiCtrl_getStreaming(*args) -> "int8" :
-  return _bdaqctrl.BufferedAiCtrl_getStreaming(*args)
-BufferedAiCtrl_getStreaming = _bdaqctrl.BufferedAiCtrl_getStreaming
-
-def BufferedAiCtrl_setStreaming(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAiCtrl_setStreaming(*args)
-BufferedAiCtrl_setStreaming = _bdaqctrl.BufferedAiCtrl_setStreaming
-
-def BufferedAiCtrl_GetEventStatus(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAiCtrl_GetEventStatus(*args)
-BufferedAiCtrl_GetEventStatus = _bdaqctrl.BufferedAiCtrl_GetEventStatus
-
-def BufferedAiCtrl_getTrigger1(*args) -> "Trigger *" :
-  return _bdaqctrl.BufferedAiCtrl_getTrigger1(*args)
-BufferedAiCtrl_getTrigger1 = _bdaqctrl.BufferedAiCtrl_getTrigger1
-
-def AoFeatures_getResolution(*args) -> "int32" :
-  return _bdaqctrl.AoFeatures_getResolution(*args)
-AoFeatures_getResolution = _bdaqctrl.AoFeatures_getResolution
-
-def AoFeatures_getDataSize(*args) -> "int32" :
-  return _bdaqctrl.AoFeatures_getDataSize(*args)
-AoFeatures_getDataSize = _bdaqctrl.AoFeatures_getDataSize
-
-def AoFeatures_getDataMask(*args) -> "int32" :
-  return _bdaqctrl.AoFeatures_getDataMask(*args)
-AoFeatures_getDataMask = _bdaqctrl.AoFeatures_getDataMask
-
-def AoFeatures_getChannelCountMax(*args) -> "int32" :
-  return _bdaqctrl.AoFeatures_getChannelCountMax(*args)
-AoFeatures_getChannelCountMax = _bdaqctrl.AoFeatures_getChannelCountMax
-
-def AoFeatures_getValueRanges(*args) -> "ICollection *" :
-  return _bdaqctrl.AoFeatures_getValueRanges(*args)
-AoFeatures_getValueRanges = _bdaqctrl.AoFeatures_getValueRanges
-
-def AoFeatures_getExternalRefAntiPolar(*args) -> "int8" :
-  return _bdaqctrl.AoFeatures_getExternalRefAntiPolar(*args)
-AoFeatures_getExternalRefAntiPolar = _bdaqctrl.AoFeatures_getExternalRefAntiPolar
-
-def AoFeatures_getExternalRefRange(*args) -> "void" :
-  return _bdaqctrl.AoFeatures_getExternalRefRange(*args)
-AoFeatures_getExternalRefRange = _bdaqctrl.AoFeatures_getExternalRefRange
-
-def AoFeatures_getBufferedAoSupported(*args) -> "int8" :
-  return _bdaqctrl.AoFeatures_getBufferedAoSupported(*args)
-AoFeatures_getBufferedAoSupported = _bdaqctrl.AoFeatures_getBufferedAoSupported
-
-def AoFeatures_getSamplingMethod(*args) -> "SamplingMethod" :
-  return _bdaqctrl.AoFeatures_getSamplingMethod(*args)
-AoFeatures_getSamplingMethod = _bdaqctrl.AoFeatures_getSamplingMethod
-
-def AoFeatures_getChannelStartBase(*args) -> "int32" :
-  return _bdaqctrl.AoFeatures_getChannelStartBase(*args)
-AoFeatures_getChannelStartBase = _bdaqctrl.AoFeatures_getChannelStartBase
-
-def AoFeatures_getChannelCountBase(*args) -> "int32" :
-  return _bdaqctrl.AoFeatures_getChannelCountBase(*args)
-AoFeatures_getChannelCountBase = _bdaqctrl.AoFeatures_getChannelCountBase
-
-def AoFeatures_getConvertClockSources(*args) -> "ICollection *" :
-  return _bdaqctrl.AoFeatures_getConvertClockSources(*args)
-AoFeatures_getConvertClockSources = _bdaqctrl.AoFeatures_getConvertClockSources
-
-def AoFeatures_getConvertClockRange(*args) -> "void" :
-  return _bdaqctrl.AoFeatures_getConvertClockRange(*args)
-AoFeatures_getConvertClockRange = _bdaqctrl.AoFeatures_getConvertClockRange
-
-def AoFeatures_getTriggerSupported(*args) -> "int8" :
-  return _bdaqctrl.AoFeatures_getTriggerSupported(*args)
-AoFeatures_getTriggerSupported = _bdaqctrl.AoFeatures_getTriggerSupported
-
-def AoFeatures_getTriggerCount(*args) -> "int32" :
-  return _bdaqctrl.AoFeatures_getTriggerCount(*args)
-AoFeatures_getTriggerCount = _bdaqctrl.AoFeatures_getTriggerCount
-
-def AoFeatures_getTriggerSources(*args) -> "ICollection *" :
-  return _bdaqctrl.AoFeatures_getTriggerSources(*args)
-AoFeatures_getTriggerSources = _bdaqctrl.AoFeatures_getTriggerSources
-
-def AoFeatures_getTriggerActions(*args) -> "ICollection *" :
-  return _bdaqctrl.AoFeatures_getTriggerActions(*args)
-AoFeatures_getTriggerActions = _bdaqctrl.AoFeatures_getTriggerActions
-
-def AoFeatures_getTriggerDelayRange(*args) -> "void" :
-  return _bdaqctrl.AoFeatures_getTriggerDelayRange(*args)
-AoFeatures_getTriggerDelayRange = _bdaqctrl.AoFeatures_getTriggerDelayRange
-
-def AoFeatures_getTrigger1Supported(*args) -> "int8" :
-  return _bdaqctrl.AoFeatures_getTrigger1Supported(*args)
-AoFeatures_getTrigger1Supported = _bdaqctrl.AoFeatures_getTrigger1Supported
-
-def AoFeatures_getTrigger1Sources(*args) -> "ICollection *" :
-  return _bdaqctrl.AoFeatures_getTrigger1Sources(*args)
-AoFeatures_getTrigger1Sources = _bdaqctrl.AoFeatures_getTrigger1Sources
-
-def AoFeatures_getTrigger1Actions(*args) -> "ICollection *" :
-  return _bdaqctrl.AoFeatures_getTrigger1Actions(*args)
-AoFeatures_getTrigger1Actions = _bdaqctrl.AoFeatures_getTrigger1Actions
-
-def AoFeatures_getTrigger1DelayRange(*args) -> "MathInterval" :
-  return _bdaqctrl.AoFeatures_getTrigger1DelayRange(*args)
-AoFeatures_getTrigger1DelayRange = _bdaqctrl.AoFeatures_getTrigger1DelayRange
-
-def InstantAoCtrl_Dispose(*args) -> "void" :
-  return _bdaqctrl.InstantAoCtrl_Dispose(*args)
-InstantAoCtrl_Dispose = _bdaqctrl.InstantAoCtrl_Dispose
-
-def InstantAoCtrl_Cleanup(*args) -> "void" :
-  return _bdaqctrl.InstantAoCtrl_Cleanup(*args)
-InstantAoCtrl_Cleanup = _bdaqctrl.InstantAoCtrl_Cleanup
-
-def InstantAoCtrl_UpdateProperties(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantAoCtrl_UpdateProperties(*args)
-InstantAoCtrl_UpdateProperties = _bdaqctrl.InstantAoCtrl_UpdateProperties
-
-def InstantAoCtrl_addRemovedListener(*args) -> "void" :
-  return _bdaqctrl.InstantAoCtrl_addRemovedListener(*args)
-InstantAoCtrl_addRemovedListener = _bdaqctrl.InstantAoCtrl_addRemovedListener
-
-def InstantAoCtrl_removeRemovedListener(*args) -> "void" :
-  return _bdaqctrl.InstantAoCtrl_removeRemovedListener(*args)
-InstantAoCtrl_removeRemovedListener = _bdaqctrl.InstantAoCtrl_removeRemovedListener
-
-def InstantAoCtrl_addReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.InstantAoCtrl_addReconnectedListener(*args)
-InstantAoCtrl_addReconnectedListener = _bdaqctrl.InstantAoCtrl_addReconnectedListener
-
-def InstantAoCtrl_removeReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.InstantAoCtrl_removeReconnectedListener(*args)
-InstantAoCtrl_removeReconnectedListener = _bdaqctrl.InstantAoCtrl_removeReconnectedListener
-
-def InstantAoCtrl_addPropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.InstantAoCtrl_addPropertyChangedListener(*args)
-InstantAoCtrl_addPropertyChangedListener = _bdaqctrl.InstantAoCtrl_addPropertyChangedListener
-
-def InstantAoCtrl_removePropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.InstantAoCtrl_removePropertyChangedListener(*args)
-InstantAoCtrl_removePropertyChangedListener = _bdaqctrl.InstantAoCtrl_removePropertyChangedListener
-
-def InstantAoCtrl_getSelectedDevice(*args) -> "void" :
-  return _bdaqctrl.InstantAoCtrl_getSelectedDevice(*args)
-InstantAoCtrl_getSelectedDevice = _bdaqctrl.InstantAoCtrl_getSelectedDevice
-
-def InstantAoCtrl_setSelectedDevice(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantAoCtrl_setSelectedDevice(*args)
-InstantAoCtrl_setSelectedDevice = _bdaqctrl.InstantAoCtrl_setSelectedDevice
-
-def InstantAoCtrl_getInitialized(*args) -> "int8" :
-  return _bdaqctrl.InstantAoCtrl_getInitialized(*args)
-InstantAoCtrl_getInitialized = _bdaqctrl.InstantAoCtrl_getInitialized
-
-def InstantAoCtrl_getCanEditProperty(*args) -> "int8" :
-  return _bdaqctrl.InstantAoCtrl_getCanEditProperty(*args)
-InstantAoCtrl_getCanEditProperty = _bdaqctrl.InstantAoCtrl_getCanEditProperty
-
-def InstantAoCtrl_getDevice(*args) -> "HANDLE" :
-  return _bdaqctrl.InstantAoCtrl_getDevice(*args)
-InstantAoCtrl_getDevice = _bdaqctrl.InstantAoCtrl_getDevice
-
-def InstantAoCtrl_getModule(*args) -> "HANDLE" :
-  return _bdaqctrl.InstantAoCtrl_getModule(*args)
-InstantAoCtrl_getModule = _bdaqctrl.InstantAoCtrl_getModule
-
-def InstantAoCtrl_getSupportedDevices(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantAoCtrl_getSupportedDevices(*args)
-InstantAoCtrl_getSupportedDevices = _bdaqctrl.InstantAoCtrl_getSupportedDevices
-
-def InstantAoCtrl_getSupportedModes(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantAoCtrl_getSupportedModes(*args)
-InstantAoCtrl_getSupportedModes = _bdaqctrl.InstantAoCtrl_getSupportedModes
-
-def InstantAoCtrl_getFeatures(*args) -> "AoFeatures *" :
-  return _bdaqctrl.InstantAoCtrl_getFeatures(*args)
-InstantAoCtrl_getFeatures = _bdaqctrl.InstantAoCtrl_getFeatures
-
-def InstantAoCtrl_getChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantAoCtrl_getChannels(*args)
-InstantAoCtrl_getChannels = _bdaqctrl.InstantAoCtrl_getChannels
-
-def InstantAoCtrl_getChannelCount(*args) -> "int32" :
-  return _bdaqctrl.InstantAoCtrl_getChannelCount(*args)
-InstantAoCtrl_getChannelCount = _bdaqctrl.InstantAoCtrl_getChannelCount
-
-def InstantAoCtrl_getExtRefValueForUnipolar(*args) -> "double" :
-  return _bdaqctrl.InstantAoCtrl_getExtRefValueForUnipolar(*args)
-InstantAoCtrl_getExtRefValueForUnipolar = _bdaqctrl.InstantAoCtrl_getExtRefValueForUnipolar
-
-def InstantAoCtrl_setExtRefValueForUnipolar(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantAoCtrl_setExtRefValueForUnipolar(*args)
-InstantAoCtrl_setExtRefValueForUnipolar = _bdaqctrl.InstantAoCtrl_setExtRefValueForUnipolar
-
-def InstantAoCtrl_getExtRefValueForBipolar(*args) -> "double" :
-  return _bdaqctrl.InstantAoCtrl_getExtRefValueForBipolar(*args)
-InstantAoCtrl_getExtRefValueForBipolar = _bdaqctrl.InstantAoCtrl_getExtRefValueForBipolar
-
-def InstantAoCtrl_setExtRefValueForBipolar(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantAoCtrl_setExtRefValueForBipolar(*args)
-InstantAoCtrl_setExtRefValueForBipolar = _bdaqctrl.InstantAoCtrl_setExtRefValueForBipolar
-
-def InstantAoCtrl_WriteAny(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantAoCtrl_WriteAny(*args)
-InstantAoCtrl_WriteAny = _bdaqctrl.InstantAoCtrl_WriteAny
-
-def BufferedAoCtrl_Dispose(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_Dispose(*args)
-BufferedAoCtrl_Dispose = _bdaqctrl.BufferedAoCtrl_Dispose
-
-def BufferedAoCtrl_Cleanup(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_Cleanup(*args)
-BufferedAoCtrl_Cleanup = _bdaqctrl.BufferedAoCtrl_Cleanup
-
-def BufferedAoCtrl_UpdateProperties(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAoCtrl_UpdateProperties(*args)
-BufferedAoCtrl_UpdateProperties = _bdaqctrl.BufferedAoCtrl_UpdateProperties
-
-def BufferedAoCtrl_addRemovedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_addRemovedListener(*args)
-BufferedAoCtrl_addRemovedListener = _bdaqctrl.BufferedAoCtrl_addRemovedListener
-
-def BufferedAoCtrl_removeRemovedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_removeRemovedListener(*args)
-BufferedAoCtrl_removeRemovedListener = _bdaqctrl.BufferedAoCtrl_removeRemovedListener
-
-def BufferedAoCtrl_addReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_addReconnectedListener(*args)
-BufferedAoCtrl_addReconnectedListener = _bdaqctrl.BufferedAoCtrl_addReconnectedListener
-
-def BufferedAoCtrl_removeReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_removeReconnectedListener(*args)
-BufferedAoCtrl_removeReconnectedListener = _bdaqctrl.BufferedAoCtrl_removeReconnectedListener
-
-def BufferedAoCtrl_addPropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_addPropertyChangedListener(*args)
-BufferedAoCtrl_addPropertyChangedListener = _bdaqctrl.BufferedAoCtrl_addPropertyChangedListener
-
-def BufferedAoCtrl_removePropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_removePropertyChangedListener(*args)
-BufferedAoCtrl_removePropertyChangedListener = _bdaqctrl.BufferedAoCtrl_removePropertyChangedListener
-
-def BufferedAoCtrl_getSelectedDevice(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_getSelectedDevice(*args)
-BufferedAoCtrl_getSelectedDevice = _bdaqctrl.BufferedAoCtrl_getSelectedDevice
-
-def BufferedAoCtrl_setSelectedDevice(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAoCtrl_setSelectedDevice(*args)
-BufferedAoCtrl_setSelectedDevice = _bdaqctrl.BufferedAoCtrl_setSelectedDevice
-
-def BufferedAoCtrl_getInitialized(*args) -> "int8" :
-  return _bdaqctrl.BufferedAoCtrl_getInitialized(*args)
-BufferedAoCtrl_getInitialized = _bdaqctrl.BufferedAoCtrl_getInitialized
-
-def BufferedAoCtrl_getCanEditProperty(*args) -> "int8" :
-  return _bdaqctrl.BufferedAoCtrl_getCanEditProperty(*args)
-BufferedAoCtrl_getCanEditProperty = _bdaqctrl.BufferedAoCtrl_getCanEditProperty
-
-def BufferedAoCtrl_getDevice(*args) -> "HANDLE" :
-  return _bdaqctrl.BufferedAoCtrl_getDevice(*args)
-BufferedAoCtrl_getDevice = _bdaqctrl.BufferedAoCtrl_getDevice
-
-def BufferedAoCtrl_getModule(*args) -> "HANDLE" :
-  return _bdaqctrl.BufferedAoCtrl_getModule(*args)
-BufferedAoCtrl_getModule = _bdaqctrl.BufferedAoCtrl_getModule
-
-def BufferedAoCtrl_getSupportedDevices(*args) -> "ICollection *" :
-  return _bdaqctrl.BufferedAoCtrl_getSupportedDevices(*args)
-BufferedAoCtrl_getSupportedDevices = _bdaqctrl.BufferedAoCtrl_getSupportedDevices
-
-def BufferedAoCtrl_getSupportedModes(*args) -> "ICollection *" :
-  return _bdaqctrl.BufferedAoCtrl_getSupportedModes(*args)
-BufferedAoCtrl_getSupportedModes = _bdaqctrl.BufferedAoCtrl_getSupportedModes
-
-def BufferedAoCtrl_getFeatures(*args) -> "AoFeatures *" :
-  return _bdaqctrl.BufferedAoCtrl_getFeatures(*args)
-BufferedAoCtrl_getFeatures = _bdaqctrl.BufferedAoCtrl_getFeatures
-
-def BufferedAoCtrl_getChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.BufferedAoCtrl_getChannels(*args)
-BufferedAoCtrl_getChannels = _bdaqctrl.BufferedAoCtrl_getChannels
-
-def BufferedAoCtrl_getChannelCount(*args) -> "int32" :
-  return _bdaqctrl.BufferedAoCtrl_getChannelCount(*args)
-BufferedAoCtrl_getChannelCount = _bdaqctrl.BufferedAoCtrl_getChannelCount
-
-def BufferedAoCtrl_getExtRefValueForUnipolar(*args) -> "double" :
-  return _bdaqctrl.BufferedAoCtrl_getExtRefValueForUnipolar(*args)
-BufferedAoCtrl_getExtRefValueForUnipolar = _bdaqctrl.BufferedAoCtrl_getExtRefValueForUnipolar
-
-def BufferedAoCtrl_setExtRefValueForUnipolar(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAoCtrl_setExtRefValueForUnipolar(*args)
-BufferedAoCtrl_setExtRefValueForUnipolar = _bdaqctrl.BufferedAoCtrl_setExtRefValueForUnipolar
-
-def BufferedAoCtrl_getExtRefValueForBipolar(*args) -> "double" :
-  return _bdaqctrl.BufferedAoCtrl_getExtRefValueForBipolar(*args)
-BufferedAoCtrl_getExtRefValueForBipolar = _bdaqctrl.BufferedAoCtrl_getExtRefValueForBipolar
-
-def BufferedAoCtrl_setExtRefValueForBipolar(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAoCtrl_setExtRefValueForBipolar(*args)
-BufferedAoCtrl_setExtRefValueForBipolar = _bdaqctrl.BufferedAoCtrl_setExtRefValueForBipolar
-
-def BufferedAoCtrl_addDataTransmittedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_addDataTransmittedListener(*args)
-BufferedAoCtrl_addDataTransmittedListener = _bdaqctrl.BufferedAoCtrl_addDataTransmittedListener
-
-def BufferedAoCtrl_removeDataTransmittedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_removeDataTransmittedListener(*args)
-BufferedAoCtrl_removeDataTransmittedListener = _bdaqctrl.BufferedAoCtrl_removeDataTransmittedListener
-
-def BufferedAoCtrl_addUnderrunListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_addUnderrunListener(*args)
-BufferedAoCtrl_addUnderrunListener = _bdaqctrl.BufferedAoCtrl_addUnderrunListener
-
-def BufferedAoCtrl_removeUnderrunListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_removeUnderrunListener(*args)
-BufferedAoCtrl_removeUnderrunListener = _bdaqctrl.BufferedAoCtrl_removeUnderrunListener
-
-def BufferedAoCtrl_addCacheEmptiedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_addCacheEmptiedListener(*args)
-BufferedAoCtrl_addCacheEmptiedListener = _bdaqctrl.BufferedAoCtrl_addCacheEmptiedListener
-
-def BufferedAoCtrl_removeCacheEmptiedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_removeCacheEmptiedListener(*args)
-BufferedAoCtrl_removeCacheEmptiedListener = _bdaqctrl.BufferedAoCtrl_removeCacheEmptiedListener
-
-def BufferedAoCtrl_addTransitStoppedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_addTransitStoppedListener(*args)
-BufferedAoCtrl_addTransitStoppedListener = _bdaqctrl.BufferedAoCtrl_addTransitStoppedListener
-
-def BufferedAoCtrl_removeTransitStoppedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_removeTransitStoppedListener(*args)
-BufferedAoCtrl_removeTransitStoppedListener = _bdaqctrl.BufferedAoCtrl_removeTransitStoppedListener
-
-def BufferedAoCtrl_addStoppedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_addStoppedListener(*args)
-BufferedAoCtrl_addStoppedListener = _bdaqctrl.BufferedAoCtrl_addStoppedListener
-
-def BufferedAoCtrl_removeStoppedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_removeStoppedListener(*args)
-BufferedAoCtrl_removeStoppedListener = _bdaqctrl.BufferedAoCtrl_removeStoppedListener
-
-def BufferedAoCtrl_Prepare(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAoCtrl_Prepare(*args)
-BufferedAoCtrl_Prepare = _bdaqctrl.BufferedAoCtrl_Prepare
-
-def BufferedAoCtrl_RunOnce(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAoCtrl_RunOnce(*args)
-BufferedAoCtrl_RunOnce = _bdaqctrl.BufferedAoCtrl_RunOnce
-
-def BufferedAoCtrl_Start(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAoCtrl_Start(*args)
-BufferedAoCtrl_Start = _bdaqctrl.BufferedAoCtrl_Start
-
-def BufferedAoCtrl_Stop(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAoCtrl_Stop(*args)
-BufferedAoCtrl_Stop = _bdaqctrl.BufferedAoCtrl_Stop
-
-def BufferedAoCtrl_SetDataI16(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAoCtrl_SetDataI16(*args)
-BufferedAoCtrl_SetDataI16 = _bdaqctrl.BufferedAoCtrl_SetDataI16
-
-def BufferedAoCtrl_SetDataI32(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAoCtrl_SetDataI32(*args)
-BufferedAoCtrl_SetDataI32 = _bdaqctrl.BufferedAoCtrl_SetDataI32
-
-def BufferedAoCtrl_SetDataF64(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAoCtrl_SetDataF64(*args)
-BufferedAoCtrl_SetDataF64 = _bdaqctrl.BufferedAoCtrl_SetDataF64
-
-def BufferedAoCtrl_Release(*args) -> "void" :
-  return _bdaqctrl.BufferedAoCtrl_Release(*args)
-BufferedAoCtrl_Release = _bdaqctrl.BufferedAoCtrl_Release
-
-def BufferedAoCtrl_getBuffer(*args) -> "void *" :
-  return _bdaqctrl.BufferedAoCtrl_getBuffer(*args)
-BufferedAoCtrl_getBuffer = _bdaqctrl.BufferedAoCtrl_getBuffer
-
-def BufferedAoCtrl_getBufferCapacity(*args) -> "int32" :
-  return _bdaqctrl.BufferedAoCtrl_getBufferCapacity(*args)
-BufferedAoCtrl_getBufferCapacity = _bdaqctrl.BufferedAoCtrl_getBufferCapacity
-
-def BufferedAoCtrl_getState(*args) -> "ControlState" :
-  return _bdaqctrl.BufferedAoCtrl_getState(*args)
-BufferedAoCtrl_getState = _bdaqctrl.BufferedAoCtrl_getState
-
-def BufferedAoCtrl_getScanChannel(*args) -> "ScanChannel *" :
-  return _bdaqctrl.BufferedAoCtrl_getScanChannel(*args)
-BufferedAoCtrl_getScanChannel = _bdaqctrl.BufferedAoCtrl_getScanChannel
-
-def BufferedAoCtrl_getConvertClock(*args) -> "ConvertClock *" :
-  return _bdaqctrl.BufferedAoCtrl_getConvertClock(*args)
-BufferedAoCtrl_getConvertClock = _bdaqctrl.BufferedAoCtrl_getConvertClock
-
-def BufferedAoCtrl_getTrigger(*args) -> "Trigger *" :
-  return _bdaqctrl.BufferedAoCtrl_getTrigger(*args)
-BufferedAoCtrl_getTrigger = _bdaqctrl.BufferedAoCtrl_getTrigger
-
-def BufferedAoCtrl_getStreaming(*args) -> "int8" :
-  return _bdaqctrl.BufferedAoCtrl_getStreaming(*args)
-BufferedAoCtrl_getStreaming = _bdaqctrl.BufferedAoCtrl_getStreaming
-
-def BufferedAoCtrl_setStreaming(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedAoCtrl_setStreaming(*args)
-BufferedAoCtrl_setStreaming = _bdaqctrl.BufferedAoCtrl_setStreaming
-
-def BufferedAoCtrl_getTrigger1(*args) -> "Trigger *" :
-  return _bdaqctrl.BufferedAoCtrl_getTrigger1(*args)
-BufferedAoCtrl_getTrigger1 = _bdaqctrl.BufferedAoCtrl_getTrigger1
-
-def DiFeatures_getPortProgrammable(*args) -> "int8" :
-  return _bdaqctrl.DiFeatures_getPortProgrammable(*args)
-DiFeatures_getPortProgrammable = _bdaqctrl.DiFeatures_getPortProgrammable
-
-def DiFeatures_getPortCount(*args) -> "int32" :
-  return _bdaqctrl.DiFeatures_getPortCount(*args)
-DiFeatures_getPortCount = _bdaqctrl.DiFeatures_getPortCount
-
-def DiFeatures_getPortsType(*args) -> "ICollection *" :
-  return _bdaqctrl.DiFeatures_getPortsType(*args)
-DiFeatures_getPortsType = _bdaqctrl.DiFeatures_getPortsType
-
-def DiFeatures_getDiSupported(*args) -> "int8" :
-  return _bdaqctrl.DiFeatures_getDiSupported(*args)
-DiFeatures_getDiSupported = _bdaqctrl.DiFeatures_getDiSupported
-
-def DiFeatures_getDoSupported(*args) -> "int8" :
-  return _bdaqctrl.DiFeatures_getDoSupported(*args)
-DiFeatures_getDoSupported = _bdaqctrl.DiFeatures_getDoSupported
-
-def DiFeatures_getChannelCountMax(*args) -> "int32" :
-  return _bdaqctrl.DiFeatures_getChannelCountMax(*args)
-DiFeatures_getChannelCountMax = _bdaqctrl.DiFeatures_getChannelCountMax
-
-def DiFeatures_getDataMask(*args) -> "ICollection *" :
-  return _bdaqctrl.DiFeatures_getDataMask(*args)
-DiFeatures_getDataMask = _bdaqctrl.DiFeatures_getDataMask
-
-def DiFeatures_getNoiseFilterSupported(*args) -> "int8" :
-  return _bdaqctrl.DiFeatures_getNoiseFilterSupported(*args)
-DiFeatures_getNoiseFilterSupported = _bdaqctrl.DiFeatures_getNoiseFilterSupported
-
-def DiFeatures_getNoiseFilterOfChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.DiFeatures_getNoiseFilterOfChannels(*args)
-DiFeatures_getNoiseFilterOfChannels = _bdaqctrl.DiFeatures_getNoiseFilterOfChannels
-
-def DiFeatures_getNoiseFilterBlockTimeRange(*args) -> "void" :
-  return _bdaqctrl.DiFeatures_getNoiseFilterBlockTimeRange(*args)
-DiFeatures_getNoiseFilterBlockTimeRange = _bdaqctrl.DiFeatures_getNoiseFilterBlockTimeRange
-
-def DiFeatures_getDiintSupported(*args) -> "int8" :
-  return _bdaqctrl.DiFeatures_getDiintSupported(*args)
-DiFeatures_getDiintSupported = _bdaqctrl.DiFeatures_getDiintSupported
-
-def DiFeatures_getDiintGateSupported(*args) -> "int8" :
-  return _bdaqctrl.DiFeatures_getDiintGateSupported(*args)
-DiFeatures_getDiintGateSupported = _bdaqctrl.DiFeatures_getDiintGateSupported
-
-def DiFeatures_getDiCosintSupported(*args) -> "int8" :
-  return _bdaqctrl.DiFeatures_getDiCosintSupported(*args)
-DiFeatures_getDiCosintSupported = _bdaqctrl.DiFeatures_getDiCosintSupported
-
-def DiFeatures_getDiPmintSupported(*args) -> "int8" :
-  return _bdaqctrl.DiFeatures_getDiPmintSupported(*args)
-DiFeatures_getDiPmintSupported = _bdaqctrl.DiFeatures_getDiPmintSupported
-
-def DiFeatures_getDiintTriggerEdges(*args) -> "ICollection *" :
-  return _bdaqctrl.DiFeatures_getDiintTriggerEdges(*args)
-DiFeatures_getDiintTriggerEdges = _bdaqctrl.DiFeatures_getDiintTriggerEdges
-
-def DiFeatures_getDiintOfChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.DiFeatures_getDiintOfChannels(*args)
-DiFeatures_getDiintOfChannels = _bdaqctrl.DiFeatures_getDiintOfChannels
-
-def DiFeatures_getDiintGateOfChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.DiFeatures_getDiintGateOfChannels(*args)
-DiFeatures_getDiintGateOfChannels = _bdaqctrl.DiFeatures_getDiintGateOfChannels
-
-def DiFeatures_getDiCosintOfPorts(*args) -> "ICollection *" :
-  return _bdaqctrl.DiFeatures_getDiCosintOfPorts(*args)
-DiFeatures_getDiCosintOfPorts = _bdaqctrl.DiFeatures_getDiCosintOfPorts
-
-def DiFeatures_getDiPmintOfPorts(*args) -> "ICollection *" :
-  return _bdaqctrl.DiFeatures_getDiPmintOfPorts(*args)
-DiFeatures_getDiPmintOfPorts = _bdaqctrl.DiFeatures_getDiPmintOfPorts
-
-def DiFeatures_getSnapEventSources(*args) -> "ICollection *" :
-  return _bdaqctrl.DiFeatures_getSnapEventSources(*args)
-DiFeatures_getSnapEventSources = _bdaqctrl.DiFeatures_getSnapEventSources
-
-def DiFeatures_getBufferedDiSupported(*args) -> "int8" :
-  return _bdaqctrl.DiFeatures_getBufferedDiSupported(*args)
-DiFeatures_getBufferedDiSupported = _bdaqctrl.DiFeatures_getBufferedDiSupported
-
-def DiFeatures_getSamplingMethod(*args) -> "SamplingMethod" :
-  return _bdaqctrl.DiFeatures_getSamplingMethod(*args)
-DiFeatures_getSamplingMethod = _bdaqctrl.DiFeatures_getSamplingMethod
-
-def DiFeatures_getConvertClockSources(*args) -> "ICollection *" :
-  return _bdaqctrl.DiFeatures_getConvertClockSources(*args)
-DiFeatures_getConvertClockSources = _bdaqctrl.DiFeatures_getConvertClockSources
-
-def DiFeatures_getConvertClockRange(*args) -> "void" :
-  return _bdaqctrl.DiFeatures_getConvertClockRange(*args)
-DiFeatures_getConvertClockRange = _bdaqctrl.DiFeatures_getConvertClockRange
-
-def DiFeatures_getBurstScanSupported(*args) -> "int8" :
-  return _bdaqctrl.DiFeatures_getBurstScanSupported(*args)
-DiFeatures_getBurstScanSupported = _bdaqctrl.DiFeatures_getBurstScanSupported
-
-def DiFeatures_getScanClockSources(*args) -> "ICollection *" :
-  return _bdaqctrl.DiFeatures_getScanClockSources(*args)
-DiFeatures_getScanClockSources = _bdaqctrl.DiFeatures_getScanClockSources
-
-def DiFeatures_getScanClockRange(*args) -> "void" :
-  return _bdaqctrl.DiFeatures_getScanClockRange(*args)
-DiFeatures_getScanClockRange = _bdaqctrl.DiFeatures_getScanClockRange
-
-def DiFeatures_getScanCountMax(*args) -> "int32" :
-  return _bdaqctrl.DiFeatures_getScanCountMax(*args)
-DiFeatures_getScanCountMax = _bdaqctrl.DiFeatures_getScanCountMax
-
-def DiFeatures_getTriggerSupported(*args) -> "int8" :
-  return _bdaqctrl.DiFeatures_getTriggerSupported(*args)
-DiFeatures_getTriggerSupported = _bdaqctrl.DiFeatures_getTriggerSupported
-
-def DiFeatures_getTriggerCount(*args) -> "int32" :
-  return _bdaqctrl.DiFeatures_getTriggerCount(*args)
-DiFeatures_getTriggerCount = _bdaqctrl.DiFeatures_getTriggerCount
-
-def DiFeatures_getTriggerSources(*args) -> "ICollection *" :
-  return _bdaqctrl.DiFeatures_getTriggerSources(*args)
-DiFeatures_getTriggerSources = _bdaqctrl.DiFeatures_getTriggerSources
-
-def DiFeatures_getTriggerActions(*args) -> "ICollection *" :
-  return _bdaqctrl.DiFeatures_getTriggerActions(*args)
-DiFeatures_getTriggerActions = _bdaqctrl.DiFeatures_getTriggerActions
-
-def DiFeatures_getTriggerDelayRange(*args) -> "void" :
-  return _bdaqctrl.DiFeatures_getTriggerDelayRange(*args)
-DiFeatures_getTriggerDelayRange = _bdaqctrl.DiFeatures_getTriggerDelayRange
-
-def InstantDiCtrl_Dispose(*args) -> "void" :
-  return _bdaqctrl.InstantDiCtrl_Dispose(*args)
-InstantDiCtrl_Dispose = _bdaqctrl.InstantDiCtrl_Dispose
-
-def InstantDiCtrl_Cleanup(*args) -> "void" :
-  return _bdaqctrl.InstantDiCtrl_Cleanup(*args)
-InstantDiCtrl_Cleanup = _bdaqctrl.InstantDiCtrl_Cleanup
-
-def InstantDiCtrl_UpdateProperties(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantDiCtrl_UpdateProperties(*args)
-InstantDiCtrl_UpdateProperties = _bdaqctrl.InstantDiCtrl_UpdateProperties
-
-def InstantDiCtrl_addRemovedListener(*args) -> "void" :
-  return _bdaqctrl.InstantDiCtrl_addRemovedListener(*args)
-InstantDiCtrl_addRemovedListener = _bdaqctrl.InstantDiCtrl_addRemovedListener
-
-def InstantDiCtrl_removeRemovedListener(*args) -> "void" :
-  return _bdaqctrl.InstantDiCtrl_removeRemovedListener(*args)
-InstantDiCtrl_removeRemovedListener = _bdaqctrl.InstantDiCtrl_removeRemovedListener
-
-def InstantDiCtrl_addReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.InstantDiCtrl_addReconnectedListener(*args)
-InstantDiCtrl_addReconnectedListener = _bdaqctrl.InstantDiCtrl_addReconnectedListener
-
-def InstantDiCtrl_removeReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.InstantDiCtrl_removeReconnectedListener(*args)
-InstantDiCtrl_removeReconnectedListener = _bdaqctrl.InstantDiCtrl_removeReconnectedListener
-
-def InstantDiCtrl_addPropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.InstantDiCtrl_addPropertyChangedListener(*args)
-InstantDiCtrl_addPropertyChangedListener = _bdaqctrl.InstantDiCtrl_addPropertyChangedListener
-
-def InstantDiCtrl_removePropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.InstantDiCtrl_removePropertyChangedListener(*args)
-InstantDiCtrl_removePropertyChangedListener = _bdaqctrl.InstantDiCtrl_removePropertyChangedListener
-
-def InstantDiCtrl_getSelectedDevice(*args) -> "void" :
-  return _bdaqctrl.InstantDiCtrl_getSelectedDevice(*args)
-InstantDiCtrl_getSelectedDevice = _bdaqctrl.InstantDiCtrl_getSelectedDevice
-
-def InstantDiCtrl_setSelectedDevice(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantDiCtrl_setSelectedDevice(*args)
-InstantDiCtrl_setSelectedDevice = _bdaqctrl.InstantDiCtrl_setSelectedDevice
-
-def InstantDiCtrl_getInitialized(*args) -> "int8" :
-  return _bdaqctrl.InstantDiCtrl_getInitialized(*args)
-InstantDiCtrl_getInitialized = _bdaqctrl.InstantDiCtrl_getInitialized
-
-def InstantDiCtrl_getCanEditProperty(*args) -> "int8" :
-  return _bdaqctrl.InstantDiCtrl_getCanEditProperty(*args)
-InstantDiCtrl_getCanEditProperty = _bdaqctrl.InstantDiCtrl_getCanEditProperty
-
-def InstantDiCtrl_getDevice(*args) -> "HANDLE" :
-  return _bdaqctrl.InstantDiCtrl_getDevice(*args)
-InstantDiCtrl_getDevice = _bdaqctrl.InstantDiCtrl_getDevice
-
-def InstantDiCtrl_getModule(*args) -> "HANDLE" :
-  return _bdaqctrl.InstantDiCtrl_getModule(*args)
-InstantDiCtrl_getModule = _bdaqctrl.InstantDiCtrl_getModule
-
-def InstantDiCtrl_getSupportedDevices(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantDiCtrl_getSupportedDevices(*args)
-InstantDiCtrl_getSupportedDevices = _bdaqctrl.InstantDiCtrl_getSupportedDevices
-
-def InstantDiCtrl_getSupportedModes(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantDiCtrl_getSupportedModes(*args)
-InstantDiCtrl_getSupportedModes = _bdaqctrl.InstantDiCtrl_getSupportedModes
-
-def InstantDiCtrl_getPortCount(*args) -> "int32" :
-  return _bdaqctrl.InstantDiCtrl_getPortCount(*args)
-InstantDiCtrl_getPortCount = _bdaqctrl.InstantDiCtrl_getPortCount
-
-def InstantDiCtrl_getPortDirection(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantDiCtrl_getPortDirection(*args)
-InstantDiCtrl_getPortDirection = _bdaqctrl.InstantDiCtrl_getPortDirection
-
-def InstantDiCtrl_getFeatures(*args) -> "DiFeatures *" :
-  return _bdaqctrl.InstantDiCtrl_getFeatures(*args)
-InstantDiCtrl_getFeatures = _bdaqctrl.InstantDiCtrl_getFeatures
-
-def InstantDiCtrl_getNoiseFilter(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantDiCtrl_getNoiseFilter(*args)
-InstantDiCtrl_getNoiseFilter = _bdaqctrl.InstantDiCtrl_getNoiseFilter
-
-def InstantDiCtrl_addInterruptListener(*args) -> "void" :
-  return _bdaqctrl.InstantDiCtrl_addInterruptListener(*args)
-InstantDiCtrl_addInterruptListener = _bdaqctrl.InstantDiCtrl_addInterruptListener
-
-def InstantDiCtrl_removeInterruptListener(*args) -> "void" :
-  return _bdaqctrl.InstantDiCtrl_removeInterruptListener(*args)
-InstantDiCtrl_removeInterruptListener = _bdaqctrl.InstantDiCtrl_removeInterruptListener
-
-def InstantDiCtrl_addChangeOfStateListener(*args) -> "void" :
-  return _bdaqctrl.InstantDiCtrl_addChangeOfStateListener(*args)
-InstantDiCtrl_addChangeOfStateListener = _bdaqctrl.InstantDiCtrl_addChangeOfStateListener
-
-def InstantDiCtrl_removeChangeOfStateListener(*args) -> "void" :
-  return _bdaqctrl.InstantDiCtrl_removeChangeOfStateListener(*args)
-InstantDiCtrl_removeChangeOfStateListener = _bdaqctrl.InstantDiCtrl_removeChangeOfStateListener
-
-def InstantDiCtrl_addPatternMatchListener(*args) -> "void" :
-  return _bdaqctrl.InstantDiCtrl_addPatternMatchListener(*args)
-InstantDiCtrl_addPatternMatchListener = _bdaqctrl.InstantDiCtrl_addPatternMatchListener
-
-def InstantDiCtrl_removePatternMatchListener(*args) -> "void" :
-  return _bdaqctrl.InstantDiCtrl_removePatternMatchListener(*args)
-InstantDiCtrl_removePatternMatchListener = _bdaqctrl.InstantDiCtrl_removePatternMatchListener
-
-def InstantDiCtrl_ReadAny(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantDiCtrl_ReadAny(*args)
-InstantDiCtrl_ReadAny = _bdaqctrl.InstantDiCtrl_ReadAny
-
-def InstantDiCtrl_SnapStart(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantDiCtrl_SnapStart(*args)
-InstantDiCtrl_SnapStart = _bdaqctrl.InstantDiCtrl_SnapStart
-
-def InstantDiCtrl_SnapStop(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantDiCtrl_SnapStop(*args)
-InstantDiCtrl_SnapStop = _bdaqctrl.InstantDiCtrl_SnapStop
-
-def InstantDiCtrl_getDiintChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantDiCtrl_getDiintChannels(*args)
-InstantDiCtrl_getDiintChannels = _bdaqctrl.InstantDiCtrl_getDiintChannels
-
-def InstantDiCtrl_getDiCosintPorts(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantDiCtrl_getDiCosintPorts(*args)
-InstantDiCtrl_getDiCosintPorts = _bdaqctrl.InstantDiCtrl_getDiCosintPorts
-
-def InstantDiCtrl_getDiPmintPorts(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantDiCtrl_getDiPmintPorts(*args)
-InstantDiCtrl_getDiPmintPorts = _bdaqctrl.InstantDiCtrl_getDiPmintPorts
-
-def BufferedDiCtrl_Dispose(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_Dispose(*args)
-BufferedDiCtrl_Dispose = _bdaqctrl.BufferedDiCtrl_Dispose
-
-def BufferedDiCtrl_Cleanup(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_Cleanup(*args)
-BufferedDiCtrl_Cleanup = _bdaqctrl.BufferedDiCtrl_Cleanup
-
-def BufferedDiCtrl_UpdateProperties(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDiCtrl_UpdateProperties(*args)
-BufferedDiCtrl_UpdateProperties = _bdaqctrl.BufferedDiCtrl_UpdateProperties
-
-def BufferedDiCtrl_addRemovedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_addRemovedListener(*args)
-BufferedDiCtrl_addRemovedListener = _bdaqctrl.BufferedDiCtrl_addRemovedListener
-
-def BufferedDiCtrl_removeRemovedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_removeRemovedListener(*args)
-BufferedDiCtrl_removeRemovedListener = _bdaqctrl.BufferedDiCtrl_removeRemovedListener
-
-def BufferedDiCtrl_addReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_addReconnectedListener(*args)
-BufferedDiCtrl_addReconnectedListener = _bdaqctrl.BufferedDiCtrl_addReconnectedListener
-
-def BufferedDiCtrl_removeReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_removeReconnectedListener(*args)
-BufferedDiCtrl_removeReconnectedListener = _bdaqctrl.BufferedDiCtrl_removeReconnectedListener
-
-def BufferedDiCtrl_addPropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_addPropertyChangedListener(*args)
-BufferedDiCtrl_addPropertyChangedListener = _bdaqctrl.BufferedDiCtrl_addPropertyChangedListener
-
-def BufferedDiCtrl_removePropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_removePropertyChangedListener(*args)
-BufferedDiCtrl_removePropertyChangedListener = _bdaqctrl.BufferedDiCtrl_removePropertyChangedListener
-
-def BufferedDiCtrl_getSelectedDevice(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_getSelectedDevice(*args)
-BufferedDiCtrl_getSelectedDevice = _bdaqctrl.BufferedDiCtrl_getSelectedDevice
-
-def BufferedDiCtrl_setSelectedDevice(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDiCtrl_setSelectedDevice(*args)
-BufferedDiCtrl_setSelectedDevice = _bdaqctrl.BufferedDiCtrl_setSelectedDevice
-
-def BufferedDiCtrl_getInitialized(*args) -> "int8" :
-  return _bdaqctrl.BufferedDiCtrl_getInitialized(*args)
-BufferedDiCtrl_getInitialized = _bdaqctrl.BufferedDiCtrl_getInitialized
-
-def BufferedDiCtrl_getCanEditProperty(*args) -> "int8" :
-  return _bdaqctrl.BufferedDiCtrl_getCanEditProperty(*args)
-BufferedDiCtrl_getCanEditProperty = _bdaqctrl.BufferedDiCtrl_getCanEditProperty
-
-def BufferedDiCtrl_getDevice(*args) -> "HANDLE" :
-  return _bdaqctrl.BufferedDiCtrl_getDevice(*args)
-BufferedDiCtrl_getDevice = _bdaqctrl.BufferedDiCtrl_getDevice
-
-def BufferedDiCtrl_getModule(*args) -> "HANDLE" :
-  return _bdaqctrl.BufferedDiCtrl_getModule(*args)
-BufferedDiCtrl_getModule = _bdaqctrl.BufferedDiCtrl_getModule
-
-def BufferedDiCtrl_getSupportedDevices(*args) -> "ICollection *" :
-  return _bdaqctrl.BufferedDiCtrl_getSupportedDevices(*args)
-BufferedDiCtrl_getSupportedDevices = _bdaqctrl.BufferedDiCtrl_getSupportedDevices
-
-def BufferedDiCtrl_getSupportedModes(*args) -> "ICollection *" :
-  return _bdaqctrl.BufferedDiCtrl_getSupportedModes(*args)
-BufferedDiCtrl_getSupportedModes = _bdaqctrl.BufferedDiCtrl_getSupportedModes
-
-def BufferedDiCtrl_getPortCount(*args) -> "int32" :
-  return _bdaqctrl.BufferedDiCtrl_getPortCount(*args)
-BufferedDiCtrl_getPortCount = _bdaqctrl.BufferedDiCtrl_getPortCount
-
-def BufferedDiCtrl_getPortDirection(*args) -> "ICollection *" :
-  return _bdaqctrl.BufferedDiCtrl_getPortDirection(*args)
-BufferedDiCtrl_getPortDirection = _bdaqctrl.BufferedDiCtrl_getPortDirection
-
-def BufferedDiCtrl_getFeatures(*args) -> "DiFeatures *" :
-  return _bdaqctrl.BufferedDiCtrl_getFeatures(*args)
-BufferedDiCtrl_getFeatures = _bdaqctrl.BufferedDiCtrl_getFeatures
-
-def BufferedDiCtrl_getNoiseFilter(*args) -> "ICollection *" :
-  return _bdaqctrl.BufferedDiCtrl_getNoiseFilter(*args)
-BufferedDiCtrl_getNoiseFilter = _bdaqctrl.BufferedDiCtrl_getNoiseFilter
-
-def BufferedDiCtrl_addDataReadyListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_addDataReadyListener(*args)
-BufferedDiCtrl_addDataReadyListener = _bdaqctrl.BufferedDiCtrl_addDataReadyListener
-
-def BufferedDiCtrl_removeDataReadyListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_removeDataReadyListener(*args)
-BufferedDiCtrl_removeDataReadyListener = _bdaqctrl.BufferedDiCtrl_removeDataReadyListener
-
-def BufferedDiCtrl_addOverrunListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_addOverrunListener(*args)
-BufferedDiCtrl_addOverrunListener = _bdaqctrl.BufferedDiCtrl_addOverrunListener
-
-def BufferedDiCtrl_removeOverrunListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_removeOverrunListener(*args)
-BufferedDiCtrl_removeOverrunListener = _bdaqctrl.BufferedDiCtrl_removeOverrunListener
-
-def BufferedDiCtrl_addCacheOverflowListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_addCacheOverflowListener(*args)
-BufferedDiCtrl_addCacheOverflowListener = _bdaqctrl.BufferedDiCtrl_addCacheOverflowListener
-
-def BufferedDiCtrl_removeCacheOverflowListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_removeCacheOverflowListener(*args)
-BufferedDiCtrl_removeCacheOverflowListener = _bdaqctrl.BufferedDiCtrl_removeCacheOverflowListener
-
-def BufferedDiCtrl_addStoppedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_addStoppedListener(*args)
-BufferedDiCtrl_addStoppedListener = _bdaqctrl.BufferedDiCtrl_addStoppedListener
-
-def BufferedDiCtrl_removeStoppedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_removeStoppedListener(*args)
-BufferedDiCtrl_removeStoppedListener = _bdaqctrl.BufferedDiCtrl_removeStoppedListener
-
-def BufferedDiCtrl_Prepare(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDiCtrl_Prepare(*args)
-BufferedDiCtrl_Prepare = _bdaqctrl.BufferedDiCtrl_Prepare
-
-def BufferedDiCtrl_RunOnce(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDiCtrl_RunOnce(*args)
-BufferedDiCtrl_RunOnce = _bdaqctrl.BufferedDiCtrl_RunOnce
-
-def BufferedDiCtrl_Start(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDiCtrl_Start(*args)
-BufferedDiCtrl_Start = _bdaqctrl.BufferedDiCtrl_Start
-
-def BufferedDiCtrl_Stop(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDiCtrl_Stop(*args)
-BufferedDiCtrl_Stop = _bdaqctrl.BufferedDiCtrl_Stop
-
-def BufferedDiCtrl_GetData(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDiCtrl_GetData(*args)
-BufferedDiCtrl_GetData = _bdaqctrl.BufferedDiCtrl_GetData
-
-def BufferedDiCtrl_Release(*args) -> "void" :
-  return _bdaqctrl.BufferedDiCtrl_Release(*args)
-BufferedDiCtrl_Release = _bdaqctrl.BufferedDiCtrl_Release
-
-def BufferedDiCtrl_getBuffer(*args) -> "void *" :
-  return _bdaqctrl.BufferedDiCtrl_getBuffer(*args)
-BufferedDiCtrl_getBuffer = _bdaqctrl.BufferedDiCtrl_getBuffer
-
-def BufferedDiCtrl_getBufferCapacity(*args) -> "int32" :
-  return _bdaqctrl.BufferedDiCtrl_getBufferCapacity(*args)
-BufferedDiCtrl_getBufferCapacity = _bdaqctrl.BufferedDiCtrl_getBufferCapacity
-
-def BufferedDiCtrl_getState(*args) -> "ControlState" :
-  return _bdaqctrl.BufferedDiCtrl_getState(*args)
-BufferedDiCtrl_getState = _bdaqctrl.BufferedDiCtrl_getState
-
-def BufferedDiCtrl_getScanPort(*args) -> "ScanPort *" :
-  return _bdaqctrl.BufferedDiCtrl_getScanPort(*args)
-BufferedDiCtrl_getScanPort = _bdaqctrl.BufferedDiCtrl_getScanPort
-
-def BufferedDiCtrl_getConvertClock(*args) -> "ConvertClock *" :
-  return _bdaqctrl.BufferedDiCtrl_getConvertClock(*args)
-BufferedDiCtrl_getConvertClock = _bdaqctrl.BufferedDiCtrl_getConvertClock
-
-def BufferedDiCtrl_getScanClock(*args) -> "ScanClock *" :
-  return _bdaqctrl.BufferedDiCtrl_getScanClock(*args)
-BufferedDiCtrl_getScanClock = _bdaqctrl.BufferedDiCtrl_getScanClock
-
-def BufferedDiCtrl_getTrigger(*args) -> "Trigger *" :
-  return _bdaqctrl.BufferedDiCtrl_getTrigger(*args)
-BufferedDiCtrl_getTrigger = _bdaqctrl.BufferedDiCtrl_getTrigger
-
-def BufferedDiCtrl_getStreaming(*args) -> "int8" :
-  return _bdaqctrl.BufferedDiCtrl_getStreaming(*args)
-BufferedDiCtrl_getStreaming = _bdaqctrl.BufferedDiCtrl_getStreaming
-
-def BufferedDiCtrl_setStreaming(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDiCtrl_setStreaming(*args)
-BufferedDiCtrl_setStreaming = _bdaqctrl.BufferedDiCtrl_setStreaming
-
-def DoFeatures_getPortProgrammable(*args) -> "int8" :
-  return _bdaqctrl.DoFeatures_getPortProgrammable(*args)
-DoFeatures_getPortProgrammable = _bdaqctrl.DoFeatures_getPortProgrammable
-
-def DoFeatures_getPortCount(*args) -> "int32" :
-  return _bdaqctrl.DoFeatures_getPortCount(*args)
-DoFeatures_getPortCount = _bdaqctrl.DoFeatures_getPortCount
-
-def DoFeatures_getPortsType(*args) -> "ICollection *" :
-  return _bdaqctrl.DoFeatures_getPortsType(*args)
-DoFeatures_getPortsType = _bdaqctrl.DoFeatures_getPortsType
-
-def DoFeatures_getDiSupported(*args) -> "int8" :
-  return _bdaqctrl.DoFeatures_getDiSupported(*args)
-DoFeatures_getDiSupported = _bdaqctrl.DoFeatures_getDiSupported
-
-def DoFeatures_getDoSupported(*args) -> "int8" :
-  return _bdaqctrl.DoFeatures_getDoSupported(*args)
-DoFeatures_getDoSupported = _bdaqctrl.DoFeatures_getDoSupported
-
-def DoFeatures_getChannelCountMax(*args) -> "int32" :
-  return _bdaqctrl.DoFeatures_getChannelCountMax(*args)
-DoFeatures_getChannelCountMax = _bdaqctrl.DoFeatures_getChannelCountMax
-
-def DoFeatures_getDataMask(*args) -> "ICollection *" :
-  return _bdaqctrl.DoFeatures_getDataMask(*args)
-DoFeatures_getDataMask = _bdaqctrl.DoFeatures_getDataMask
-
-def DoFeatures_getDoFreezeSignalSources(*args) -> "ICollection *" :
-  return _bdaqctrl.DoFeatures_getDoFreezeSignalSources(*args)
-DoFeatures_getDoFreezeSignalSources = _bdaqctrl.DoFeatures_getDoFreezeSignalSources
-
-def DoFeatures_getDoReflectWdtFeedIntervalRange(*args) -> "void" :
-  return _bdaqctrl.DoFeatures_getDoReflectWdtFeedIntervalRange(*args)
-DoFeatures_getDoReflectWdtFeedIntervalRange = _bdaqctrl.DoFeatures_getDoReflectWdtFeedIntervalRange
-
-def DoFeatures_getBufferedDoSupported(*args) -> "int8" :
-  return _bdaqctrl.DoFeatures_getBufferedDoSupported(*args)
-DoFeatures_getBufferedDoSupported = _bdaqctrl.DoFeatures_getBufferedDoSupported
-
-def DoFeatures_getSamplingMethod(*args) -> "SamplingMethod" :
-  return _bdaqctrl.DoFeatures_getSamplingMethod(*args)
-DoFeatures_getSamplingMethod = _bdaqctrl.DoFeatures_getSamplingMethod
-
-def DoFeatures_getConvertClockSources(*args) -> "ICollection *" :
-  return _bdaqctrl.DoFeatures_getConvertClockSources(*args)
-DoFeatures_getConvertClockSources = _bdaqctrl.DoFeatures_getConvertClockSources
-
-def DoFeatures_getConvertClockRange(*args) -> "void" :
-  return _bdaqctrl.DoFeatures_getConvertClockRange(*args)
-DoFeatures_getConvertClockRange = _bdaqctrl.DoFeatures_getConvertClockRange
-
-def DoFeatures_getBurstScanSupported(*args) -> "int8" :
-  return _bdaqctrl.DoFeatures_getBurstScanSupported(*args)
-DoFeatures_getBurstScanSupported = _bdaqctrl.DoFeatures_getBurstScanSupported
-
-def DoFeatures_getScanClockSources(*args) -> "ICollection *" :
-  return _bdaqctrl.DoFeatures_getScanClockSources(*args)
-DoFeatures_getScanClockSources = _bdaqctrl.DoFeatures_getScanClockSources
-
-def DoFeatures_getScanClockRange(*args) -> "void" :
-  return _bdaqctrl.DoFeatures_getScanClockRange(*args)
-DoFeatures_getScanClockRange = _bdaqctrl.DoFeatures_getScanClockRange
-
-def DoFeatures_getScanCountMax(*args) -> "int32" :
-  return _bdaqctrl.DoFeatures_getScanCountMax(*args)
-DoFeatures_getScanCountMax = _bdaqctrl.DoFeatures_getScanCountMax
-
-def DoFeatures_getTriggerSupported(*args) -> "int8" :
-  return _bdaqctrl.DoFeatures_getTriggerSupported(*args)
-DoFeatures_getTriggerSupported = _bdaqctrl.DoFeatures_getTriggerSupported
-
-def DoFeatures_getTriggerCount(*args) -> "int32" :
-  return _bdaqctrl.DoFeatures_getTriggerCount(*args)
-DoFeatures_getTriggerCount = _bdaqctrl.DoFeatures_getTriggerCount
-
-def DoFeatures_getTriggerSources(*args) -> "ICollection *" :
-  return _bdaqctrl.DoFeatures_getTriggerSources(*args)
-DoFeatures_getTriggerSources = _bdaqctrl.DoFeatures_getTriggerSources
-
-def DoFeatures_getTriggerActions(*args) -> "ICollection *" :
-  return _bdaqctrl.DoFeatures_getTriggerActions(*args)
-DoFeatures_getTriggerActions = _bdaqctrl.DoFeatures_getTriggerActions
-
-def DoFeatures_getTriggerDelayRange(*args) -> "void" :
-  return _bdaqctrl.DoFeatures_getTriggerDelayRange(*args)
-DoFeatures_getTriggerDelayRange = _bdaqctrl.DoFeatures_getTriggerDelayRange
-
-def InstantDoCtrl_Dispose(*args) -> "void" :
-  return _bdaqctrl.InstantDoCtrl_Dispose(*args)
-InstantDoCtrl_Dispose = _bdaqctrl.InstantDoCtrl_Dispose
-
-def InstantDoCtrl_Cleanup(*args) -> "void" :
-  return _bdaqctrl.InstantDoCtrl_Cleanup(*args)
-InstantDoCtrl_Cleanup = _bdaqctrl.InstantDoCtrl_Cleanup
-
-def InstantDoCtrl_UpdateProperties(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantDoCtrl_UpdateProperties(*args)
-InstantDoCtrl_UpdateProperties = _bdaqctrl.InstantDoCtrl_UpdateProperties
-
-def InstantDoCtrl_addRemovedListener(*args) -> "void" :
-  return _bdaqctrl.InstantDoCtrl_addRemovedListener(*args)
-InstantDoCtrl_addRemovedListener = _bdaqctrl.InstantDoCtrl_addRemovedListener
-
-def InstantDoCtrl_removeRemovedListener(*args) -> "void" :
-  return _bdaqctrl.InstantDoCtrl_removeRemovedListener(*args)
-InstantDoCtrl_removeRemovedListener = _bdaqctrl.InstantDoCtrl_removeRemovedListener
-
-def InstantDoCtrl_addReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.InstantDoCtrl_addReconnectedListener(*args)
-InstantDoCtrl_addReconnectedListener = _bdaqctrl.InstantDoCtrl_addReconnectedListener
-
-def InstantDoCtrl_removeReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.InstantDoCtrl_removeReconnectedListener(*args)
-InstantDoCtrl_removeReconnectedListener = _bdaqctrl.InstantDoCtrl_removeReconnectedListener
-
-def InstantDoCtrl_addPropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.InstantDoCtrl_addPropertyChangedListener(*args)
-InstantDoCtrl_addPropertyChangedListener = _bdaqctrl.InstantDoCtrl_addPropertyChangedListener
-
-def InstantDoCtrl_removePropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.InstantDoCtrl_removePropertyChangedListener(*args)
-InstantDoCtrl_removePropertyChangedListener = _bdaqctrl.InstantDoCtrl_removePropertyChangedListener
-
-def InstantDoCtrl_getSelectedDevice(*args) -> "void" :
-  return _bdaqctrl.InstantDoCtrl_getSelectedDevice(*args)
-InstantDoCtrl_getSelectedDevice = _bdaqctrl.InstantDoCtrl_getSelectedDevice
-
-def InstantDoCtrl_setSelectedDevice(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantDoCtrl_setSelectedDevice(*args)
-InstantDoCtrl_setSelectedDevice = _bdaqctrl.InstantDoCtrl_setSelectedDevice
-
-def InstantDoCtrl_getInitialized(*args) -> "int8" :
-  return _bdaqctrl.InstantDoCtrl_getInitialized(*args)
-InstantDoCtrl_getInitialized = _bdaqctrl.InstantDoCtrl_getInitialized
-
-def InstantDoCtrl_getCanEditProperty(*args) -> "int8" :
-  return _bdaqctrl.InstantDoCtrl_getCanEditProperty(*args)
-InstantDoCtrl_getCanEditProperty = _bdaqctrl.InstantDoCtrl_getCanEditProperty
-
-def InstantDoCtrl_getDevice(*args) -> "HANDLE" :
-  return _bdaqctrl.InstantDoCtrl_getDevice(*args)
-InstantDoCtrl_getDevice = _bdaqctrl.InstantDoCtrl_getDevice
-
-def InstantDoCtrl_getModule(*args) -> "HANDLE" :
-  return _bdaqctrl.InstantDoCtrl_getModule(*args)
-InstantDoCtrl_getModule = _bdaqctrl.InstantDoCtrl_getModule
-
-def InstantDoCtrl_getSupportedDevices(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantDoCtrl_getSupportedDevices(*args)
-InstantDoCtrl_getSupportedDevices = _bdaqctrl.InstantDoCtrl_getSupportedDevices
-
-def InstantDoCtrl_getSupportedModes(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantDoCtrl_getSupportedModes(*args)
-InstantDoCtrl_getSupportedModes = _bdaqctrl.InstantDoCtrl_getSupportedModes
-
-def InstantDoCtrl_getPortCount(*args) -> "int32" :
-  return _bdaqctrl.InstantDoCtrl_getPortCount(*args)
-InstantDoCtrl_getPortCount = _bdaqctrl.InstantDoCtrl_getPortCount
-
-def InstantDoCtrl_getPortDirection(*args) -> "ICollection *" :
-  return _bdaqctrl.InstantDoCtrl_getPortDirection(*args)
-InstantDoCtrl_getPortDirection = _bdaqctrl.InstantDoCtrl_getPortDirection
-
-def InstantDoCtrl_getFeatures(*args) -> "DoFeatures *" :
-  return _bdaqctrl.InstantDoCtrl_getFeatures(*args)
-InstantDoCtrl_getFeatures = _bdaqctrl.InstantDoCtrl_getFeatures
-
-def InstantDoCtrl_WriteAny(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantDoCtrl_WriteAny(*args)
-InstantDoCtrl_WriteAny = _bdaqctrl.InstantDoCtrl_WriteAny
-
-def InstantDoCtrl_ReadAny(*args) -> "ErrorCode" :
-  return _bdaqctrl.InstantDoCtrl_ReadAny(*args)
-InstantDoCtrl_ReadAny = _bdaqctrl.InstantDoCtrl_ReadAny
-
-def BufferedDoCtrl_Dispose(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_Dispose(*args)
-BufferedDoCtrl_Dispose = _bdaqctrl.BufferedDoCtrl_Dispose
-
-def BufferedDoCtrl_Cleanup(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_Cleanup(*args)
-BufferedDoCtrl_Cleanup = _bdaqctrl.BufferedDoCtrl_Cleanup
-
-def BufferedDoCtrl_UpdateProperties(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDoCtrl_UpdateProperties(*args)
-BufferedDoCtrl_UpdateProperties = _bdaqctrl.BufferedDoCtrl_UpdateProperties
-
-def BufferedDoCtrl_addRemovedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_addRemovedListener(*args)
-BufferedDoCtrl_addRemovedListener = _bdaqctrl.BufferedDoCtrl_addRemovedListener
-
-def BufferedDoCtrl_removeRemovedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_removeRemovedListener(*args)
-BufferedDoCtrl_removeRemovedListener = _bdaqctrl.BufferedDoCtrl_removeRemovedListener
-
-def BufferedDoCtrl_addReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_addReconnectedListener(*args)
-BufferedDoCtrl_addReconnectedListener = _bdaqctrl.BufferedDoCtrl_addReconnectedListener
-
-def BufferedDoCtrl_removeReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_removeReconnectedListener(*args)
-BufferedDoCtrl_removeReconnectedListener = _bdaqctrl.BufferedDoCtrl_removeReconnectedListener
-
-def BufferedDoCtrl_addPropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_addPropertyChangedListener(*args)
-BufferedDoCtrl_addPropertyChangedListener = _bdaqctrl.BufferedDoCtrl_addPropertyChangedListener
-
-def BufferedDoCtrl_removePropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_removePropertyChangedListener(*args)
-BufferedDoCtrl_removePropertyChangedListener = _bdaqctrl.BufferedDoCtrl_removePropertyChangedListener
-
-def BufferedDoCtrl_getSelectedDevice(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_getSelectedDevice(*args)
-BufferedDoCtrl_getSelectedDevice = _bdaqctrl.BufferedDoCtrl_getSelectedDevice
-
-def BufferedDoCtrl_setSelectedDevice(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDoCtrl_setSelectedDevice(*args)
-BufferedDoCtrl_setSelectedDevice = _bdaqctrl.BufferedDoCtrl_setSelectedDevice
-
-def BufferedDoCtrl_getInitialized(*args) -> "int8" :
-  return _bdaqctrl.BufferedDoCtrl_getInitialized(*args)
-BufferedDoCtrl_getInitialized = _bdaqctrl.BufferedDoCtrl_getInitialized
-
-def BufferedDoCtrl_getCanEditProperty(*args) -> "int8" :
-  return _bdaqctrl.BufferedDoCtrl_getCanEditProperty(*args)
-BufferedDoCtrl_getCanEditProperty = _bdaqctrl.BufferedDoCtrl_getCanEditProperty
-
-def BufferedDoCtrl_getDevice(*args) -> "HANDLE" :
-  return _bdaqctrl.BufferedDoCtrl_getDevice(*args)
-BufferedDoCtrl_getDevice = _bdaqctrl.BufferedDoCtrl_getDevice
-
-def BufferedDoCtrl_getModule(*args) -> "HANDLE" :
-  return _bdaqctrl.BufferedDoCtrl_getModule(*args)
-BufferedDoCtrl_getModule = _bdaqctrl.BufferedDoCtrl_getModule
-
-def BufferedDoCtrl_getSupportedDevices(*args) -> "ICollection *" :
-  return _bdaqctrl.BufferedDoCtrl_getSupportedDevices(*args)
-BufferedDoCtrl_getSupportedDevices = _bdaqctrl.BufferedDoCtrl_getSupportedDevices
-
-def BufferedDoCtrl_getSupportedModes(*args) -> "ICollection *" :
-  return _bdaqctrl.BufferedDoCtrl_getSupportedModes(*args)
-BufferedDoCtrl_getSupportedModes = _bdaqctrl.BufferedDoCtrl_getSupportedModes
-
-def BufferedDoCtrl_getPortCount(*args) -> "int32" :
-  return _bdaqctrl.BufferedDoCtrl_getPortCount(*args)
-BufferedDoCtrl_getPortCount = _bdaqctrl.BufferedDoCtrl_getPortCount
-
-def BufferedDoCtrl_getPortDirection(*args) -> "ICollection *" :
-  return _bdaqctrl.BufferedDoCtrl_getPortDirection(*args)
-BufferedDoCtrl_getPortDirection = _bdaqctrl.BufferedDoCtrl_getPortDirection
-
-def BufferedDoCtrl_getFeatures(*args) -> "DoFeatures *" :
-  return _bdaqctrl.BufferedDoCtrl_getFeatures(*args)
-BufferedDoCtrl_getFeatures = _bdaqctrl.BufferedDoCtrl_getFeatures
-
-def BufferedDoCtrl_addDataTransmittedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_addDataTransmittedListener(*args)
-BufferedDoCtrl_addDataTransmittedListener = _bdaqctrl.BufferedDoCtrl_addDataTransmittedListener
-
-def BufferedDoCtrl_removeDataTransmittedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_removeDataTransmittedListener(*args)
-BufferedDoCtrl_removeDataTransmittedListener = _bdaqctrl.BufferedDoCtrl_removeDataTransmittedListener
-
-def BufferedDoCtrl_addUnderrunListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_addUnderrunListener(*args)
-BufferedDoCtrl_addUnderrunListener = _bdaqctrl.BufferedDoCtrl_addUnderrunListener
-
-def BufferedDoCtrl_removeUnderrunListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_removeUnderrunListener(*args)
-BufferedDoCtrl_removeUnderrunListener = _bdaqctrl.BufferedDoCtrl_removeUnderrunListener
-
-def BufferedDoCtrl_addCacheEmptiedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_addCacheEmptiedListener(*args)
-BufferedDoCtrl_addCacheEmptiedListener = _bdaqctrl.BufferedDoCtrl_addCacheEmptiedListener
-
-def BufferedDoCtrl_removeCacheEmptiedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_removeCacheEmptiedListener(*args)
-BufferedDoCtrl_removeCacheEmptiedListener = _bdaqctrl.BufferedDoCtrl_removeCacheEmptiedListener
-
-def BufferedDoCtrl_addTransitStoppedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_addTransitStoppedListener(*args)
-BufferedDoCtrl_addTransitStoppedListener = _bdaqctrl.BufferedDoCtrl_addTransitStoppedListener
-
-def BufferedDoCtrl_removeTransitStoppedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_removeTransitStoppedListener(*args)
-BufferedDoCtrl_removeTransitStoppedListener = _bdaqctrl.BufferedDoCtrl_removeTransitStoppedListener
-
-def BufferedDoCtrl_addStoppedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_addStoppedListener(*args)
-BufferedDoCtrl_addStoppedListener = _bdaqctrl.BufferedDoCtrl_addStoppedListener
-
-def BufferedDoCtrl_removeStoppedListener(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_removeStoppedListener(*args)
-BufferedDoCtrl_removeStoppedListener = _bdaqctrl.BufferedDoCtrl_removeStoppedListener
-
-def BufferedDoCtrl_Prepare(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDoCtrl_Prepare(*args)
-BufferedDoCtrl_Prepare = _bdaqctrl.BufferedDoCtrl_Prepare
-
-def BufferedDoCtrl_RunOnce(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDoCtrl_RunOnce(*args)
-BufferedDoCtrl_RunOnce = _bdaqctrl.BufferedDoCtrl_RunOnce
-
-def BufferedDoCtrl_Start(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDoCtrl_Start(*args)
-BufferedDoCtrl_Start = _bdaqctrl.BufferedDoCtrl_Start
-
-def BufferedDoCtrl_Stop(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDoCtrl_Stop(*args)
-BufferedDoCtrl_Stop = _bdaqctrl.BufferedDoCtrl_Stop
-
-def BufferedDoCtrl_SetData(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDoCtrl_SetData(*args)
-BufferedDoCtrl_SetData = _bdaqctrl.BufferedDoCtrl_SetData
-
-def BufferedDoCtrl_Release(*args) -> "void" :
-  return _bdaqctrl.BufferedDoCtrl_Release(*args)
-BufferedDoCtrl_Release = _bdaqctrl.BufferedDoCtrl_Release
-
-def BufferedDoCtrl_getBuffer(*args) -> "void *" :
-  return _bdaqctrl.BufferedDoCtrl_getBuffer(*args)
-BufferedDoCtrl_getBuffer = _bdaqctrl.BufferedDoCtrl_getBuffer
-
-def BufferedDoCtrl_getBufferCapacity(*args) -> "int32" :
-  return _bdaqctrl.BufferedDoCtrl_getBufferCapacity(*args)
-BufferedDoCtrl_getBufferCapacity = _bdaqctrl.BufferedDoCtrl_getBufferCapacity
-
-def BufferedDoCtrl_getState(*args) -> "ControlState" :
-  return _bdaqctrl.BufferedDoCtrl_getState(*args)
-BufferedDoCtrl_getState = _bdaqctrl.BufferedDoCtrl_getState
-
-def BufferedDoCtrl_getScanPort(*args) -> "ScanPort *" :
-  return _bdaqctrl.BufferedDoCtrl_getScanPort(*args)
-BufferedDoCtrl_getScanPort = _bdaqctrl.BufferedDoCtrl_getScanPort
-
-def BufferedDoCtrl_getConvertClock(*args) -> "ConvertClock *" :
-  return _bdaqctrl.BufferedDoCtrl_getConvertClock(*args)
-BufferedDoCtrl_getConvertClock = _bdaqctrl.BufferedDoCtrl_getConvertClock
-
-def BufferedDoCtrl_getTrigger(*args) -> "Trigger *" :
-  return _bdaqctrl.BufferedDoCtrl_getTrigger(*args)
-BufferedDoCtrl_getTrigger = _bdaqctrl.BufferedDoCtrl_getTrigger
-
-def BufferedDoCtrl_getStreaming(*args) -> "int8" :
-  return _bdaqctrl.BufferedDoCtrl_getStreaming(*args)
-BufferedDoCtrl_getStreaming = _bdaqctrl.BufferedDoCtrl_getStreaming
-
-def BufferedDoCtrl_setStreaming(*args) -> "ErrorCode" :
-  return _bdaqctrl.BufferedDoCtrl_setStreaming(*args)
-BufferedDoCtrl_setStreaming = _bdaqctrl.BufferedDoCtrl_setStreaming
-
-def CounterCapabilityIndexer_Dispose(*args) -> "void" :
-  return _bdaqctrl.CounterCapabilityIndexer_Dispose(*args)
-CounterCapabilityIndexer_Dispose = _bdaqctrl.CounterCapabilityIndexer_Dispose
-
-def CounterCapabilityIndexer_getCount(*args) -> "int32" :
-  return _bdaqctrl.CounterCapabilityIndexer_getCount(*args)
-CounterCapabilityIndexer_getCount = _bdaqctrl.CounterCapabilityIndexer_getCount
-
-def CounterCapabilityIndexer_getItem(*args) -> "ICollection *" :
-  return _bdaqctrl.CounterCapabilityIndexer_getItem(*args)
-CounterCapabilityIndexer_getItem = _bdaqctrl.CounterCapabilityIndexer_getItem
-
-def EventCounterFeatures_getChannelCountMax(*args) -> "int32" :
-  return _bdaqctrl.EventCounterFeatures_getChannelCountMax(*args)
-EventCounterFeatures_getChannelCountMax = _bdaqctrl.EventCounterFeatures_getChannelCountMax
-
-def EventCounterFeatures_getResolution(*args) -> "int32" :
-  return _bdaqctrl.EventCounterFeatures_getResolution(*args)
-EventCounterFeatures_getResolution = _bdaqctrl.EventCounterFeatures_getResolution
-
-def EventCounterFeatures_getDataSize(*args) -> "int32" :
-  return _bdaqctrl.EventCounterFeatures_getDataSize(*args)
-EventCounterFeatures_getDataSize = _bdaqctrl.EventCounterFeatures_getDataSize
-
-def EventCounterFeatures_getCapabilities(*args) -> "CounterCapabilityIndexer *" :
-  return _bdaqctrl.EventCounterFeatures_getCapabilities(*args)
-EventCounterFeatures_getCapabilities = _bdaqctrl.EventCounterFeatures_getCapabilities
-
-def EventCounterFeatures_getNoiseFilterSupported(*args) -> "int8" :
-  return _bdaqctrl.EventCounterFeatures_getNoiseFilterSupported(*args)
-EventCounterFeatures_getNoiseFilterSupported = _bdaqctrl.EventCounterFeatures_getNoiseFilterSupported
-
-def EventCounterFeatures_getNoiseFilterOfChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.EventCounterFeatures_getNoiseFilterOfChannels(*args)
-EventCounterFeatures_getNoiseFilterOfChannels = _bdaqctrl.EventCounterFeatures_getNoiseFilterOfChannels
-
-def EventCounterFeatures_getNoiseFilterBlockTimeRange(*args) -> "void" :
-  return _bdaqctrl.EventCounterFeatures_getNoiseFilterBlockTimeRange(*args)
-EventCounterFeatures_getNoiseFilterBlockTimeRange = _bdaqctrl.EventCounterFeatures_getNoiseFilterBlockTimeRange
-
-def EventCounterCtrl_Dispose(*args) -> "void" :
-  return _bdaqctrl.EventCounterCtrl_Dispose(*args)
-EventCounterCtrl_Dispose = _bdaqctrl.EventCounterCtrl_Dispose
-
-def EventCounterCtrl_Cleanup(*args) -> "void" :
-  return _bdaqctrl.EventCounterCtrl_Cleanup(*args)
-EventCounterCtrl_Cleanup = _bdaqctrl.EventCounterCtrl_Cleanup
-
-def EventCounterCtrl_UpdateProperties(*args) -> "ErrorCode" :
-  return _bdaqctrl.EventCounterCtrl_UpdateProperties(*args)
-EventCounterCtrl_UpdateProperties = _bdaqctrl.EventCounterCtrl_UpdateProperties
-
-def EventCounterCtrl_addRemovedListener(*args) -> "void" :
-  return _bdaqctrl.EventCounterCtrl_addRemovedListener(*args)
-EventCounterCtrl_addRemovedListener = _bdaqctrl.EventCounterCtrl_addRemovedListener
-
-def EventCounterCtrl_removeRemovedListener(*args) -> "void" :
-  return _bdaqctrl.EventCounterCtrl_removeRemovedListener(*args)
-EventCounterCtrl_removeRemovedListener = _bdaqctrl.EventCounterCtrl_removeRemovedListener
-
-def EventCounterCtrl_addReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.EventCounterCtrl_addReconnectedListener(*args)
-EventCounterCtrl_addReconnectedListener = _bdaqctrl.EventCounterCtrl_addReconnectedListener
-
-def EventCounterCtrl_removeReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.EventCounterCtrl_removeReconnectedListener(*args)
-EventCounterCtrl_removeReconnectedListener = _bdaqctrl.EventCounterCtrl_removeReconnectedListener
-
-def EventCounterCtrl_addPropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.EventCounterCtrl_addPropertyChangedListener(*args)
-EventCounterCtrl_addPropertyChangedListener = _bdaqctrl.EventCounterCtrl_addPropertyChangedListener
-
-def EventCounterCtrl_removePropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.EventCounterCtrl_removePropertyChangedListener(*args)
-EventCounterCtrl_removePropertyChangedListener = _bdaqctrl.EventCounterCtrl_removePropertyChangedListener
-
-def EventCounterCtrl_getSelectedDevice(*args) -> "void" :
-  return _bdaqctrl.EventCounterCtrl_getSelectedDevice(*args)
-EventCounterCtrl_getSelectedDevice = _bdaqctrl.EventCounterCtrl_getSelectedDevice
-
-def EventCounterCtrl_setSelectedDevice(*args) -> "ErrorCode" :
-  return _bdaqctrl.EventCounterCtrl_setSelectedDevice(*args)
-EventCounterCtrl_setSelectedDevice = _bdaqctrl.EventCounterCtrl_setSelectedDevice
-
-def EventCounterCtrl_getInitialized(*args) -> "int8" :
-  return _bdaqctrl.EventCounterCtrl_getInitialized(*args)
-EventCounterCtrl_getInitialized = _bdaqctrl.EventCounterCtrl_getInitialized
-
-def EventCounterCtrl_getCanEditProperty(*args) -> "int8" :
-  return _bdaqctrl.EventCounterCtrl_getCanEditProperty(*args)
-EventCounterCtrl_getCanEditProperty = _bdaqctrl.EventCounterCtrl_getCanEditProperty
-
-def EventCounterCtrl_getDevice(*args) -> "HANDLE" :
-  return _bdaqctrl.EventCounterCtrl_getDevice(*args)
-EventCounterCtrl_getDevice = _bdaqctrl.EventCounterCtrl_getDevice
-
-def EventCounterCtrl_getModule(*args) -> "HANDLE" :
-  return _bdaqctrl.EventCounterCtrl_getModule(*args)
-EventCounterCtrl_getModule = _bdaqctrl.EventCounterCtrl_getModule
-
-def EventCounterCtrl_getSupportedDevices(*args) -> "ICollection *" :
-  return _bdaqctrl.EventCounterCtrl_getSupportedDevices(*args)
-EventCounterCtrl_getSupportedDevices = _bdaqctrl.EventCounterCtrl_getSupportedDevices
-
-def EventCounterCtrl_getSupportedModes(*args) -> "ICollection *" :
-  return _bdaqctrl.EventCounterCtrl_getSupportedModes(*args)
-EventCounterCtrl_getSupportedModes = _bdaqctrl.EventCounterCtrl_getSupportedModes
-
-def EventCounterCtrl_getChannel(*args) -> "int32" :
-  return _bdaqctrl.EventCounterCtrl_getChannel(*args)
-EventCounterCtrl_getChannel = _bdaqctrl.EventCounterCtrl_getChannel
-
-def EventCounterCtrl_setChannel(*args) -> "ErrorCode" :
-  return _bdaqctrl.EventCounterCtrl_setChannel(*args)
-EventCounterCtrl_setChannel = _bdaqctrl.EventCounterCtrl_setChannel
-
-def EventCounterCtrl_getEnabled(*args) -> "int8" :
-  return _bdaqctrl.EventCounterCtrl_getEnabled(*args)
-EventCounterCtrl_getEnabled = _bdaqctrl.EventCounterCtrl_getEnabled
-
-def EventCounterCtrl_setEnabled(*args) -> "ErrorCode" :
-  return _bdaqctrl.EventCounterCtrl_setEnabled(*args)
-EventCounterCtrl_setEnabled = _bdaqctrl.EventCounterCtrl_setEnabled
-
-def EventCounterCtrl_getRunning(*args) -> "int8" :
-  return _bdaqctrl.EventCounterCtrl_getRunning(*args)
-EventCounterCtrl_getRunning = _bdaqctrl.EventCounterCtrl_getRunning
-
-def EventCounterCtrl_getNoiseFilter(*args) -> "NoiseFilterChannel *" :
-  return _bdaqctrl.EventCounterCtrl_getNoiseFilter(*args)
-EventCounterCtrl_getNoiseFilter = _bdaqctrl.EventCounterCtrl_getNoiseFilter
-
-def EventCounterCtrl_getFeatures(*args) -> "EventCounterFeatures *" :
-  return _bdaqctrl.EventCounterCtrl_getFeatures(*args)
-EventCounterCtrl_getFeatures = _bdaqctrl.EventCounterCtrl_getFeatures
-
-def EventCounterCtrl_getValue(*args) -> "int32" :
-  return _bdaqctrl.EventCounterCtrl_getValue(*args)
-EventCounterCtrl_getValue = _bdaqctrl.EventCounterCtrl_getValue
-
-def FreqMeterFeatures_getChannelCountMax(*args) -> "int32" :
-  return _bdaqctrl.FreqMeterFeatures_getChannelCountMax(*args)
-FreqMeterFeatures_getChannelCountMax = _bdaqctrl.FreqMeterFeatures_getChannelCountMax
-
-def FreqMeterFeatures_getResolution(*args) -> "int32" :
-  return _bdaqctrl.FreqMeterFeatures_getResolution(*args)
-FreqMeterFeatures_getResolution = _bdaqctrl.FreqMeterFeatures_getResolution
-
-def FreqMeterFeatures_getDataSize(*args) -> "int32" :
-  return _bdaqctrl.FreqMeterFeatures_getDataSize(*args)
-FreqMeterFeatures_getDataSize = _bdaqctrl.FreqMeterFeatures_getDataSize
-
-def FreqMeterFeatures_getCapabilities(*args) -> "CounterCapabilityIndexer *" :
-  return _bdaqctrl.FreqMeterFeatures_getCapabilities(*args)
-FreqMeterFeatures_getCapabilities = _bdaqctrl.FreqMeterFeatures_getCapabilities
-
-def FreqMeterFeatures_getNoiseFilterSupported(*args) -> "int8" :
-  return _bdaqctrl.FreqMeterFeatures_getNoiseFilterSupported(*args)
-FreqMeterFeatures_getNoiseFilterSupported = _bdaqctrl.FreqMeterFeatures_getNoiseFilterSupported
-
-def FreqMeterFeatures_getNoiseFilterOfChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.FreqMeterFeatures_getNoiseFilterOfChannels(*args)
-FreqMeterFeatures_getNoiseFilterOfChannels = _bdaqctrl.FreqMeterFeatures_getNoiseFilterOfChannels
-
-def FreqMeterFeatures_getNoiseFilterBlockTimeRange(*args) -> "void" :
-  return _bdaqctrl.FreqMeterFeatures_getNoiseFilterBlockTimeRange(*args)
-FreqMeterFeatures_getNoiseFilterBlockTimeRange = _bdaqctrl.FreqMeterFeatures_getNoiseFilterBlockTimeRange
-
-def FreqMeterFeatures_getFmMethods(*args) -> "ICollection *" :
-  return _bdaqctrl.FreqMeterFeatures_getFmMethods(*args)
-FreqMeterFeatures_getFmMethods = _bdaqctrl.FreqMeterFeatures_getFmMethods
-
-def FreqMeterCtrl_Dispose(*args) -> "void" :
-  return _bdaqctrl.FreqMeterCtrl_Dispose(*args)
-FreqMeterCtrl_Dispose = _bdaqctrl.FreqMeterCtrl_Dispose
-
-def FreqMeterCtrl_Cleanup(*args) -> "void" :
-  return _bdaqctrl.FreqMeterCtrl_Cleanup(*args)
-FreqMeterCtrl_Cleanup = _bdaqctrl.FreqMeterCtrl_Cleanup
-
-def FreqMeterCtrl_UpdateProperties(*args) -> "ErrorCode" :
-  return _bdaqctrl.FreqMeterCtrl_UpdateProperties(*args)
-FreqMeterCtrl_UpdateProperties = _bdaqctrl.FreqMeterCtrl_UpdateProperties
-
-def FreqMeterCtrl_addRemovedListener(*args) -> "void" :
-  return _bdaqctrl.FreqMeterCtrl_addRemovedListener(*args)
-FreqMeterCtrl_addRemovedListener = _bdaqctrl.FreqMeterCtrl_addRemovedListener
-
-def FreqMeterCtrl_removeRemovedListener(*args) -> "void" :
-  return _bdaqctrl.FreqMeterCtrl_removeRemovedListener(*args)
-FreqMeterCtrl_removeRemovedListener = _bdaqctrl.FreqMeterCtrl_removeRemovedListener
-
-def FreqMeterCtrl_addReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.FreqMeterCtrl_addReconnectedListener(*args)
-FreqMeterCtrl_addReconnectedListener = _bdaqctrl.FreqMeterCtrl_addReconnectedListener
-
-def FreqMeterCtrl_removeReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.FreqMeterCtrl_removeReconnectedListener(*args)
-FreqMeterCtrl_removeReconnectedListener = _bdaqctrl.FreqMeterCtrl_removeReconnectedListener
-
-def FreqMeterCtrl_addPropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.FreqMeterCtrl_addPropertyChangedListener(*args)
-FreqMeterCtrl_addPropertyChangedListener = _bdaqctrl.FreqMeterCtrl_addPropertyChangedListener
-
-def FreqMeterCtrl_removePropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.FreqMeterCtrl_removePropertyChangedListener(*args)
-FreqMeterCtrl_removePropertyChangedListener = _bdaqctrl.FreqMeterCtrl_removePropertyChangedListener
-
-def FreqMeterCtrl_getSelectedDevice(*args) -> "void" :
-  return _bdaqctrl.FreqMeterCtrl_getSelectedDevice(*args)
-FreqMeterCtrl_getSelectedDevice = _bdaqctrl.FreqMeterCtrl_getSelectedDevice
-
-def FreqMeterCtrl_setSelectedDevice(*args) -> "ErrorCode" :
-  return _bdaqctrl.FreqMeterCtrl_setSelectedDevice(*args)
-FreqMeterCtrl_setSelectedDevice = _bdaqctrl.FreqMeterCtrl_setSelectedDevice
-
-def FreqMeterCtrl_getInitialized(*args) -> "int8" :
-  return _bdaqctrl.FreqMeterCtrl_getInitialized(*args)
-FreqMeterCtrl_getInitialized = _bdaqctrl.FreqMeterCtrl_getInitialized
-
-def FreqMeterCtrl_getCanEditProperty(*args) -> "int8" :
-  return _bdaqctrl.FreqMeterCtrl_getCanEditProperty(*args)
-FreqMeterCtrl_getCanEditProperty = _bdaqctrl.FreqMeterCtrl_getCanEditProperty
-
-def FreqMeterCtrl_getDevice(*args) -> "HANDLE" :
-  return _bdaqctrl.FreqMeterCtrl_getDevice(*args)
-FreqMeterCtrl_getDevice = _bdaqctrl.FreqMeterCtrl_getDevice
-
-def FreqMeterCtrl_getModule(*args) -> "HANDLE" :
-  return _bdaqctrl.FreqMeterCtrl_getModule(*args)
-FreqMeterCtrl_getModule = _bdaqctrl.FreqMeterCtrl_getModule
-
-def FreqMeterCtrl_getSupportedDevices(*args) -> "ICollection *" :
-  return _bdaqctrl.FreqMeterCtrl_getSupportedDevices(*args)
-FreqMeterCtrl_getSupportedDevices = _bdaqctrl.FreqMeterCtrl_getSupportedDevices
-
-def FreqMeterCtrl_getSupportedModes(*args) -> "ICollection *" :
-  return _bdaqctrl.FreqMeterCtrl_getSupportedModes(*args)
-FreqMeterCtrl_getSupportedModes = _bdaqctrl.FreqMeterCtrl_getSupportedModes
-
-def FreqMeterCtrl_getChannel(*args) -> "int32" :
-  return _bdaqctrl.FreqMeterCtrl_getChannel(*args)
-FreqMeterCtrl_getChannel = _bdaqctrl.FreqMeterCtrl_getChannel
-
-def FreqMeterCtrl_setChannel(*args) -> "ErrorCode" :
-  return _bdaqctrl.FreqMeterCtrl_setChannel(*args)
-FreqMeterCtrl_setChannel = _bdaqctrl.FreqMeterCtrl_setChannel
-
-def FreqMeterCtrl_getEnabled(*args) -> "int8" :
-  return _bdaqctrl.FreqMeterCtrl_getEnabled(*args)
-FreqMeterCtrl_getEnabled = _bdaqctrl.FreqMeterCtrl_getEnabled
-
-def FreqMeterCtrl_setEnabled(*args) -> "ErrorCode" :
-  return _bdaqctrl.FreqMeterCtrl_setEnabled(*args)
-FreqMeterCtrl_setEnabled = _bdaqctrl.FreqMeterCtrl_setEnabled
-
-def FreqMeterCtrl_getRunning(*args) -> "int8" :
-  return _bdaqctrl.FreqMeterCtrl_getRunning(*args)
-FreqMeterCtrl_getRunning = _bdaqctrl.FreqMeterCtrl_getRunning
-
-def FreqMeterCtrl_getNoiseFilter(*args) -> "NoiseFilterChannel *" :
-  return _bdaqctrl.FreqMeterCtrl_getNoiseFilter(*args)
-FreqMeterCtrl_getNoiseFilter = _bdaqctrl.FreqMeterCtrl_getNoiseFilter
-
-def FreqMeterCtrl_getFeatures(*args) -> "FreqMeterFeatures *" :
-  return _bdaqctrl.FreqMeterCtrl_getFeatures(*args)
-FreqMeterCtrl_getFeatures = _bdaqctrl.FreqMeterCtrl_getFeatures
-
-def FreqMeterCtrl_getValue(*args) -> "double" :
-  return _bdaqctrl.FreqMeterCtrl_getValue(*args)
-FreqMeterCtrl_getValue = _bdaqctrl.FreqMeterCtrl_getValue
-
-def FreqMeterCtrl_getMethod(*args) -> "FreqMeasureMethod" :
-  return _bdaqctrl.FreqMeterCtrl_getMethod(*args)
-FreqMeterCtrl_getMethod = _bdaqctrl.FreqMeterCtrl_getMethod
-
-def FreqMeterCtrl_setMethod(*args) -> "ErrorCode" :
-  return _bdaqctrl.FreqMeterCtrl_setMethod(*args)
-FreqMeterCtrl_setMethod = _bdaqctrl.FreqMeterCtrl_setMethod
-
-def FreqMeterCtrl_getCollectionPeriod(*args) -> "double" :
-  return _bdaqctrl.FreqMeterCtrl_getCollectionPeriod(*args)
-FreqMeterCtrl_getCollectionPeriod = _bdaqctrl.FreqMeterCtrl_getCollectionPeriod
-
-def FreqMeterCtrl_setCollectionPeriod(*args) -> "ErrorCode" :
-  return _bdaqctrl.FreqMeterCtrl_setCollectionPeriod(*args)
-FreqMeterCtrl_setCollectionPeriod = _bdaqctrl.FreqMeterCtrl_setCollectionPeriod
-
-def OneShotFeatures_getChannelCountMax(*args) -> "int32" :
-  return _bdaqctrl.OneShotFeatures_getChannelCountMax(*args)
-OneShotFeatures_getChannelCountMax = _bdaqctrl.OneShotFeatures_getChannelCountMax
-
-def OneShotFeatures_getResolution(*args) -> "int32" :
-  return _bdaqctrl.OneShotFeatures_getResolution(*args)
-OneShotFeatures_getResolution = _bdaqctrl.OneShotFeatures_getResolution
-
-def OneShotFeatures_getDataSize(*args) -> "int32" :
-  return _bdaqctrl.OneShotFeatures_getDataSize(*args)
-OneShotFeatures_getDataSize = _bdaqctrl.OneShotFeatures_getDataSize
-
-def OneShotFeatures_getCapabilities(*args) -> "CounterCapabilityIndexer *" :
-  return _bdaqctrl.OneShotFeatures_getCapabilities(*args)
-OneShotFeatures_getCapabilities = _bdaqctrl.OneShotFeatures_getCapabilities
-
-def OneShotFeatures_getNoiseFilterSupported(*args) -> "int8" :
-  return _bdaqctrl.OneShotFeatures_getNoiseFilterSupported(*args)
-OneShotFeatures_getNoiseFilterSupported = _bdaqctrl.OneShotFeatures_getNoiseFilterSupported
-
-def OneShotFeatures_getNoiseFilterOfChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.OneShotFeatures_getNoiseFilterOfChannels(*args)
-OneShotFeatures_getNoiseFilterOfChannels = _bdaqctrl.OneShotFeatures_getNoiseFilterOfChannels
-
-def OneShotFeatures_getNoiseFilterBlockTimeRange(*args) -> "void" :
-  return _bdaqctrl.OneShotFeatures_getNoiseFilterBlockTimeRange(*args)
-OneShotFeatures_getNoiseFilterBlockTimeRange = _bdaqctrl.OneShotFeatures_getNoiseFilterBlockTimeRange
-
-def OneShotFeatures_getDelayCountRange(*args) -> "void" :
-  return _bdaqctrl.OneShotFeatures_getDelayCountRange(*args)
-OneShotFeatures_getDelayCountRange = _bdaqctrl.OneShotFeatures_getDelayCountRange
-
-def OneShotCtrl_Dispose(*args) -> "void" :
-  return _bdaqctrl.OneShotCtrl_Dispose(*args)
-OneShotCtrl_Dispose = _bdaqctrl.OneShotCtrl_Dispose
-
-def OneShotCtrl_Cleanup(*args) -> "void" :
-  return _bdaqctrl.OneShotCtrl_Cleanup(*args)
-OneShotCtrl_Cleanup = _bdaqctrl.OneShotCtrl_Cleanup
-
-def OneShotCtrl_UpdateProperties(*args) -> "ErrorCode" :
-  return _bdaqctrl.OneShotCtrl_UpdateProperties(*args)
-OneShotCtrl_UpdateProperties = _bdaqctrl.OneShotCtrl_UpdateProperties
-
-def OneShotCtrl_addRemovedListener(*args) -> "void" :
-  return _bdaqctrl.OneShotCtrl_addRemovedListener(*args)
-OneShotCtrl_addRemovedListener = _bdaqctrl.OneShotCtrl_addRemovedListener
-
-def OneShotCtrl_removeRemovedListener(*args) -> "void" :
-  return _bdaqctrl.OneShotCtrl_removeRemovedListener(*args)
-OneShotCtrl_removeRemovedListener = _bdaqctrl.OneShotCtrl_removeRemovedListener
-
-def OneShotCtrl_addReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.OneShotCtrl_addReconnectedListener(*args)
-OneShotCtrl_addReconnectedListener = _bdaqctrl.OneShotCtrl_addReconnectedListener
-
-def OneShotCtrl_removeReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.OneShotCtrl_removeReconnectedListener(*args)
-OneShotCtrl_removeReconnectedListener = _bdaqctrl.OneShotCtrl_removeReconnectedListener
-
-def OneShotCtrl_addPropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.OneShotCtrl_addPropertyChangedListener(*args)
-OneShotCtrl_addPropertyChangedListener = _bdaqctrl.OneShotCtrl_addPropertyChangedListener
-
-def OneShotCtrl_removePropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.OneShotCtrl_removePropertyChangedListener(*args)
-OneShotCtrl_removePropertyChangedListener = _bdaqctrl.OneShotCtrl_removePropertyChangedListener
-
-def OneShotCtrl_getSelectedDevice(*args) -> "void" :
-  return _bdaqctrl.OneShotCtrl_getSelectedDevice(*args)
-OneShotCtrl_getSelectedDevice = _bdaqctrl.OneShotCtrl_getSelectedDevice
-
-def OneShotCtrl_setSelectedDevice(*args) -> "ErrorCode" :
-  return _bdaqctrl.OneShotCtrl_setSelectedDevice(*args)
-OneShotCtrl_setSelectedDevice = _bdaqctrl.OneShotCtrl_setSelectedDevice
-
-def OneShotCtrl_getInitialized(*args) -> "int8" :
-  return _bdaqctrl.OneShotCtrl_getInitialized(*args)
-OneShotCtrl_getInitialized = _bdaqctrl.OneShotCtrl_getInitialized
-
-def OneShotCtrl_getCanEditProperty(*args) -> "int8" :
-  return _bdaqctrl.OneShotCtrl_getCanEditProperty(*args)
-OneShotCtrl_getCanEditProperty = _bdaqctrl.OneShotCtrl_getCanEditProperty
-
-def OneShotCtrl_getDevice(*args) -> "HANDLE" :
-  return _bdaqctrl.OneShotCtrl_getDevice(*args)
-OneShotCtrl_getDevice = _bdaqctrl.OneShotCtrl_getDevice
-
-def OneShotCtrl_getModule(*args) -> "HANDLE" :
-  return _bdaqctrl.OneShotCtrl_getModule(*args)
-OneShotCtrl_getModule = _bdaqctrl.OneShotCtrl_getModule
-
-def OneShotCtrl_getSupportedDevices(*args) -> "ICollection *" :
-  return _bdaqctrl.OneShotCtrl_getSupportedDevices(*args)
-OneShotCtrl_getSupportedDevices = _bdaqctrl.OneShotCtrl_getSupportedDevices
-
-def OneShotCtrl_getSupportedModes(*args) -> "ICollection *" :
-  return _bdaqctrl.OneShotCtrl_getSupportedModes(*args)
-OneShotCtrl_getSupportedModes = _bdaqctrl.OneShotCtrl_getSupportedModes
-
-def OneShotCtrl_getChannel(*args) -> "int32" :
-  return _bdaqctrl.OneShotCtrl_getChannel(*args)
-OneShotCtrl_getChannel = _bdaqctrl.OneShotCtrl_getChannel
-
-def OneShotCtrl_setChannel(*args) -> "ErrorCode" :
-  return _bdaqctrl.OneShotCtrl_setChannel(*args)
-OneShotCtrl_setChannel = _bdaqctrl.OneShotCtrl_setChannel
-
-def OneShotCtrl_getEnabled(*args) -> "int8" :
-  return _bdaqctrl.OneShotCtrl_getEnabled(*args)
-OneShotCtrl_getEnabled = _bdaqctrl.OneShotCtrl_getEnabled
-
-def OneShotCtrl_setEnabled(*args) -> "ErrorCode" :
-  return _bdaqctrl.OneShotCtrl_setEnabled(*args)
-OneShotCtrl_setEnabled = _bdaqctrl.OneShotCtrl_setEnabled
-
-def OneShotCtrl_getRunning(*args) -> "int8" :
-  return _bdaqctrl.OneShotCtrl_getRunning(*args)
-OneShotCtrl_getRunning = _bdaqctrl.OneShotCtrl_getRunning
-
-def OneShotCtrl_getNoiseFilter(*args) -> "NoiseFilterChannel *" :
-  return _bdaqctrl.OneShotCtrl_getNoiseFilter(*args)
-OneShotCtrl_getNoiseFilter = _bdaqctrl.OneShotCtrl_getNoiseFilter
-
-def OneShotCtrl_addOneShotListener(*args) -> "void" :
-  return _bdaqctrl.OneShotCtrl_addOneShotListener(*args)
-OneShotCtrl_addOneShotListener = _bdaqctrl.OneShotCtrl_addOneShotListener
-
-def OneShotCtrl_removeOneShotListener(*args) -> "void" :
-  return _bdaqctrl.OneShotCtrl_removeOneShotListener(*args)
-OneShotCtrl_removeOneShotListener = _bdaqctrl.OneShotCtrl_removeOneShotListener
-
-def OneShotCtrl_getFeatures(*args) -> "OneShotFeatures *" :
-  return _bdaqctrl.OneShotCtrl_getFeatures(*args)
-OneShotCtrl_getFeatures = _bdaqctrl.OneShotCtrl_getFeatures
-
-def OneShotCtrl_getDelayCount(*args) -> "int32" :
-  return _bdaqctrl.OneShotCtrl_getDelayCount(*args)
-OneShotCtrl_getDelayCount = _bdaqctrl.OneShotCtrl_getDelayCount
-
-def OneShotCtrl_setDelayCount(*args) -> "ErrorCode" :
-  return _bdaqctrl.OneShotCtrl_setDelayCount(*args)
-OneShotCtrl_setDelayCount = _bdaqctrl.OneShotCtrl_setDelayCount
-
-def TimerPulseFeatures_getChannelCountMax(*args) -> "int32" :
-  return _bdaqctrl.TimerPulseFeatures_getChannelCountMax(*args)
-TimerPulseFeatures_getChannelCountMax = _bdaqctrl.TimerPulseFeatures_getChannelCountMax
-
-def TimerPulseFeatures_getResolution(*args) -> "int32" :
-  return _bdaqctrl.TimerPulseFeatures_getResolution(*args)
-TimerPulseFeatures_getResolution = _bdaqctrl.TimerPulseFeatures_getResolution
-
-def TimerPulseFeatures_getDataSize(*args) -> "int32" :
-  return _bdaqctrl.TimerPulseFeatures_getDataSize(*args)
-TimerPulseFeatures_getDataSize = _bdaqctrl.TimerPulseFeatures_getDataSize
-
-def TimerPulseFeatures_getCapabilities(*args) -> "CounterCapabilityIndexer *" :
-  return _bdaqctrl.TimerPulseFeatures_getCapabilities(*args)
-TimerPulseFeatures_getCapabilities = _bdaqctrl.TimerPulseFeatures_getCapabilities
-
-def TimerPulseFeatures_getNoiseFilterSupported(*args) -> "int8" :
-  return _bdaqctrl.TimerPulseFeatures_getNoiseFilterSupported(*args)
-TimerPulseFeatures_getNoiseFilterSupported = _bdaqctrl.TimerPulseFeatures_getNoiseFilterSupported
-
-def TimerPulseFeatures_getNoiseFilterOfChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.TimerPulseFeatures_getNoiseFilterOfChannels(*args)
-TimerPulseFeatures_getNoiseFilterOfChannels = _bdaqctrl.TimerPulseFeatures_getNoiseFilterOfChannels
-
-def TimerPulseFeatures_getNoiseFilterBlockTimeRange(*args) -> "void" :
-  return _bdaqctrl.TimerPulseFeatures_getNoiseFilterBlockTimeRange(*args)
-TimerPulseFeatures_getNoiseFilterBlockTimeRange = _bdaqctrl.TimerPulseFeatures_getNoiseFilterBlockTimeRange
-
-def TimerPulseFeatures_getTimerFrequencyRange(*args) -> "void" :
-  return _bdaqctrl.TimerPulseFeatures_getTimerFrequencyRange(*args)
-TimerPulseFeatures_getTimerFrequencyRange = _bdaqctrl.TimerPulseFeatures_getTimerFrequencyRange
-
-def TimerPulseFeatures_getTimerEventSupported(*args) -> "int8" :
-  return _bdaqctrl.TimerPulseFeatures_getTimerEventSupported(*args)
-TimerPulseFeatures_getTimerEventSupported = _bdaqctrl.TimerPulseFeatures_getTimerEventSupported
-
-def TimerPulseCtrl_Dispose(*args) -> "void" :
-  return _bdaqctrl.TimerPulseCtrl_Dispose(*args)
-TimerPulseCtrl_Dispose = _bdaqctrl.TimerPulseCtrl_Dispose
-
-def TimerPulseCtrl_Cleanup(*args) -> "void" :
-  return _bdaqctrl.TimerPulseCtrl_Cleanup(*args)
-TimerPulseCtrl_Cleanup = _bdaqctrl.TimerPulseCtrl_Cleanup
-
-def TimerPulseCtrl_UpdateProperties(*args) -> "ErrorCode" :
-  return _bdaqctrl.TimerPulseCtrl_UpdateProperties(*args)
-TimerPulseCtrl_UpdateProperties = _bdaqctrl.TimerPulseCtrl_UpdateProperties
-
-def TimerPulseCtrl_addRemovedListener(*args) -> "void" :
-  return _bdaqctrl.TimerPulseCtrl_addRemovedListener(*args)
-TimerPulseCtrl_addRemovedListener = _bdaqctrl.TimerPulseCtrl_addRemovedListener
-
-def TimerPulseCtrl_removeRemovedListener(*args) -> "void" :
-  return _bdaqctrl.TimerPulseCtrl_removeRemovedListener(*args)
-TimerPulseCtrl_removeRemovedListener = _bdaqctrl.TimerPulseCtrl_removeRemovedListener
-
-def TimerPulseCtrl_addReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.TimerPulseCtrl_addReconnectedListener(*args)
-TimerPulseCtrl_addReconnectedListener = _bdaqctrl.TimerPulseCtrl_addReconnectedListener
-
-def TimerPulseCtrl_removeReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.TimerPulseCtrl_removeReconnectedListener(*args)
-TimerPulseCtrl_removeReconnectedListener = _bdaqctrl.TimerPulseCtrl_removeReconnectedListener
-
-def TimerPulseCtrl_addPropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.TimerPulseCtrl_addPropertyChangedListener(*args)
-TimerPulseCtrl_addPropertyChangedListener = _bdaqctrl.TimerPulseCtrl_addPropertyChangedListener
-
-def TimerPulseCtrl_removePropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.TimerPulseCtrl_removePropertyChangedListener(*args)
-TimerPulseCtrl_removePropertyChangedListener = _bdaqctrl.TimerPulseCtrl_removePropertyChangedListener
-
-def TimerPulseCtrl_getSelectedDevice(*args) -> "void" :
-  return _bdaqctrl.TimerPulseCtrl_getSelectedDevice(*args)
-TimerPulseCtrl_getSelectedDevice = _bdaqctrl.TimerPulseCtrl_getSelectedDevice
-
-def TimerPulseCtrl_setSelectedDevice(*args) -> "ErrorCode" :
-  return _bdaqctrl.TimerPulseCtrl_setSelectedDevice(*args)
-TimerPulseCtrl_setSelectedDevice = _bdaqctrl.TimerPulseCtrl_setSelectedDevice
-
-def TimerPulseCtrl_getInitialized(*args) -> "int8" :
-  return _bdaqctrl.TimerPulseCtrl_getInitialized(*args)
-TimerPulseCtrl_getInitialized = _bdaqctrl.TimerPulseCtrl_getInitialized
-
-def TimerPulseCtrl_getCanEditProperty(*args) -> "int8" :
-  return _bdaqctrl.TimerPulseCtrl_getCanEditProperty(*args)
-TimerPulseCtrl_getCanEditProperty = _bdaqctrl.TimerPulseCtrl_getCanEditProperty
-
-def TimerPulseCtrl_getDevice(*args) -> "HANDLE" :
-  return _bdaqctrl.TimerPulseCtrl_getDevice(*args)
-TimerPulseCtrl_getDevice = _bdaqctrl.TimerPulseCtrl_getDevice
-
-def TimerPulseCtrl_getModule(*args) -> "HANDLE" :
-  return _bdaqctrl.TimerPulseCtrl_getModule(*args)
-TimerPulseCtrl_getModule = _bdaqctrl.TimerPulseCtrl_getModule
-
-def TimerPulseCtrl_getSupportedDevices(*args) -> "ICollection *" :
-  return _bdaqctrl.TimerPulseCtrl_getSupportedDevices(*args)
-TimerPulseCtrl_getSupportedDevices = _bdaqctrl.TimerPulseCtrl_getSupportedDevices
-
-def TimerPulseCtrl_getSupportedModes(*args) -> "ICollection *" :
-  return _bdaqctrl.TimerPulseCtrl_getSupportedModes(*args)
-TimerPulseCtrl_getSupportedModes = _bdaqctrl.TimerPulseCtrl_getSupportedModes
-
-def TimerPulseCtrl_getChannel(*args) -> "int32" :
-  return _bdaqctrl.TimerPulseCtrl_getChannel(*args)
-TimerPulseCtrl_getChannel = _bdaqctrl.TimerPulseCtrl_getChannel
-
-def TimerPulseCtrl_setChannel(*args) -> "ErrorCode" :
-  return _bdaqctrl.TimerPulseCtrl_setChannel(*args)
-TimerPulseCtrl_setChannel = _bdaqctrl.TimerPulseCtrl_setChannel
-
-def TimerPulseCtrl_getEnabled(*args) -> "int8" :
-  return _bdaqctrl.TimerPulseCtrl_getEnabled(*args)
-TimerPulseCtrl_getEnabled = _bdaqctrl.TimerPulseCtrl_getEnabled
-
-def TimerPulseCtrl_setEnabled(*args) -> "ErrorCode" :
-  return _bdaqctrl.TimerPulseCtrl_setEnabled(*args)
-TimerPulseCtrl_setEnabled = _bdaqctrl.TimerPulseCtrl_setEnabled
-
-def TimerPulseCtrl_getRunning(*args) -> "int8" :
-  return _bdaqctrl.TimerPulseCtrl_getRunning(*args)
-TimerPulseCtrl_getRunning = _bdaqctrl.TimerPulseCtrl_getRunning
-
-def TimerPulseCtrl_getNoiseFilter(*args) -> "NoiseFilterChannel *" :
-  return _bdaqctrl.TimerPulseCtrl_getNoiseFilter(*args)
-TimerPulseCtrl_getNoiseFilter = _bdaqctrl.TimerPulseCtrl_getNoiseFilter
-
-def TimerPulseCtrl_addTimerTickListener(*args) -> "void" :
-  return _bdaqctrl.TimerPulseCtrl_addTimerTickListener(*args)
-TimerPulseCtrl_addTimerTickListener = _bdaqctrl.TimerPulseCtrl_addTimerTickListener
-
-def TimerPulseCtrl_removeTimerTickListener(*args) -> "void" :
-  return _bdaqctrl.TimerPulseCtrl_removeTimerTickListener(*args)
-TimerPulseCtrl_removeTimerTickListener = _bdaqctrl.TimerPulseCtrl_removeTimerTickListener
-
-def TimerPulseCtrl_getFeatures(*args) -> "TimerPulseFeatures *" :
-  return _bdaqctrl.TimerPulseCtrl_getFeatures(*args)
-TimerPulseCtrl_getFeatures = _bdaqctrl.TimerPulseCtrl_getFeatures
-
-def TimerPulseCtrl_getFrequency(*args) -> "double" :
-  return _bdaqctrl.TimerPulseCtrl_getFrequency(*args)
-TimerPulseCtrl_getFrequency = _bdaqctrl.TimerPulseCtrl_getFrequency
-
-def TimerPulseCtrl_setFrequency(*args) -> "ErrorCode" :
-  return _bdaqctrl.TimerPulseCtrl_setFrequency(*args)
-TimerPulseCtrl_setFrequency = _bdaqctrl.TimerPulseCtrl_setFrequency
-
-def PwMeterFeatures_getChannelCountMax(*args) -> "int32" :
-  return _bdaqctrl.PwMeterFeatures_getChannelCountMax(*args)
-PwMeterFeatures_getChannelCountMax = _bdaqctrl.PwMeterFeatures_getChannelCountMax
-
-def PwMeterFeatures_getResolution(*args) -> "int32" :
-  return _bdaqctrl.PwMeterFeatures_getResolution(*args)
-PwMeterFeatures_getResolution = _bdaqctrl.PwMeterFeatures_getResolution
-
-def PwMeterFeatures_getDataSize(*args) -> "int32" :
-  return _bdaqctrl.PwMeterFeatures_getDataSize(*args)
-PwMeterFeatures_getDataSize = _bdaqctrl.PwMeterFeatures_getDataSize
-
-def PwMeterFeatures_getCapabilities(*args) -> "CounterCapabilityIndexer *" :
-  return _bdaqctrl.PwMeterFeatures_getCapabilities(*args)
-PwMeterFeatures_getCapabilities = _bdaqctrl.PwMeterFeatures_getCapabilities
-
-def PwMeterFeatures_getNoiseFilterSupported(*args) -> "int8" :
-  return _bdaqctrl.PwMeterFeatures_getNoiseFilterSupported(*args)
-PwMeterFeatures_getNoiseFilterSupported = _bdaqctrl.PwMeterFeatures_getNoiseFilterSupported
-
-def PwMeterFeatures_getNoiseFilterOfChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.PwMeterFeatures_getNoiseFilterOfChannels(*args)
-PwMeterFeatures_getNoiseFilterOfChannels = _bdaqctrl.PwMeterFeatures_getNoiseFilterOfChannels
-
-def PwMeterFeatures_getNoiseFilterBlockTimeRange(*args) -> "void" :
-  return _bdaqctrl.PwMeterFeatures_getNoiseFilterBlockTimeRange(*args)
-PwMeterFeatures_getNoiseFilterBlockTimeRange = _bdaqctrl.PwMeterFeatures_getNoiseFilterBlockTimeRange
-
-def PwMeterFeatures_getPwmCascadeGroup(*args) -> "ICollection *" :
-  return _bdaqctrl.PwMeterFeatures_getPwmCascadeGroup(*args)
-PwMeterFeatures_getPwmCascadeGroup = _bdaqctrl.PwMeterFeatures_getPwmCascadeGroup
-
-def PwMeterFeatures_getOverflowEventSupported(*args) -> "int8" :
-  return _bdaqctrl.PwMeterFeatures_getOverflowEventSupported(*args)
-PwMeterFeatures_getOverflowEventSupported = _bdaqctrl.PwMeterFeatures_getOverflowEventSupported
-
-def PwMeterCtrl_Dispose(*args) -> "void" :
-  return _bdaqctrl.PwMeterCtrl_Dispose(*args)
-PwMeterCtrl_Dispose = _bdaqctrl.PwMeterCtrl_Dispose
-
-def PwMeterCtrl_Cleanup(*args) -> "void" :
-  return _bdaqctrl.PwMeterCtrl_Cleanup(*args)
-PwMeterCtrl_Cleanup = _bdaqctrl.PwMeterCtrl_Cleanup
-
-def PwMeterCtrl_UpdateProperties(*args) -> "ErrorCode" :
-  return _bdaqctrl.PwMeterCtrl_UpdateProperties(*args)
-PwMeterCtrl_UpdateProperties = _bdaqctrl.PwMeterCtrl_UpdateProperties
-
-def PwMeterCtrl_addRemovedListener(*args) -> "void" :
-  return _bdaqctrl.PwMeterCtrl_addRemovedListener(*args)
-PwMeterCtrl_addRemovedListener = _bdaqctrl.PwMeterCtrl_addRemovedListener
-
-def PwMeterCtrl_removeRemovedListener(*args) -> "void" :
-  return _bdaqctrl.PwMeterCtrl_removeRemovedListener(*args)
-PwMeterCtrl_removeRemovedListener = _bdaqctrl.PwMeterCtrl_removeRemovedListener
-
-def PwMeterCtrl_addReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.PwMeterCtrl_addReconnectedListener(*args)
-PwMeterCtrl_addReconnectedListener = _bdaqctrl.PwMeterCtrl_addReconnectedListener
-
-def PwMeterCtrl_removeReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.PwMeterCtrl_removeReconnectedListener(*args)
-PwMeterCtrl_removeReconnectedListener = _bdaqctrl.PwMeterCtrl_removeReconnectedListener
-
-def PwMeterCtrl_addPropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.PwMeterCtrl_addPropertyChangedListener(*args)
-PwMeterCtrl_addPropertyChangedListener = _bdaqctrl.PwMeterCtrl_addPropertyChangedListener
-
-def PwMeterCtrl_removePropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.PwMeterCtrl_removePropertyChangedListener(*args)
-PwMeterCtrl_removePropertyChangedListener = _bdaqctrl.PwMeterCtrl_removePropertyChangedListener
-
-def PwMeterCtrl_getSelectedDevice(*args) -> "void" :
-  return _bdaqctrl.PwMeterCtrl_getSelectedDevice(*args)
-PwMeterCtrl_getSelectedDevice = _bdaqctrl.PwMeterCtrl_getSelectedDevice
-
-def PwMeterCtrl_setSelectedDevice(*args) -> "ErrorCode" :
-  return _bdaqctrl.PwMeterCtrl_setSelectedDevice(*args)
-PwMeterCtrl_setSelectedDevice = _bdaqctrl.PwMeterCtrl_setSelectedDevice
-
-def PwMeterCtrl_getInitialized(*args) -> "int8" :
-  return _bdaqctrl.PwMeterCtrl_getInitialized(*args)
-PwMeterCtrl_getInitialized = _bdaqctrl.PwMeterCtrl_getInitialized
-
-def PwMeterCtrl_getCanEditProperty(*args) -> "int8" :
-  return _bdaqctrl.PwMeterCtrl_getCanEditProperty(*args)
-PwMeterCtrl_getCanEditProperty = _bdaqctrl.PwMeterCtrl_getCanEditProperty
-
-def PwMeterCtrl_getDevice(*args) -> "HANDLE" :
-  return _bdaqctrl.PwMeterCtrl_getDevice(*args)
-PwMeterCtrl_getDevice = _bdaqctrl.PwMeterCtrl_getDevice
-
-def PwMeterCtrl_getModule(*args) -> "HANDLE" :
-  return _bdaqctrl.PwMeterCtrl_getModule(*args)
-PwMeterCtrl_getModule = _bdaqctrl.PwMeterCtrl_getModule
-
-def PwMeterCtrl_getSupportedDevices(*args) -> "ICollection *" :
-  return _bdaqctrl.PwMeterCtrl_getSupportedDevices(*args)
-PwMeterCtrl_getSupportedDevices = _bdaqctrl.PwMeterCtrl_getSupportedDevices
-
-def PwMeterCtrl_getSupportedModes(*args) -> "ICollection *" :
-  return _bdaqctrl.PwMeterCtrl_getSupportedModes(*args)
-PwMeterCtrl_getSupportedModes = _bdaqctrl.PwMeterCtrl_getSupportedModes
-
-def PwMeterCtrl_getChannel(*args) -> "int32" :
-  return _bdaqctrl.PwMeterCtrl_getChannel(*args)
-PwMeterCtrl_getChannel = _bdaqctrl.PwMeterCtrl_getChannel
-
-def PwMeterCtrl_setChannel(*args) -> "ErrorCode" :
-  return _bdaqctrl.PwMeterCtrl_setChannel(*args)
-PwMeterCtrl_setChannel = _bdaqctrl.PwMeterCtrl_setChannel
-
-def PwMeterCtrl_getEnabled(*args) -> "int8" :
-  return _bdaqctrl.PwMeterCtrl_getEnabled(*args)
-PwMeterCtrl_getEnabled = _bdaqctrl.PwMeterCtrl_getEnabled
-
-def PwMeterCtrl_setEnabled(*args) -> "ErrorCode" :
-  return _bdaqctrl.PwMeterCtrl_setEnabled(*args)
-PwMeterCtrl_setEnabled = _bdaqctrl.PwMeterCtrl_setEnabled
-
-def PwMeterCtrl_getRunning(*args) -> "int8" :
-  return _bdaqctrl.PwMeterCtrl_getRunning(*args)
-PwMeterCtrl_getRunning = _bdaqctrl.PwMeterCtrl_getRunning
-
-def PwMeterCtrl_getNoiseFilter(*args) -> "NoiseFilterChannel *" :
-  return _bdaqctrl.PwMeterCtrl_getNoiseFilter(*args)
-PwMeterCtrl_getNoiseFilter = _bdaqctrl.PwMeterCtrl_getNoiseFilter
-
-def PwMeterCtrl_addOverflowListener(*args) -> "void" :
-  return _bdaqctrl.PwMeterCtrl_addOverflowListener(*args)
-PwMeterCtrl_addOverflowListener = _bdaqctrl.PwMeterCtrl_addOverflowListener
-
-def PwMeterCtrl_removeOverflowListener(*args) -> "void" :
-  return _bdaqctrl.PwMeterCtrl_removeOverflowListener(*args)
-PwMeterCtrl_removeOverflowListener = _bdaqctrl.PwMeterCtrl_removeOverflowListener
-
-def PwMeterCtrl_getFeatures(*args) -> "PwMeterFeatures *" :
-  return _bdaqctrl.PwMeterCtrl_getFeatures(*args)
-PwMeterCtrl_getFeatures = _bdaqctrl.PwMeterCtrl_getFeatures
-
-def PwMeterCtrl_getValue(*args) -> "void" :
-  return _bdaqctrl.PwMeterCtrl_getValue(*args)
-PwMeterCtrl_getValue = _bdaqctrl.PwMeterCtrl_getValue
-
-def PwModulatorFeatures_getChannelCountMax(*args) -> "int32" :
-  return _bdaqctrl.PwModulatorFeatures_getChannelCountMax(*args)
-PwModulatorFeatures_getChannelCountMax = _bdaqctrl.PwModulatorFeatures_getChannelCountMax
-
-def PwModulatorFeatures_getResolution(*args) -> "int32" :
-  return _bdaqctrl.PwModulatorFeatures_getResolution(*args)
-PwModulatorFeatures_getResolution = _bdaqctrl.PwModulatorFeatures_getResolution
-
-def PwModulatorFeatures_getDataSize(*args) -> "int32" :
-  return _bdaqctrl.PwModulatorFeatures_getDataSize(*args)
-PwModulatorFeatures_getDataSize = _bdaqctrl.PwModulatorFeatures_getDataSize
-
-def PwModulatorFeatures_getCapabilities(*args) -> "CounterCapabilityIndexer *" :
-  return _bdaqctrl.PwModulatorFeatures_getCapabilities(*args)
-PwModulatorFeatures_getCapabilities = _bdaqctrl.PwModulatorFeatures_getCapabilities
-
-def PwModulatorFeatures_getNoiseFilterSupported(*args) -> "int8" :
-  return _bdaqctrl.PwModulatorFeatures_getNoiseFilterSupported(*args)
-PwModulatorFeatures_getNoiseFilterSupported = _bdaqctrl.PwModulatorFeatures_getNoiseFilterSupported
-
-def PwModulatorFeatures_getNoiseFilterOfChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.PwModulatorFeatures_getNoiseFilterOfChannels(*args)
-PwModulatorFeatures_getNoiseFilterOfChannels = _bdaqctrl.PwModulatorFeatures_getNoiseFilterOfChannels
-
-def PwModulatorFeatures_getNoiseFilterBlockTimeRange(*args) -> "void" :
-  return _bdaqctrl.PwModulatorFeatures_getNoiseFilterBlockTimeRange(*args)
-PwModulatorFeatures_getNoiseFilterBlockTimeRange = _bdaqctrl.PwModulatorFeatures_getNoiseFilterBlockTimeRange
-
-def PwModulatorFeatures_getHiPeriodRange(*args) -> "void" :
-  return _bdaqctrl.PwModulatorFeatures_getHiPeriodRange(*args)
-PwModulatorFeatures_getHiPeriodRange = _bdaqctrl.PwModulatorFeatures_getHiPeriodRange
-
-def PwModulatorFeatures_getLoPeriodRange(*args) -> "void" :
-  return _bdaqctrl.PwModulatorFeatures_getLoPeriodRange(*args)
-PwModulatorFeatures_getLoPeriodRange = _bdaqctrl.PwModulatorFeatures_getLoPeriodRange
-
-def PwModulatorCtrl_Dispose(*args) -> "void" :
-  return _bdaqctrl.PwModulatorCtrl_Dispose(*args)
-PwModulatorCtrl_Dispose = _bdaqctrl.PwModulatorCtrl_Dispose
-
-def PwModulatorCtrl_Cleanup(*args) -> "void" :
-  return _bdaqctrl.PwModulatorCtrl_Cleanup(*args)
-PwModulatorCtrl_Cleanup = _bdaqctrl.PwModulatorCtrl_Cleanup
-
-def PwModulatorCtrl_UpdateProperties(*args) -> "ErrorCode" :
-  return _bdaqctrl.PwModulatorCtrl_UpdateProperties(*args)
-PwModulatorCtrl_UpdateProperties = _bdaqctrl.PwModulatorCtrl_UpdateProperties
-
-def PwModulatorCtrl_addRemovedListener(*args) -> "void" :
-  return _bdaqctrl.PwModulatorCtrl_addRemovedListener(*args)
-PwModulatorCtrl_addRemovedListener = _bdaqctrl.PwModulatorCtrl_addRemovedListener
-
-def PwModulatorCtrl_removeRemovedListener(*args) -> "void" :
-  return _bdaqctrl.PwModulatorCtrl_removeRemovedListener(*args)
-PwModulatorCtrl_removeRemovedListener = _bdaqctrl.PwModulatorCtrl_removeRemovedListener
-
-def PwModulatorCtrl_addReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.PwModulatorCtrl_addReconnectedListener(*args)
-PwModulatorCtrl_addReconnectedListener = _bdaqctrl.PwModulatorCtrl_addReconnectedListener
-
-def PwModulatorCtrl_removeReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.PwModulatorCtrl_removeReconnectedListener(*args)
-PwModulatorCtrl_removeReconnectedListener = _bdaqctrl.PwModulatorCtrl_removeReconnectedListener
-
-def PwModulatorCtrl_addPropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.PwModulatorCtrl_addPropertyChangedListener(*args)
-PwModulatorCtrl_addPropertyChangedListener = _bdaqctrl.PwModulatorCtrl_addPropertyChangedListener
-
-def PwModulatorCtrl_removePropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.PwModulatorCtrl_removePropertyChangedListener(*args)
-PwModulatorCtrl_removePropertyChangedListener = _bdaqctrl.PwModulatorCtrl_removePropertyChangedListener
-
-def PwModulatorCtrl_getSelectedDevice(*args) -> "void" :
-  return _bdaqctrl.PwModulatorCtrl_getSelectedDevice(*args)
-PwModulatorCtrl_getSelectedDevice = _bdaqctrl.PwModulatorCtrl_getSelectedDevice
-
-def PwModulatorCtrl_setSelectedDevice(*args) -> "ErrorCode" :
-  return _bdaqctrl.PwModulatorCtrl_setSelectedDevice(*args)
-PwModulatorCtrl_setSelectedDevice = _bdaqctrl.PwModulatorCtrl_setSelectedDevice
-
-def PwModulatorCtrl_getInitialized(*args) -> "int8" :
-  return _bdaqctrl.PwModulatorCtrl_getInitialized(*args)
-PwModulatorCtrl_getInitialized = _bdaqctrl.PwModulatorCtrl_getInitialized
-
-def PwModulatorCtrl_getCanEditProperty(*args) -> "int8" :
-  return _bdaqctrl.PwModulatorCtrl_getCanEditProperty(*args)
-PwModulatorCtrl_getCanEditProperty = _bdaqctrl.PwModulatorCtrl_getCanEditProperty
-
-def PwModulatorCtrl_getDevice(*args) -> "HANDLE" :
-  return _bdaqctrl.PwModulatorCtrl_getDevice(*args)
-PwModulatorCtrl_getDevice = _bdaqctrl.PwModulatorCtrl_getDevice
-
-def PwModulatorCtrl_getModule(*args) -> "HANDLE" :
-  return _bdaqctrl.PwModulatorCtrl_getModule(*args)
-PwModulatorCtrl_getModule = _bdaqctrl.PwModulatorCtrl_getModule
-
-def PwModulatorCtrl_getSupportedDevices(*args) -> "ICollection *" :
-  return _bdaqctrl.PwModulatorCtrl_getSupportedDevices(*args)
-PwModulatorCtrl_getSupportedDevices = _bdaqctrl.PwModulatorCtrl_getSupportedDevices
-
-def PwModulatorCtrl_getSupportedModes(*args) -> "ICollection *" :
-  return _bdaqctrl.PwModulatorCtrl_getSupportedModes(*args)
-PwModulatorCtrl_getSupportedModes = _bdaqctrl.PwModulatorCtrl_getSupportedModes
-
-def PwModulatorCtrl_getChannel(*args) -> "int32" :
-  return _bdaqctrl.PwModulatorCtrl_getChannel(*args)
-PwModulatorCtrl_getChannel = _bdaqctrl.PwModulatorCtrl_getChannel
-
-def PwModulatorCtrl_setChannel(*args) -> "ErrorCode" :
-  return _bdaqctrl.PwModulatorCtrl_setChannel(*args)
-PwModulatorCtrl_setChannel = _bdaqctrl.PwModulatorCtrl_setChannel
-
-def PwModulatorCtrl_getEnabled(*args) -> "int8" :
-  return _bdaqctrl.PwModulatorCtrl_getEnabled(*args)
-PwModulatorCtrl_getEnabled = _bdaqctrl.PwModulatorCtrl_getEnabled
-
-def PwModulatorCtrl_setEnabled(*args) -> "ErrorCode" :
-  return _bdaqctrl.PwModulatorCtrl_setEnabled(*args)
-PwModulatorCtrl_setEnabled = _bdaqctrl.PwModulatorCtrl_setEnabled
-
-def PwModulatorCtrl_getRunning(*args) -> "int8" :
-  return _bdaqctrl.PwModulatorCtrl_getRunning(*args)
-PwModulatorCtrl_getRunning = _bdaqctrl.PwModulatorCtrl_getRunning
-
-def PwModulatorCtrl_getNoiseFilter(*args) -> "NoiseFilterChannel *" :
-  return _bdaqctrl.PwModulatorCtrl_getNoiseFilter(*args)
-PwModulatorCtrl_getNoiseFilter = _bdaqctrl.PwModulatorCtrl_getNoiseFilter
-
-def PwModulatorCtrl_getFeatures(*args) -> "PwModulatorFeatures *" :
-  return _bdaqctrl.PwModulatorCtrl_getFeatures(*args)
-PwModulatorCtrl_getFeatures = _bdaqctrl.PwModulatorCtrl_getFeatures
-
-def PwModulatorCtrl_getPulseWidth(*args) -> "void" :
-  return _bdaqctrl.PwModulatorCtrl_getPulseWidth(*args)
-PwModulatorCtrl_getPulseWidth = _bdaqctrl.PwModulatorCtrl_getPulseWidth
-
-def PwModulatorCtrl_setPulseWidth(*args) -> "ErrorCode" :
-  return _bdaqctrl.PwModulatorCtrl_setPulseWidth(*args)
-PwModulatorCtrl_setPulseWidth = _bdaqctrl.PwModulatorCtrl_setPulseWidth
-
-def UdCounterFeatures_getChannelCountMax(*args) -> "int32" :
-  return _bdaqctrl.UdCounterFeatures_getChannelCountMax(*args)
-UdCounterFeatures_getChannelCountMax = _bdaqctrl.UdCounterFeatures_getChannelCountMax
-
-def UdCounterFeatures_getResolution(*args) -> "int32" :
-  return _bdaqctrl.UdCounterFeatures_getResolution(*args)
-UdCounterFeatures_getResolution = _bdaqctrl.UdCounterFeatures_getResolution
-
-def UdCounterFeatures_getDataSize(*args) -> "int32" :
-  return _bdaqctrl.UdCounterFeatures_getDataSize(*args)
-UdCounterFeatures_getDataSize = _bdaqctrl.UdCounterFeatures_getDataSize
-
-def UdCounterFeatures_getCapabilities(*args) -> "CounterCapabilityIndexer *" :
-  return _bdaqctrl.UdCounterFeatures_getCapabilities(*args)
-UdCounterFeatures_getCapabilities = _bdaqctrl.UdCounterFeatures_getCapabilities
-
-def UdCounterFeatures_getNoiseFilterSupported(*args) -> "int8" :
-  return _bdaqctrl.UdCounterFeatures_getNoiseFilterSupported(*args)
-UdCounterFeatures_getNoiseFilterSupported = _bdaqctrl.UdCounterFeatures_getNoiseFilterSupported
-
-def UdCounterFeatures_getNoiseFilterOfChannels(*args) -> "ICollection *" :
-  return _bdaqctrl.UdCounterFeatures_getNoiseFilterOfChannels(*args)
-UdCounterFeatures_getNoiseFilterOfChannels = _bdaqctrl.UdCounterFeatures_getNoiseFilterOfChannels
-
-def UdCounterFeatures_getNoiseFilterBlockTimeRange(*args) -> "void" :
-  return _bdaqctrl.UdCounterFeatures_getNoiseFilterBlockTimeRange(*args)
-UdCounterFeatures_getNoiseFilterBlockTimeRange = _bdaqctrl.UdCounterFeatures_getNoiseFilterBlockTimeRange
-
-def UdCounterFeatures_getCountingTypes(*args) -> "ICollection *" :
-  return _bdaqctrl.UdCounterFeatures_getCountingTypes(*args)
-UdCounterFeatures_getCountingTypes = _bdaqctrl.UdCounterFeatures_getCountingTypes
-
-def UdCounterFeatures_getInitialValues(*args) -> "ICollection *" :
-  return _bdaqctrl.UdCounterFeatures_getInitialValues(*args)
-UdCounterFeatures_getInitialValues = _bdaqctrl.UdCounterFeatures_getInitialValues
-
-def UdCounterFeatures_getSnapEventSources(*args) -> "ICollection *" :
-  return _bdaqctrl.UdCounterFeatures_getSnapEventSources(*args)
-UdCounterFeatures_getSnapEventSources = _bdaqctrl.UdCounterFeatures_getSnapEventSources
-
-def UdCounterCtrl_Dispose(*args) -> "void" :
-  return _bdaqctrl.UdCounterCtrl_Dispose(*args)
-UdCounterCtrl_Dispose = _bdaqctrl.UdCounterCtrl_Dispose
-
-def UdCounterCtrl_Cleanup(*args) -> "void" :
-  return _bdaqctrl.UdCounterCtrl_Cleanup(*args)
-UdCounterCtrl_Cleanup = _bdaqctrl.UdCounterCtrl_Cleanup
-
-def UdCounterCtrl_UpdateProperties(*args) -> "ErrorCode" :
-  return _bdaqctrl.UdCounterCtrl_UpdateProperties(*args)
-UdCounterCtrl_UpdateProperties = _bdaqctrl.UdCounterCtrl_UpdateProperties
-
-def UdCounterCtrl_addRemovedListener(*args) -> "void" :
-  return _bdaqctrl.UdCounterCtrl_addRemovedListener(*args)
-UdCounterCtrl_addRemovedListener = _bdaqctrl.UdCounterCtrl_addRemovedListener
-
-def UdCounterCtrl_removeRemovedListener(*args) -> "void" :
-  return _bdaqctrl.UdCounterCtrl_removeRemovedListener(*args)
-UdCounterCtrl_removeRemovedListener = _bdaqctrl.UdCounterCtrl_removeRemovedListener
-
-def UdCounterCtrl_addReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.UdCounterCtrl_addReconnectedListener(*args)
-UdCounterCtrl_addReconnectedListener = _bdaqctrl.UdCounterCtrl_addReconnectedListener
-
-def UdCounterCtrl_removeReconnectedListener(*args) -> "void" :
-  return _bdaqctrl.UdCounterCtrl_removeReconnectedListener(*args)
-UdCounterCtrl_removeReconnectedListener = _bdaqctrl.UdCounterCtrl_removeReconnectedListener
-
-def UdCounterCtrl_addPropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.UdCounterCtrl_addPropertyChangedListener(*args)
-UdCounterCtrl_addPropertyChangedListener = _bdaqctrl.UdCounterCtrl_addPropertyChangedListener
-
-def UdCounterCtrl_removePropertyChangedListener(*args) -> "void" :
-  return _bdaqctrl.UdCounterCtrl_removePropertyChangedListener(*args)
-UdCounterCtrl_removePropertyChangedListener = _bdaqctrl.UdCounterCtrl_removePropertyChangedListener
-
-def UdCounterCtrl_getSelectedDevice(*args) -> "void" :
-  return _bdaqctrl.UdCounterCtrl_getSelectedDevice(*args)
-UdCounterCtrl_getSelectedDevice = _bdaqctrl.UdCounterCtrl_getSelectedDevice
-
-def UdCounterCtrl_setSelectedDevice(*args) -> "ErrorCode" :
-  return _bdaqctrl.UdCounterCtrl_setSelectedDevice(*args)
-UdCounterCtrl_setSelectedDevice = _bdaqctrl.UdCounterCtrl_setSelectedDevice
-
-def UdCounterCtrl_getInitialized(*args) -> "int8" :
-  return _bdaqctrl.UdCounterCtrl_getInitialized(*args)
-UdCounterCtrl_getInitialized = _bdaqctrl.UdCounterCtrl_getInitialized
-
-def UdCounterCtrl_getCanEditProperty(*args) -> "int8" :
-  return _bdaqctrl.UdCounterCtrl_getCanEditProperty(*args)
-UdCounterCtrl_getCanEditProperty = _bdaqctrl.UdCounterCtrl_getCanEditProperty
-
-def UdCounterCtrl_getDevice(*args) -> "HANDLE" :
-  return _bdaqctrl.UdCounterCtrl_getDevice(*args)
-UdCounterCtrl_getDevice = _bdaqctrl.UdCounterCtrl_getDevice
-
-def UdCounterCtrl_getModule(*args) -> "HANDLE" :
-  return _bdaqctrl.UdCounterCtrl_getModule(*args)
-UdCounterCtrl_getModule = _bdaqctrl.UdCounterCtrl_getModule
-
-def UdCounterCtrl_getSupportedDevices(*args) -> "ICollection *" :
-  return _bdaqctrl.UdCounterCtrl_getSupportedDevices(*args)
-UdCounterCtrl_getSupportedDevices = _bdaqctrl.UdCounterCtrl_getSupportedDevices
-
-def UdCounterCtrl_getSupportedModes(*args) -> "ICollection *" :
-  return _bdaqctrl.UdCounterCtrl_getSupportedModes(*args)
-UdCounterCtrl_getSupportedModes = _bdaqctrl.UdCounterCtrl_getSupportedModes
-
-def UdCounterCtrl_getChannel(*args) -> "int32" :
-  return _bdaqctrl.UdCounterCtrl_getChannel(*args)
-UdCounterCtrl_getChannel = _bdaqctrl.UdCounterCtrl_getChannel
-
-def UdCounterCtrl_setChannel(*args) -> "ErrorCode" :
-  return _bdaqctrl.UdCounterCtrl_setChannel(*args)
-UdCounterCtrl_setChannel = _bdaqctrl.UdCounterCtrl_setChannel
-
-def UdCounterCtrl_getEnabled(*args) -> "int8" :
-  return _bdaqctrl.UdCounterCtrl_getEnabled(*args)
-UdCounterCtrl_getEnabled = _bdaqctrl.UdCounterCtrl_getEnabled
-
-def UdCounterCtrl_setEnabled(*args) -> "ErrorCode" :
-  return _bdaqctrl.UdCounterCtrl_setEnabled(*args)
-UdCounterCtrl_setEnabled = _bdaqctrl.UdCounterCtrl_setEnabled
-
-def UdCounterCtrl_getRunning(*args) -> "int8" :
-  return _bdaqctrl.UdCounterCtrl_getRunning(*args)
-UdCounterCtrl_getRunning = _bdaqctrl.UdCounterCtrl_getRunning
-
-def UdCounterCtrl_getNoiseFilter(*args) -> "NoiseFilterChannel *" :
-  return _bdaqctrl.UdCounterCtrl_getNoiseFilter(*args)
-UdCounterCtrl_getNoiseFilter = _bdaqctrl.UdCounterCtrl_getNoiseFilter
-
-def UdCounterCtrl_addUdCntrEventListener(*args) -> "void" :
-  return _bdaqctrl.UdCounterCtrl_addUdCntrEventListener(*args)
-UdCounterCtrl_addUdCntrEventListener = _bdaqctrl.UdCounterCtrl_addUdCntrEventListener
-
-def UdCounterCtrl_removeUdCntrEventListener(*args) -> "void" :
-  return _bdaqctrl.UdCounterCtrl_removeUdCntrEventListener(*args)
-UdCounterCtrl_removeUdCntrEventListener = _bdaqctrl.UdCounterCtrl_removeUdCntrEventListener
-
-def UdCounterCtrl_SnapStart(*args) -> "ErrorCode" :
-  return _bdaqctrl.UdCounterCtrl_SnapStart(*args)
-UdCounterCtrl_SnapStart = _bdaqctrl.UdCounterCtrl_SnapStart
-
-def UdCounterCtrl_SnapStop(*args) -> "ErrorCode" :
-  return _bdaqctrl.UdCounterCtrl_SnapStop(*args)
-UdCounterCtrl_SnapStop = _bdaqctrl.UdCounterCtrl_SnapStop
-
-def UdCounterCtrl_CompareSetTable(*args) -> "ErrorCode" :
-  return _bdaqctrl.UdCounterCtrl_CompareSetTable(*args)
-UdCounterCtrl_CompareSetTable = _bdaqctrl.UdCounterCtrl_CompareSetTable
-
-def UdCounterCtrl_CompareSetInterval(*args) -> "ErrorCode" :
-  return _bdaqctrl.UdCounterCtrl_CompareSetInterval(*args)
-UdCounterCtrl_CompareSetInterval = _bdaqctrl.UdCounterCtrl_CompareSetInterval
-
-def UdCounterCtrl_CompareClear(*args) -> "ErrorCode" :
-  return _bdaqctrl.UdCounterCtrl_CompareClear(*args)
-UdCounterCtrl_CompareClear = _bdaqctrl.UdCounterCtrl_CompareClear
-
-def UdCounterCtrl_ValueReset(*args) -> "ErrorCode" :
-  return _bdaqctrl.UdCounterCtrl_ValueReset(*args)
-UdCounterCtrl_ValueReset = _bdaqctrl.UdCounterCtrl_ValueReset
-
-def UdCounterCtrl_getFeatures(*args) -> "UdCounterFeatures *" :
-  return _bdaqctrl.UdCounterCtrl_getFeatures(*args)
-UdCounterCtrl_getFeatures = _bdaqctrl.UdCounterCtrl_getFeatures
-
-def UdCounterCtrl_getValue(*args) -> "int32" :
-  return _bdaqctrl.UdCounterCtrl_getValue(*args)
-UdCounterCtrl_getValue = _bdaqctrl.UdCounterCtrl_getValue
-
-def UdCounterCtrl_getCountingType(*args) -> "SignalCountingType" :
-  return _bdaqctrl.UdCounterCtrl_getCountingType(*args)
-UdCounterCtrl_getCountingType = _bdaqctrl.UdCounterCtrl_getCountingType
-
-def UdCounterCtrl_setCountingType(*args) -> "ErrorCode" :
-  return _bdaqctrl.UdCounterCtrl_setCountingType(*args)
-UdCounterCtrl_setCountingType = _bdaqctrl.UdCounterCtrl_setCountingType
-
-def UdCounterCtrl_getInitialValue(*args) -> "int32" :
-  return _bdaqctrl.UdCounterCtrl_getInitialValue(*args)
-UdCounterCtrl_getInitialValue = _bdaqctrl.UdCounterCtrl_getInitialValue
-
-def UdCounterCtrl_setInitialValue(*args) -> "ErrorCode" :
-  return _bdaqctrl.UdCounterCtrl_setInitialValue(*args)
-UdCounterCtrl_setInitialValue = _bdaqctrl.UdCounterCtrl_setInitialValue
-
-def UdCounterCtrl_getResetTimesByIndex(*args) -> "int32" :
-  return _bdaqctrl.UdCounterCtrl_getResetTimesByIndex(*args)
-UdCounterCtrl_getResetTimesByIndex = _bdaqctrl.UdCounterCtrl_getResetTimesByIndex
-
-def UdCounterCtrl_setResetTimesByIndex(*args) -> "ErrorCode" :
-  return _bdaqctrl.UdCounterCtrl_setResetTimesByIndex(*args)
-UdCounterCtrl_setResetTimesByIndex = _bdaqctrl.UdCounterCtrl_setResetTimesByIndex
 # This file is compatible with both classic and new-style classes.
 
 
