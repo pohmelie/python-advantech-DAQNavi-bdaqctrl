@@ -57,25 +57,27 @@ class Dio:
         return self._read_all(self.do, self.do_port_count)
 
 
-    def _read_bit(self, reader, address, channel=None):
+    def _parse_address(self, address):
 
-        if channel is None:
+        return address if isinstance(address, tuple) else divmod(address, 8)
 
-            address, channel = divmod(address, 8)
 
+    def _read_bit(self, reader, address):
+
+        address, channel = self._parse_address(address)
         data = reader()
         bit = (data[address] >> channel) & 1
         return bit
 
 
-    def in_read_bit(self, address, channel=None):
+    def in_read_bit(self, address):
 
-        return self._read_bit(self.in_read_all, address, channel)
+        return self._read_bit(self.in_read_all, address)
 
 
-    def out_read_bit(self, address, channel=None):
+    def out_read_bit(self, address):
 
-        return self._read_bit(self.out_read_all, address, channel)
+        return self._read_bit(self.out_read_all, address)
 
 
     def out_write_all(self, data):
@@ -87,12 +89,9 @@ class Dio:
         check(bdaqctrl.Success, self.do.Write, 0, min(self.do_port_count, len(data)), self.b)
 
 
-    def out_write_bit(self, value, address, channel=None):
+    def out_write_bit(self, value, address):
 
-        if channel is None:
-
-            address, channel = divmod(address, 8)
-
+        address, channel = self._parse_address(address)
         data = self.out_read_all()
         if value:
 
@@ -112,7 +111,7 @@ if __name__ == "__main__":
     print(d.out_read_all())
     d.out_write_bit(1, 8)
     print(d.out_read_all())
-    print(d.out_read_bit(8))
+    print(d.out_read_bit((1, 0)))
     d.out_write_bit(0, 8)
     print(d.out_read_all())
     d.cleanup()
