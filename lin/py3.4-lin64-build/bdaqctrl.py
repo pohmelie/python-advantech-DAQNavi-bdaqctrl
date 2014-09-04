@@ -3443,6 +3443,36 @@ AdxTimerPulseCtrlCreate = _bdaqctrl.AdxTimerPulseCtrlCreate
 def AdxUdCounterCtrlCreate() -> "Automation::BDaq::UdCounterCtrl *" :
   return _bdaqctrl.AdxUdCounterCtrlCreate()
 AdxUdCounterCtrlCreate = _bdaqctrl.AdxUdCounterCtrlCreate
+class AiChannelCollection(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, AiChannelCollection, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, AiChannelCollection, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def Dispose(self) -> "void" : return _bdaqctrl.AiChannelCollection_Dispose(self)
+    def getCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AiChannelCollection_getCount(self)
+    def getItem(self, *args) -> "Automation::BDaq::AnalogInputChannel &" : return _bdaqctrl.AiChannelCollection_getItem(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_AiChannelCollection
+    __del__ = lambda self : None;
+AiChannelCollection_swigregister = _bdaqctrl.AiChannelCollection_swigregister
+AiChannelCollection_swigregister(AiChannelCollection)
+
+class AoChannelCollection(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, AoChannelCollection, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, AoChannelCollection, name)
+    def __init__(self, *args, **kwargs): raise AttributeError("No constructor defined - class is abstract")
+    __repr__ = _swig_repr
+    def Dispose(self) -> "void" : return _bdaqctrl.AoChannelCollection_Dispose(self)
+    def getCount(self) -> "Automation::BDaq::int32" : return _bdaqctrl.AoChannelCollection_getCount(self)
+    def getItem(self, *args) -> "Automation::BDaq::AnalogChannel &" : return _bdaqctrl.AoChannelCollection_getItem(self, *args)
+    __swig_destroy__ = _bdaqctrl.delete_AoChannelCollection
+    __del__ = lambda self : None;
+AoChannelCollection_swigregister = _bdaqctrl.AoChannelCollection_swigregister
+AoChannelCollection_swigregister(AoChannelCollection)
+
 # This file is compatible with both classic and new-style classes.
 
 

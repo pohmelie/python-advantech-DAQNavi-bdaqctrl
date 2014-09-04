@@ -10,3 +10,6 @@
 %}
 
 %include "bdaqctrl.h"
+
+%template(AiChannelCollection) Automation::BDaq::ICollection<Automation::BDaq::AnalogInputChannel>;
+%template(AoChannelCollection) Automation::BDaq::ICollection<Automation::BDaq::AnalogChannel>;

@@ -20366,6 +20366,210 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_AiChannelCollection_Dispose(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > *arg1 = (Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:AiChannelCollection_Dispose",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Automation__BDaq__ICollectionT_Automation__BDaq__AnalogInputChannel_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AiChannelCollection_Dispose" "', argument " "1"" of type '" "Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > *""'"); 
+  }
+  arg1 = reinterpret_cast< Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > * >(argp1);
+  (arg1)->Dispose();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AiChannelCollection_getCount(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > *arg1 = (Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  Automation::BDaq::int32 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:AiChannelCollection_getCount",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Automation__BDaq__ICollectionT_Automation__BDaq__AnalogInputChannel_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AiChannelCollection_getCount" "', argument " "1"" of type '" "Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > *""'"); 
+  }
+  arg1 = reinterpret_cast< Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > * >(argp1);
+  result = (Automation::BDaq::int32)(arg1)->getCount();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AiChannelCollection_getItem(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > *arg1 = (Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > *) 0 ;
+  Automation::BDaq::int32 arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  Automation::BDaq::AnalogInputChannel *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:AiChannelCollection_getItem",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Automation__BDaq__ICollectionT_Automation__BDaq__AnalogInputChannel_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AiChannelCollection_getItem" "', argument " "1"" of type '" "Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > *""'"); 
+  }
+  arg1 = reinterpret_cast< Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "AiChannelCollection_getItem" "', argument " "2"" of type '" "Automation::BDaq::int32""'");
+  } 
+  arg2 = static_cast< Automation::BDaq::int32 >(val2);
+  result = (Automation::BDaq::AnalogInputChannel *) &(arg1)->getItem(arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Automation__BDaq__AnalogInputChannel, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_AiChannelCollection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > *arg1 = (Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_AiChannelCollection",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Automation__BDaq__ICollectionT_Automation__BDaq__AnalogInputChannel_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_AiChannelCollection" "', argument " "1"" of type '" "Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > *""'"); 
+  }
+  arg1 = reinterpret_cast< Automation::BDaq::ICollection< Automation::BDaq::AnalogInputChannel > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *AiChannelCollection_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_Automation__BDaq__ICollectionT_Automation__BDaq__AnalogInputChannel_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_AoChannelCollection_Dispose(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > *arg1 = (Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:AoChannelCollection_Dispose",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Automation__BDaq__ICollectionT_Automation__BDaq__AnalogChannel_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AoChannelCollection_Dispose" "', argument " "1"" of type '" "Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > *""'"); 
+  }
+  arg1 = reinterpret_cast< Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > * >(argp1);
+  (arg1)->Dispose();
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AoChannelCollection_getCount(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > *arg1 = (Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  Automation::BDaq::int32 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:AoChannelCollection_getCount",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Automation__BDaq__ICollectionT_Automation__BDaq__AnalogChannel_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AoChannelCollection_getCount" "', argument " "1"" of type '" "Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > *""'"); 
+  }
+  arg1 = reinterpret_cast< Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > * >(argp1);
+  result = (Automation::BDaq::int32)(arg1)->getCount();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AoChannelCollection_getItem(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > *arg1 = (Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > *) 0 ;
+  Automation::BDaq::int32 arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  Automation::BDaq::AnalogChannel *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:AoChannelCollection_getItem",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Automation__BDaq__ICollectionT_Automation__BDaq__AnalogChannel_t, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AoChannelCollection_getItem" "', argument " "1"" of type '" "Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > *""'"); 
+  }
+  arg1 = reinterpret_cast< Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "AoChannelCollection_getItem" "', argument " "2"" of type '" "Automation::BDaq::int32""'");
+  } 
+  arg2 = static_cast< Automation::BDaq::int32 >(val2);
+  result = (Automation::BDaq::AnalogChannel *) &(arg1)->getItem(arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Automation__BDaq__AnalogChannel, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_AoChannelCollection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > *arg1 = (Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_AoChannelCollection",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_Automation__BDaq__ICollectionT_Automation__BDaq__AnalogChannel_t, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_AoChannelCollection" "', argument " "1"" of type '" "Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > *""'"); 
+  }
+  arg1 = reinterpret_cast< Automation::BDaq::ICollection< Automation::BDaq::AnalogChannel > * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *AoChannelCollection_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_Automation__BDaq__ICollectionT_Automation__BDaq__AnalogChannel_t, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
 	 { (char *)"new_UCharArray", _wrap_new_UCharArray, METH_VARARGS, NULL},
@@ -21010,6 +21214,16 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AdxPwModulatorCtrlCreate", _wrap_AdxPwModulatorCtrlCreate, METH_VARARGS, NULL},
 	 { (char *)"AdxTimerPulseCtrlCreate", _wrap_AdxTimerPulseCtrlCreate, METH_VARARGS, NULL},
 	 { (char *)"AdxUdCounterCtrlCreate", _wrap_AdxUdCounterCtrlCreate, METH_VARARGS, NULL},
+	 { (char *)"AiChannelCollection_Dispose", _wrap_AiChannelCollection_Dispose, METH_VARARGS, NULL},
+	 { (char *)"AiChannelCollection_getCount", _wrap_AiChannelCollection_getCount, METH_VARARGS, NULL},
+	 { (char *)"AiChannelCollection_getItem", _wrap_AiChannelCollection_getItem, METH_VARARGS, NULL},
+	 { (char *)"delete_AiChannelCollection", _wrap_delete_AiChannelCollection, METH_VARARGS, NULL},
+	 { (char *)"AiChannelCollection_swigregister", AiChannelCollection_swigregister, METH_VARARGS, NULL},
+	 { (char *)"AoChannelCollection_Dispose", _wrap_AoChannelCollection_Dispose, METH_VARARGS, NULL},
+	 { (char *)"AoChannelCollection_getCount", _wrap_AoChannelCollection_getCount, METH_VARARGS, NULL},
+	 { (char *)"AoChannelCollection_getItem", _wrap_AoChannelCollection_getItem, METH_VARARGS, NULL},
+	 { (char *)"delete_AoChannelCollection", _wrap_delete_AoChannelCollection, METH_VARARGS, NULL},
+	 { (char *)"AoChannelCollection_swigregister", AoChannelCollection_swigregister, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
