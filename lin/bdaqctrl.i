@@ -4,6 +4,7 @@
 %include <python/cwstring.i>
 
 %array_class(unsigned char, UCharArray)
+%array_class(double, DoubleArray)
 
 %{
 #include "bdaqctrl.h"

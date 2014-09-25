@@ -89,7 +89,7 @@ class Dio:
         check(bdaqctrl.Success, self.do.Write, 0, min(self.do_port_count, len(data)), self.b)
 
 
-    def out_write_bit(self, value, address):
+    def out_write_bit(self, address, value):
 
         address, channel = self._parse_address(address)
         data = self.out_read_all()
@@ -104,14 +104,50 @@ class Dio:
         self.out_write_all(data)
 
 
-if __name__ == "__main__":
+class Ai:
 
-    d = Dio()
-    print(d.in_read_all())
-    print(d.out_read_all())
-    d.out_write_bit(1, 8)
-    print(d.out_read_all())
-    print(d.out_read_bit((1, 0)))
-    d.out_write_bit(0, 8)
-    print(d.out_read_all())
-    d.cleanup()
+    def __init__(self, dev_info="PCI-1713U, BID#0"):
+
+        self.info = bdaqctrl.DeviceInformation(dev_info)
+        self.ai = bdaqctrl.AdxInstantAiCtrlCreate()
+        check(bdaqctrl.Success, self.ai.setSelectedDevice, self.info)
+
+        self.channels = self.ai.getChannels()
+        self.buf = bdaqctrl.DoubleArray(32)
+
+
+    def set_range(self, channel, mode):
+
+        self.channels.getItem(channel).setValueRange(mode)
+
+
+    def read_all(self):
+
+        self.ai.Read(0, 32, self.buf)
+        return tuple(map(lambda i: self.buf[i], range(32)))
+
+
+    def read(self, channel):
+
+        return self.read_all()[channel]
+
+
+class Ao:
+
+    def __init__(self, dev_info="PCI-1720, BID#0"):
+
+        self.info = bdaqctrl.DeviceInformation(dev_info)
+        self.ao = bdaqctrl.AdxInstantAoCtrlCreate()
+        check(bdaqctrl.Success, self.ao.setSelectedDevice, self.info)
+
+        self.channels = self.ao.getChannels()
+
+
+    def set_range(self, channel, mode):
+
+        check(0, self.channels.getItem(channel).setValueRange, mode)
+
+
+    def write(self, ch, value):  # value from 0.0 to 1.0 inclusive
+
+        self.ao.Write(ch, max(0, min(int(value * (1 << 12)), 0xfff)))

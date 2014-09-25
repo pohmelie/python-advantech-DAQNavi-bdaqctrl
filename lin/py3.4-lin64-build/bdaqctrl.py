@@ -93,6 +93,30 @@ def UCharArray_frompointer(*args) -> "UCharArray *" :
   return _bdaqctrl.UCharArray_frompointer(*args)
 UCharArray_frompointer = _bdaqctrl.UCharArray_frompointer
 
+class DoubleArray(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DoubleArray, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, DoubleArray, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _bdaqctrl.new_DoubleArray(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _bdaqctrl.delete_DoubleArray
+    __del__ = lambda self : None;
+    def __getitem__(self, *args) -> "double" : return _bdaqctrl.DoubleArray___getitem__(self, *args)
+    def __setitem__(self, *args) -> "void" : return _bdaqctrl.DoubleArray___setitem__(self, *args)
+    def cast(self) -> "double *" : return _bdaqctrl.DoubleArray_cast(self)
+    __swig_getmethods__["frompointer"] = lambda x: _bdaqctrl.DoubleArray_frompointer
+    if _newclass:frompointer = staticmethod(_bdaqctrl.DoubleArray_frompointer)
+DoubleArray_swigregister = _bdaqctrl.DoubleArray_swigregister
+DoubleArray_swigregister(DoubleArray)
+
+def DoubleArray_frompointer(*args) -> "DoubleArray *" :
+  return _bdaqctrl.DoubleArray_frompointer(*args)
+DoubleArray_frompointer = _bdaqctrl.DoubleArray_frompointer
+
 MAX_DEVICE_DESC_LEN = _bdaqctrl.MAX_DEVICE_DESC_LEN
 MAX_VRG_DESC_LEN = _bdaqctrl.MAX_VRG_DESC_LEN
 MAX_SIG_DROP_DESC_LEN = _bdaqctrl.MAX_SIG_DROP_DESC_LEN

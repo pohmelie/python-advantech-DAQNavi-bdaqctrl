@@ -3058,21 +3058,22 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_Automation__BDaq__tagUdCntrEventArgs swig_types[121]
 #define SWIGTYPE_p_Automation__BDaq__tagValueRange swig_types[122]
 #define SWIGTYPE_p_Automation__BDaq__tagValueUnit swig_types[123]
-#define SWIGTYPE_p_UCharArray swig_types[124]
-#define SWIGTYPE_p_char swig_types[125]
-#define SWIGTYPE_p_double swig_types[126]
-#define SWIGTYPE_p_int swig_types[127]
-#define SWIGTYPE_p_long_long swig_types[128]
-#define SWIGTYPE_p_short swig_types[129]
-#define SWIGTYPE_p_signed_char swig_types[130]
-#define SWIGTYPE_p_unsigned_char swig_types[131]
-#define SWIGTYPE_p_unsigned_int swig_types[132]
-#define SWIGTYPE_p_unsigned_long_long swig_types[133]
-#define SWIGTYPE_p_unsigned_short swig_types[134]
-#define SWIGTYPE_p_void swig_types[135]
-#define SWIGTYPE_p_wchar_t swig_types[136]
-static swig_type_info *swig_types[138];
-static swig_module_info swig_module = {swig_types, 137, 0, 0, 0, 0};
+#define SWIGTYPE_p_DoubleArray swig_types[124]
+#define SWIGTYPE_p_UCharArray swig_types[125]
+#define SWIGTYPE_p_char swig_types[126]
+#define SWIGTYPE_p_double swig_types[127]
+#define SWIGTYPE_p_int swig_types[128]
+#define SWIGTYPE_p_long_long swig_types[129]
+#define SWIGTYPE_p_short swig_types[130]
+#define SWIGTYPE_p_signed_char swig_types[131]
+#define SWIGTYPE_p_unsigned_char swig_types[132]
+#define SWIGTYPE_p_unsigned_int swig_types[133]
+#define SWIGTYPE_p_unsigned_long_long swig_types[134]
+#define SWIGTYPE_p_unsigned_short swig_types[135]
+#define SWIGTYPE_p_void swig_types[136]
+#define SWIGTYPE_p_wchar_t swig_types[137]
+static swig_type_info *swig_types[139];
+static swig_module_info swig_module = {swig_types, 138, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3390,6 +3391,30 @@ SWIGINTERN UCharArray *UCharArray_frompointer(unsigned char *t){
     return static_cast< UCharArray * >(t);
   }
 
+typedef double DoubleArray;
+
+SWIGINTERN DoubleArray *new_DoubleArray(size_t nelements){
+    return (new double[nelements]);
+  }
+SWIGINTERN void delete_DoubleArray(DoubleArray *self){
+    delete[] self;
+  }
+SWIGINTERN double DoubleArray___getitem__(DoubleArray *self,size_t index){
+    return self[index];
+  }
+
+  #define SWIG_From_double   PyFloat_FromDouble 
+
+SWIGINTERN void DoubleArray___setitem__(DoubleArray *self,size_t index,double value){
+    self[index] = value;
+  }
+SWIGINTERN double *DoubleArray_cast(DoubleArray *self){
+    return self;
+  }
+SWIGINTERN DoubleArray *DoubleArray_frompointer(double *t){
+    return static_cast< DoubleArray * >(t);
+  }
+
 #include "bdaqctrl.h"
 
 
@@ -3453,9 +3478,6 @@ SWIG_AsVal_int (PyObject * obj, int *val)
   }  
   return res;
 }
-
-
-  #define SWIG_From_double   PyFloat_FromDouble 
 
 
 #include <wchar.h>
@@ -3759,6 +3781,170 @@ SWIGINTERN PyObject *UCharArray_swigregister(PyObject *SWIGUNUSEDPARM(self), PyO
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
   SWIG_TypeNewClientData(SWIGTYPE_p_UCharArray, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_new_DoubleArray(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  size_t arg1 ;
+  size_t val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  DoubleArray *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:new_DoubleArray",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_size_t(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_DoubleArray" "', argument " "1"" of type '" "size_t""'");
+  } 
+  arg1 = static_cast< size_t >(val1);
+  result = (DoubleArray *)new_DoubleArray(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_DoubleArray, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_DoubleArray(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  DoubleArray *arg1 = (DoubleArray *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_DoubleArray",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_DoubleArray, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_DoubleArray" "', argument " "1"" of type '" "DoubleArray *""'"); 
+  }
+  arg1 = reinterpret_cast< DoubleArray * >(argp1);
+  delete_DoubleArray(arg1);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DoubleArray___getitem__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  DoubleArray *arg1 = (DoubleArray *) 0 ;
+  size_t arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DoubleArray___getitem__",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_DoubleArray, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DoubleArray___getitem__" "', argument " "1"" of type '" "DoubleArray *""'"); 
+  }
+  arg1 = reinterpret_cast< DoubleArray * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DoubleArray___getitem__" "', argument " "2"" of type '" "size_t""'");
+  } 
+  arg2 = static_cast< size_t >(val2);
+  result = (double)DoubleArray___getitem__(arg1,arg2);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DoubleArray___setitem__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  DoubleArray *arg1 = (DoubleArray *) 0 ;
+  size_t arg2 ;
+  double arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:DoubleArray___setitem__",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_DoubleArray, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DoubleArray___setitem__" "', argument " "1"" of type '" "DoubleArray *""'"); 
+  }
+  arg1 = reinterpret_cast< DoubleArray * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DoubleArray___setitem__" "', argument " "2"" of type '" "size_t""'");
+  } 
+  arg2 = static_cast< size_t >(val2);
+  ecode3 = SWIG_AsVal_double(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "DoubleArray___setitem__" "', argument " "3"" of type '" "double""'");
+  } 
+  arg3 = static_cast< double >(val3);
+  DoubleArray___setitem__(arg1,arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DoubleArray_cast(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  DoubleArray *arg1 = (DoubleArray *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:DoubleArray_cast",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_DoubleArray, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DoubleArray_cast" "', argument " "1"" of type '" "DoubleArray *""'"); 
+  }
+  arg1 = reinterpret_cast< DoubleArray * >(argp1);
+  result = (double *)DoubleArray_cast(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_double, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DoubleArray_frompointer(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  double *arg1 = (double *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  DoubleArray *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:DoubleArray_frompointer",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_double, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DoubleArray_frompointer" "', argument " "1"" of type '" "double *""'"); 
+  }
+  arg1 = reinterpret_cast< double * >(argp1);
+  result = (DoubleArray *)DoubleArray_frompointer(arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_DoubleArray, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *DoubleArray_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_DoubleArray, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
@@ -20579,6 +20765,13 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"UCharArray_cast", _wrap_UCharArray_cast, METH_VARARGS, NULL},
 	 { (char *)"UCharArray_frompointer", _wrap_UCharArray_frompointer, METH_VARARGS, NULL},
 	 { (char *)"UCharArray_swigregister", UCharArray_swigregister, METH_VARARGS, NULL},
+	 { (char *)"new_DoubleArray", _wrap_new_DoubleArray, METH_VARARGS, NULL},
+	 { (char *)"delete_DoubleArray", _wrap_delete_DoubleArray, METH_VARARGS, NULL},
+	 { (char *)"DoubleArray___getitem__", _wrap_DoubleArray___getitem__, METH_VARARGS, NULL},
+	 { (char *)"DoubleArray___setitem__", _wrap_DoubleArray___setitem__, METH_VARARGS, NULL},
+	 { (char *)"DoubleArray_cast", _wrap_DoubleArray_cast, METH_VARARGS, NULL},
+	 { (char *)"DoubleArray_frompointer", _wrap_DoubleArray_frompointer, METH_VARARGS, NULL},
+	 { (char *)"DoubleArray_swigregister", DoubleArray_swigregister, METH_VARARGS, NULL},
 	 { (char *)"MathInterval_Type_set", _wrap_MathInterval_Type_set, METH_VARARGS, NULL},
 	 { (char *)"MathInterval_Type_get", _wrap_MathInterval_Type_get, METH_VARARGS, NULL},
 	 { (char *)"MathInterval_Min_set", _wrap_MathInterval_Min_set, METH_VARARGS, NULL},
@@ -21434,6 +21627,9 @@ static void *_p_Automation__BDaq__PwModulatorFeaturesTo_p_Automation__BDaq__Cntr
 static void *_p_Automation__BDaq__UdCounterFeaturesTo_p_Automation__BDaq__CntrFeaturesExt(void *x, int *SWIGUNUSEDPARM(newmemory)) {
     return (void *)((Automation::BDaq::CntrFeaturesExt *)  ((Automation::BDaq::UdCounterFeatures *) x));
 }
+static void *_p_DoubleArrayTo_p_double(void *x, int *SWIGUNUSEDPARM(newmemory)) {
+    return (void *)((double *)  ((DoubleArray *) x));
+}
 static swig_type_info _swigt__p_Automation__BDaq__AiCtrlBase = {"_p_Automation__BDaq__AiCtrlBase", "Automation::BDaq::AiCtrlBase *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Automation__BDaq__AiFeatures = {"_p_Automation__BDaq__AiFeatures", "Automation::BDaq::AiFeatures *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Automation__BDaq__AnalogChannel = {"_p_Automation__BDaq__AnalogChannel", "Automation::BDaq::AnalogChannel *", 0, 0, (void*)0, 0};
@@ -21558,6 +21754,7 @@ static swig_type_info _swigt__p_Automation__BDaq__tagTriggerAction = {"_p_Automa
 static swig_type_info _swigt__p_Automation__BDaq__tagUdCntrEventArgs = {"_p_Automation__BDaq__tagUdCntrEventArgs", "Automation::BDaq::tagUdCntrEventArgs *|Automation::BDaq::UdCntrEventArgs *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Automation__BDaq__tagValueRange = {"_p_Automation__BDaq__tagValueRange", "enum Automation::BDaq::tagValueRange *|Automation::BDaq::ValueRange *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Automation__BDaq__tagValueUnit = {"_p_Automation__BDaq__tagValueUnit", "enum Automation::BDaq::tagValueUnit *|Automation::BDaq::ValueUnit *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_DoubleArray = {"_p_DoubleArray", "DoubleArray *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_UCharArray = {"_p_UCharArray", "UCharArray *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void*)0, 0};
@@ -21697,6 +21894,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_Automation__BDaq__tagUdCntrEventArgs,
   &_swigt__p_Automation__BDaq__tagValueRange,
   &_swigt__p_Automation__BDaq__tagValueUnit,
+  &_swigt__p_DoubleArray,
   &_swigt__p_UCharArray,
   &_swigt__p_char,
   &_swigt__p_double,
@@ -21836,9 +22034,10 @@ static swig_cast_info _swigc__p_Automation__BDaq__tagTriggerAction[] = {  {&_swi
 static swig_cast_info _swigc__p_Automation__BDaq__tagUdCntrEventArgs[] = {  {&_swigt__p_Automation__BDaq__tagUdCntrEventArgs, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Automation__BDaq__tagValueRange[] = {  {&_swigt__p_Automation__BDaq__tagValueRange, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Automation__BDaq__tagValueUnit[] = {  {&_swigt__p_Automation__BDaq__tagValueUnit, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_DoubleArray[] = {  {&_swigt__p_DoubleArray, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_UCharArray[] = {  {&_swigt__p_UCharArray, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_DoubleArray, _p_DoubleArrayTo_p_double, 0, 0},  {&_swigt__p_double, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_long_long[] = {  {&_swigt__p_long_long, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_short[] = {  {&_swigt__p_short, 0, 0, 0},{0, 0, 0, 0}};
@@ -21975,6 +22174,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_Automation__BDaq__tagUdCntrEventArgs,
   _swigc__p_Automation__BDaq__tagValueRange,
   _swigc__p_Automation__BDaq__tagValueUnit,
+  _swigc__p_DoubleArray,
   _swigc__p_UCharArray,
   _swigc__p_char,
   _swigc__p_double,
