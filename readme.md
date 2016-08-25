@@ -25,29 +25,29 @@ Cons:
 
 
 1. Create `_bdaqctlr.h` from `bdaqctrl.h`. You don't need preprocessor to insert system headers, so comment `#  include <stdlib.h>` string and run:
-```
-gcc -E bdaqctrl.h > _bdaqctrl.h
-```
-to produce header without preprocessor directives.
+   ```
+   gcc -E bdaqctrl.h > _bdaqctrl.h
+   ```
+   to produce header without preprocessor directives.
 
-1. Use library as:
-```python
-from cffi import FFI
+2. Use library as:
+   ```python
+   from cffi import FFI
 
 
-ffi = FFI()
-with open("_bdaqctrl.h") as fin:
+   ffi = FFI()
+   with open("_bdaqctrl.h") as fin:
 
-    ffi.cdef(fin.read())
+       ffi.cdef(fin.read())
 
-bdaqctrl = ffi.dlopen("libbiodaq.so")
-info = ffi.new("DeviceInformation *")
-info.Description = "PCI-1756, BID#0"
-di = bdaqctrl.AdxInstantDiCtrlCreate()
-do = bdaqctrl.AdxInstantDoCtrlCreate()
+   bdaqctrl = ffi.dlopen("libbiodaq.so")
+   info = ffi.new("DeviceInformation *")
+   info.Description = "PCI-1756, BID#0"
+   di = bdaqctrl.AdxInstantDiCtrlCreate()
+   do = bdaqctrl.AdxInstantDoCtrlCreate()
 
-assert bdaqctrl.Success == bdaqctrl.InstantDiCtrl_setSelectedDevice(di, info)
-assert bdaqctrl.Success == bdaqctrl.InstantDoCtrl_setSelectedDevice(do, info)
-print(bdaqctrl.InstantDiCtrl_getPortCount(di))
-print(bdaqctrl.InstantDoCtrl_getPortCount(do))
-```
+   assert bdaqctrl.Success ==    bdaqctrl.InstantDiCtrl_setSelectedDevice(di, info)
+   assert bdaqctrl.Success ==    bdaqctrl.InstantDoCtrl_setSelectedDevice(do, info)
+   print(bdaqctrl.InstantDiCtrl_getPortCount(di))
+   print(bdaqctrl.InstantDoCtrl_getPortCount(do))
+   ```
