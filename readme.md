@@ -21,12 +21,12 @@ Pros:
 
 Cons:
 * c-style api
-* Hard object creation (via `ffi.new("...")`)
+* «Hard» object creation (via `ffi.new("...")`)
 
 
 1. Create `_bdaqctlr.h` from `bdaqctrl.h`. You don't need preprocessor to insert system headers, so comment `#  include <stdlib.h>` string and run:
    ```
-   gcc -E bdaqctrl.h > _bdaqctrl.h
+   c99 -D_BDAQ_C_INTERFACE -E bdaqctrl.h > _bdaqctrl.h
    ```
    to produce header without preprocessor directives.
 
@@ -42,12 +42,18 @@ Cons:
 
    bdaqctrl = ffi.dlopen("libbiodaq.so")
    info = ffi.new("DeviceInformation *")
+
+   # don't forget to initialize whole structure
    info.Description = "PCI-1756, BID#0"
+   info.DeviceNumber = -1
+   info.DeviceMode = bdaqctrl.ModeWriteWithReset
+   info.ModuleIndex = 0
+
    di = bdaqctrl.AdxInstantDiCtrlCreate()
    do = bdaqctrl.AdxInstantDoCtrlCreate()
 
-   assert bdaqctrl.Success ==    bdaqctrl.InstantDiCtrl_setSelectedDevice(di, info)
-   assert bdaqctrl.Success ==    bdaqctrl.InstantDoCtrl_setSelectedDevice(do, info)
+   assert bdaqctrl.Success == bdaqctrl.InstantDiCtrl_setSelectedDevice(di, info)
+   assert bdaqctrl.Success == bdaqctrl.InstantDoCtrl_setSelectedDevice(do, info)
    print(bdaqctrl.InstantDiCtrl_getPortCount(di))
    print(bdaqctrl.InstantDoCtrl_getPortCount(do))
    ```
