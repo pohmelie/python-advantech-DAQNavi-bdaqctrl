@@ -1687,7 +1687,7 @@ END_NAMEAPCE_AUTOMATION_BDAQ
 #if !defined(_BDAQ_TYPES_ONLY) && !defined(_BDAQ_COM_STYLE_CLASS_LIB)
 #define _BDAQ_COM_STYLE_CLASS_LIB
 
-// #  include <stdlib.h>
+#  include <stdlib.h>
 #  if defined(_WIN32) || defined(WIN32)
 #     include <Windows.h>
 #  endif
